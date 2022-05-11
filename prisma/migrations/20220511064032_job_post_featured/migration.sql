@@ -1,0 +1,3 @@
+-- AlterTable
+ALTER TABLE "Post" ALTER COLUMN "atsUrl" DROP NOT NULL,
+ALTER COLUMN "featured" DROP DEFAULT;
