@@ -11,6 +11,11 @@ import {
   TalentCard,
   TalentTitle,
   TalentDesc,
+  BadgeList,
+  BenefitBadge,
+  TypeBadge,
+  TalentList,
+  TalentContent,
 } from "./styled-components/Components";
 
 const TalentCardComp = ({
@@ -29,13 +34,24 @@ const TalentCardComp = ({
     <Link href={`/Talent/${id}`}>
       <TalentCard>
         {image ? (
-          <CompanyCardImage src={image} alt={name} width={160} height={160} />
+          <img
+            src={image}
+            alt={name}
+            style={{
+              width: "220px",
+              height: "220px",
+              outline: "3px solid var(--Dark)",
+            }}
+          />
         ) : null}
-        <div>
+        <TalentContent>
           <TalentTitle>{title ?? ""}</TalentTitle>
-
-          <TalentDesc> {headline ?? ""} </TalentDesc>
-        </div>
+          <BadgeList>
+            <BenefitBadge>{skills[0] ?? ""}</BenefitBadge>
+            <TypeBadge> Open to Offers</TypeBadge>
+          </BadgeList>
+          <TalentDesc> {bio ?? ""} </TalentDesc>
+        </TalentContent>
       </TalentCard>
     </Link>
   );

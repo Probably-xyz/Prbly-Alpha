@@ -1,6 +1,7 @@
-html,
 body {
   background-color: var(--PrimaryBg);
+  /* background-color: #0c0c0c; */
+  overflow-x: hidden;
 }
 
 a {
@@ -127,22 +128,23 @@ p {
 }
 
 .pushable {
-  background: black;
+  background: var(--Secondary);
   border-radius: 0px;
   border: none;
   padding: 0;
   cursor: pointer;
   outline-offset: 0px;
   margin-right: 25px;
+  outline: 2px solid var(--Dark);
 }
 
 .front {
   display: block;
-  padding: 12px 32px;
+  padding: 12px 10px;
+  width: 150px;
   border-radius: 0px;
   font-size: 1.25rem;
   outline: 2px solid var(--Dark);
-
   background: var(--Accent);
   color: var(--Dark);
   font-family: "Grotesk SemiBold";
@@ -150,28 +152,33 @@ p {
   transition: 0.2s;
 }
 
-.pushableNews {
-  background: black;
+.pushableLanding {
+  background: var(--Secondary);
   border-radius: 0px;
   border: none;
   padding: 0;
   cursor: pointer;
   outline-offset: 0px;
-  margin-right: 0px;
-  margin-top: 10px;
+  outline: 2px solid var(--Dark);
+  margin-top: 16px;
 }
 
-.frontNews {
+.frontLanding {
   display: block;
-  padding: 12px 32px;
+  padding: 20px 10px;
+  width: 200px;
+  height: 70px;
   border-radius: 0px;
-  font-size: 1.25rem;
+  font-size: 25px;
   outline: 2px solid var(--Dark);
-  background: var(--PrimaryBg);
+  background: var(--Accent);
   color: var(--Dark);
   font-family: "Grotesk SemiBold";
   transform: translate(-8px, -8px);
   transition: 0.2s;
+}
+.pushableLanding:active .frontLanding {
+  transform: translateY(0px);
 }
 
 .pushable:active .front {

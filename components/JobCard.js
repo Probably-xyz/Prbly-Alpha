@@ -10,7 +10,7 @@ import {
   JobPostCompany,
   JobPostTitle,
   JobPostSub,
-  JobPostContent,
+  JobContent,
   JobPostCard,
   TalentCard,
   TalentTitle,
@@ -19,6 +19,7 @@ import {
   BenefitBadge,
   TypeBadge,
   FeaturedJobPostCard,
+  CategoryBadge,
 } from "./styled-components/Components";
 const JobCard = ({
   id = "",
@@ -36,14 +37,13 @@ const JobCard = ({
   featured = "",
   approved = "",
 }) => {
-  console.log({ featured });
   return (
     <>
       {approved === true ? (
         <Link href={`/companies/${id}`}>
           {featured === true ? (
             <FeaturedJobPostCard>
-              <CompanyContent>
+              <JobContent>
                 {image ? (
                   <CompanyCardImage
                     src={image}
@@ -54,16 +54,18 @@ const JobCard = ({
                 ) : null}
                 <JobPostCompany>{companyName ?? ""}</JobPostCompany>
                 <JobPostTitle>{title ?? ""}</JobPostTitle>
-                <JobPostSub> {intro ?? ""} </JobPostSub>
                 <BadgeList>
                   <BenefitBadge> {benefits[0] ?? ""} </BenefitBadge>
                   <TypeBadge> {type ?? ""} </TypeBadge>
                 </BadgeList>
-              </CompanyContent>
+                <BadgeList>
+                  <CategoryBadge> {category ?? ""} </CategoryBadge>
+                </BadgeList>
+              </JobContent>
             </FeaturedJobPostCard>
           ) : (
             <JobPostCard>
-              <CompanyContent>
+              <JobContent>
                 {image ? (
                   <CompanyCardImage
                     src={image}
@@ -74,12 +76,14 @@ const JobCard = ({
                 ) : null}
                 <JobPostCompany>{companyName ?? ""}</JobPostCompany>
                 <JobPostTitle>{title ?? ""}</JobPostTitle>
-                <JobPostSub> {intro ?? ""} </JobPostSub>
                 <BadgeList>
-                  <BenefitBadge> {benefits[0] ?? ""} </BenefitBadge>
+                  <BenefitBadge> {location ?? ""} </BenefitBadge>
                   <TypeBadge> {type ?? ""} </TypeBadge>
                 </BadgeList>
-              </CompanyContent>
+                <BadgeList>
+                  <CategoryBadge> {benefits[0] ?? ""} </CategoryBadge>
+                </BadgeList>
+              </JobContent>
             </JobPostCard>
           )}
         </Link>

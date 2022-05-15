@@ -1,8 +1,21 @@
+/* eslint-disable react/no-unescaped-entities */
 import React from "react";
 import { prisma } from "@/lib/prisma";
 import Grid from "@/components/Grid";
 import TalentGrid from "@/components/TalentGrid";
 import Navbar from "@/components/Navbar";
+import {
+  Section,
+  LandingText,
+  Header,
+  LandingSub,
+  ImageOne,
+  ImageTwo,
+  TalentSignUp,
+  NewsLetterTitle,
+  NewsLetterSub,
+  NewsLetterButton,
+} from "@/components/styled-components/Components";
 import { getSession } from "next-auth/react";
 
 export async function getServerSideProps(context) {
@@ -41,7 +54,31 @@ const Talent = ({ talents = [], talent = [], company = [] }) => {
   return (
     <>
       <Navbar talent={talent} company={company} />
-      <TalentGrid talents={talents} />
+      <section>
+        <LandingText>
+          <Header>Probably the best talent in crypto</Header>
+          <LandingSub>Hire crypto talent directly from us</LandingSub>
+        </LandingText>
+        <ImageOne src="/landingOne.png" />
+        <ImageTwo src="/landingTwo.png" />
+      </section>
+
+      <Section>
+        <TalentSignUp>
+          <div>
+            <NewsLetterTitle> Want to be featured here? </NewsLetterTitle>
+            <NewsLetterSub>
+              Simply create an account and 10x your chance <br /> of landing a
+              job in crypto
+            </NewsLetterSub>
+          </div>
+          <NewsLetterButton> Let's Go</NewsLetterButton>
+        </TalentSignUp>
+      </Section>
+
+      <Section>
+        <TalentGrid talents={talents} />
+      </Section>
     </>
   );
 };

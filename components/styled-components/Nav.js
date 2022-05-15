@@ -18,8 +18,9 @@ export const NavWrapper = styled.div`
   height: 90px;
   z-index: 1;
   width: 100%;
-  padding: 0 24px;
-  max-width: 1650px;
+  padding: 0px 24px;
+  max-width: 100vw;
+  border-bottom: 2px solid var(--Dark);
 `;
 
 export const NavLogo = styled.p`
@@ -33,6 +34,7 @@ export const NavLogo = styled.p`
   font-family: "Grotesk Bold";
   font-weight: bolder;
   transition: 0.3s ease-in-out;
+
   &:hover {
     color: var(--Accent);
   }
@@ -44,7 +46,7 @@ export const NavList = styled.ul`
   list-style: none;
   text-align: center;
   margin-right: -205px;
-  outline: 3px solid var(--Dark);
+  /* outline: 3px solid var(--Dark); */
   border-radius: 0px;
   padding: 10px;
 `;
@@ -58,11 +60,11 @@ export const NavLink = styled.p`
   display: flex;
   /* align-items: center; */
   /* text-decoration: none; */
-  padding: 1.5rem 1rem;
+  padding: 0.8rem 4.5rem;
   height: 100%;
   cursor: pointer;
   font-family: "Grotesk Medium";
-  font-size: 18px;
+  font-size: 20px;
   transition: 0.3s ease-in-out;
 `;
 

@@ -18,7 +18,7 @@ import {
 import { signOut, getSession, signIn } from "next-auth/react";
 import { useSession } from "next-auth/react";
 
-const Navbar = ({ talent = [], company = [] }) => {
+const NavbarLanding = ({ talent = [], company = [] }) => {
   const { data: session, status } = useSession();
   const loggedIn = session?.user;
   const isLoadingUser = status === "loading";
@@ -27,31 +27,57 @@ const Navbar = ({ talent = [], company = [] }) => {
     <Nav>
       <NavWrapper>
         <Link href="/">
-          <NavLogo> Probably </NavLogo>
+          <div
+            style={{
+              height: "100%",
+              width: "200px",
+              borderRight: "1px solid var(--PrimaryBg)",
+            }}
+          >
+            <NavLogo
+              style={{
+                color: "var(--PrimaryBg)",
+                fontSize: "38px",
+              }}
+            >
+              {" "}
+              Probably{" "}
+            </NavLogo>
+          </div>
         </Link>
         <NavList>
           <NavItem>
             <Link href="/jobs">
-              <NavLink className="active">Jobs</NavLink>
+              <NavLink style={{ color: "var(--PrimaryBg)" }} className="active">
+                Jobs
+              </NavLink>
             </Link>
           </NavItem>
           <NavItem>
             <Link href="/talent">
-              <NavLink> Talent </NavLink>
+              <NavLink style={{ color: "var(--PrimaryBg)" }}> Talent </NavLink>
             </Link>
           </NavItem>
           <NavItem>
             <Link href="/companies">
-              <NavLink> Companies </NavLink>
+              <NavLink style={{ color: "var(--PrimaryBg)" }}>
+                {" "}
+                Companies{" "}
+              </NavLink>
             </Link>
           </NavItem>
           <NavItem>
             <Link href="/blog">
-              <NavLink> Blog </NavLink>
+              <NavLink style={{ color: "var(--PrimaryBg)" }}> Blog </NavLink>
             </Link>
           </NavItem>
         </NavList>
-        <NavBtn>
+        <NavBtn
+          style={{
+            borderLeft: "1px solid var(--PrimaryBg)",
+            paddingLeft: "50px",
+          }}
+        >
           {loggedIn ? (
             <div className="dropdown">
               <button className="dropbtn">
@@ -96,4 +122,4 @@ const Navbar = ({ talent = [], company = [] }) => {
   );
 };
 
-export default Navbar;
+export default NavbarLanding;

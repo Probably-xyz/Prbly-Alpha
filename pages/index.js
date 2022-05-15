@@ -1,6 +1,12 @@
+/* eslint-disable react/no-unescaped-entities */
+/* eslint-disable jsx-a11y/alt-text */
+/* eslint-disable @next/next/no-img-element */
+import { useState } from "react";
 import Head from "next/head";
 import Image from "next/image";
 import Navbar from "@/components/Navbar";
+import Link from "next/link";
+import { useForm } from "react-hook-form";
 import {
   Section,
   Header,
@@ -10,7 +16,18 @@ import {
   NewsLetterSub,
   TalentList,
   NewsLetterInput,
+  Form,
+  FormCon,
+  TitleSearch,
+  LocationSearch,
+  LandingText,
+  ImageOne,
+  LandingSub,
+  ImageTwo,
+  HeaderTwo,
+  NewsLetterButton,
 } from "@/components/styled-components/Components";
+import NavbarLanding from "@/components/NavbarLanding";
 import TalentGrid from "@/components/TalentGrid";
 import { signOut, getSession, signIn } from "next-auth/react";
 import { useSession } from "next-auth/react";
@@ -25,12 +42,21 @@ export async function getServerSideProps(context) {
     take: 8,
   });
 
+  const result = await prisma.post.findMany({
+    where: {
+      title: {
+        search: " ",
+      },
+    },
+  });
+
   const talents = await prisma.talent.findMany();
   if (!session) {
     return {
       props: {
         post: JSON.parse(JSON.stringify(post)),
         talents: JSON.parse(JSON.stringify(talents)),
+        result: JSON.parse(JSON.stringify(result)),
       },
     };
   }
@@ -50,6 +76,7 @@ export async function getServerSideProps(context) {
   return {
     props: {
       post: JSON.parse(JSON.stringify(post)),
+      result: JSON.parse(JSON.stringify(result)),
       talent: JSON.parse(JSON.stringify(talent)),
       talents: JSON.parse(JSON.stringify(talents)),
       company: JSON.parse(JSON.stringify(company)),
@@ -62,58 +89,133 @@ export default function Home({
   talents = [],
   company = [],
   post = [],
+  result = [],
 }) {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+  const [title, setTitle] = useState(" ");
+  // console.log(errors);
+  const onSubmit = (data) => {
+    setTitle(data.title);
+    console.log(data);
+  };
+
   return (
     <>
       <Navbar talent={talent} company={company} />
-      <div
+
+      <section
         style={{
-          marginLeft: "100px",
-          marginTop: "200px",
-          width: "750px",
           height: "650px",
         }}
       >
-        <Header>
-          {" "}
-          Find Your Next <br /> Blockchain Job <br /> In The MENA Region{" "}
-        </Header>
-        <Subheader>
-          {" "}
-          Find the latest full-time, part-time or freelance Webflow.
-        </Subheader>
-      </div>
-      <NewsLetter
-        style={{
-          position: "absolute",
-          top: "20%",
-          left: "60%",
-        }}
-      >
-        <NewsLetterTitle> Sign up to our newsletter!! </NewsLetterTitle>
-        <NewsLetterSub>
-          Get updates on most recent jobs, we heard unemployment is tough.
-        </NewsLetterSub>
-        <form>
-          <NewsLetterInput placeholder="E-mail" />
-          <NewsLetterInput placeholder="Full Name" />
-          <button type="submit" className="pushableNews">
-            <span className="frontNews">Less Go</span>
-          </button>
-        </form>
-      </NewsLetter>
+        <LandingText>
+          <Header>
+            Find Your Next Blockchain Job <br /> In The MENA Region
+          </Header>
+          <LandingSub>
+            Join the Sensibility Letter, our weekly newsletter that makes sense
+            of teiicyrpto <br /> with a dash of jobs, talent, and information.
+          </LandingSub>
+          {talent ? (
+            <Link href="/jobs">
+              <button className="pushableLanding">
+                <span className="frontLanding"> Explore Jobs </span>
+              </button>
+            </Link>
+          ) : company ? (
+            <Link href="/talent">
+              <button className="pushableLanding">
+                <span className="frontLanding"> Explore Talent </span>
+              </button>
+            </Link>
+          ) : (
+            <Link href="/signin">
+              <button className="pushableLanding">
+                <span className="frontLanding"> Get Started </span>
+              </button>
+            </Link>
+          )}
+
+          {/* <Form onSubmit={handleSubmit(onSubmit)}>
+            <FormCon>
+              <span
+                style={{
+                  display: "inline-block",
+                  marginTop: "8px",
+                }}
+              >
+                {" "}
+                <img src="/Filters.png" />
+              </span>
+
+              <TitleSearch
+                type="text"
+                placeholder="Front-End Developer"
+                {...register("title", { required: true })}
+              />
+              <span
+                style={{
+                  display: "inline-block",
+                  marginTop: "8px",
+                }}
+              >
+                <img src="/Location.png" />
+              </span>
+              <LocationSearch
+                type="text"
+                {...register("location", { required: true })}
+                placeholder="Dubai / UAE"
+              />
+            </FormCon>
+            <button type="submit" className="pushableLanding">
+              <span className="frontLanding"> Let's Go </span>
+            </button>
+          </Form> */}
+        </LandingText>
+
+        <ImageOne src="/landingOne.png" />
+        <ImageTwo src="/landingTwo.png" />
+      </section>
+
       <Section>
-        {" "}
-        <Header> Our most recent jobs </Header>
-        <Subheader> Some Subtitle text about jobs and stuff ss </Subheader>
+        <Subheader> +100 jobs uploaded per week </Subheader>
+        <HeaderTwo> Latest Jobs </HeaderTwo>
+        <JobGrid result={result} post={post} />
+        <Link href="/jobs">
+          <button className="pushableLanding">
+            <span className="frontLanding"> Explore Jobs </span>
+          </button>
+        </Link>
       </Section>
-      <JobGrid post={post} />
-      <Section style={{ marginTop: "230px" }}>
-        {" "}
-        <Header> Our most recent talents </Header>
-        <Subheader> Some Subtitle text about jobs and stuff ss </Subheader>
+
+      <Section>
+        <NewsLetter>
+          <NewsLetterTitle> Check out The Sensibility Letter </NewsLetterTitle>
+          <NewsLetterSub>
+            Our weekly newsletter that makes sense of everything crypto with
+            <br />a dash of jobs, talent, and information.
+          </NewsLetterSub>
+          <form>
+            <NewsLetterInput placeholder="Enter your e-mail" />
+            <NewsLetterButton> Let's Go </NewsLetterButton>
+          </form>
+        </NewsLetter>
       </Section>
-      <TalentGrid talents={talents} />
+
+      <Section style={{ marginTop: "20px" }}>
+        <Subheader> A large crypto talent base </Subheader>
+        <HeaderTwo> Latest Talent </HeaderTwo>
+        <TalentGrid talents={talents} />
+        <Link href="/talent">
+          <button className="pushableLanding">
+            <span className="frontLanding"> Explore Talent </span>
+          </button>
+        </Link>
+      </Section>
     </>
   );
 }

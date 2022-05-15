@@ -5,15 +5,31 @@ import Input from "formik";
 export const Header = styled.h1`
   color: var(--Dark);
   font-family: "Grotesk Bold";
+  font-size: 70px;
+  margin: 15px 0px;
+`;
+
+export const HeaderTwo = styled.h1`
+  color: var(--Dark);
+  font-family: "Grotesk Bold";
   font-size: 50px;
-  margin: 0px 0px;
+  margin: 15px 0px;
 `;
 
 export const Subheader = styled.p`
   color: var(--Dark);
   font-family: "Grotesk Regular";
-  font-size: 20px;
-  margin: 20px 0px;
+  font-size: 25px;
+  margin: 0px 0px;
+`;
+
+export const LandingSub = styled.p`
+  color: var(--Dark);
+  font-family: "Grotesk Regular";
+  font-size: 30px;
+  margin-left: 0;
+  margin-right: 0;
+  padding: 0;
 `;
 
 export const Button = styled.button`
@@ -34,34 +50,78 @@ export const Section = styled.section`
   align-items: center;
   flex-direction: column;
   /* margin-top: 6%; */
+  text-align: left;
+  justify-content: center;
+`;
+
+export const LandingText = styled.section`
+  display: flex;
   text-align: center;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  margin-top: 10%;
+  position: relative;
+`;
+
+export const ImageOne = styled.img`
+  position: absolute;
+  bottom: 250px;
+`;
+export const ImageTwo = styled.img`
+  position: absolute;
+  left: 1555px;
+  bottom: 500px;
 `;
 
 export const BadgeList = styled.span`
   display: flex;
   flex-direction: row;
-  margin: 5px 0px;
+  margin: 10px 0px;
 `;
 
 export const BenefitBadge = styled.span`
-  background-color: rgba(255, 236, 81, 0.8);
+  background-color: var(--Ternary);
   color: var(--Dark);
   font-family: "Grotesk Medium";
   border-radius: 0px;
-  outline: 1px solid var(--Dark);
+  outline: 2px solid var(--Dark);
   font-size: 16px;
   padding: 0px 10px;
-  margin-right: 6px;
+  margin-right: 10px;
 `;
 
 export const TypeBadge = styled.span`
-  background-color: rgba(38, 39, 48, 0.8);
+  background-color: var(--Dark);
   color: var(--PrimaryBg);
   font-family: "Grotesk Medium";
   border-radius: 0px;
-  outline: 1px solid var(--Dark);
+  outline: 2px solid var(--Dark);
   font-size: 16px;
   padding: 0px 10px;
+`;
+export const CategoryBadge = styled.span`
+  background-color: var(--Secondary);
+  color: var(--Dark);
+  font-family: "Grotesk Medium";
+  border-radius: 0px;
+  outline: 2px solid var(--Dark);
+  font-size: 16px;
+  padding: 0px 10px;
+`;
+
+export const FormCon = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  /* justify-content: space-around; */
+  outline: 3px solid var(--Dark);
+  border-radius: 0px;
+  width: 900px;
+  height: 70px;
+  margin-right: 20px;
+  padding: 10px;
 `;
 
 export const Form = styled.form`
@@ -69,37 +129,47 @@ export const Form = styled.form`
   flex-direction: row;
   align-items: center;
   /* justify-content: space-around; */
-  outline: 5px solid var(--Dark);
-  border-radius: 10px;
-  width: 700px;
+  /* outline: 3px solid var(--Dark); */
+  border-radius: 0px;
+  width: 1100px;
   height: 70px;
 `;
 
 export const TitleSearch = styled.input`
-  width: 300px;
+  width: 450px;
   height: 70px;
-  background-color: transparent;
+  background-color: var(--PrimaryBg);
   border: none !important;
   font-family: "Grotesk Medium";
-  font-size: 18px;
+  font-size: 22px;
   padding: 15px;
 `;
 
 export const LocationSearch = styled.input`
-  width: 250px;
+  width: 450px;
   height: 70px;
-  background-color: transparent;
+  background-color: var(--PrimaryBg);
   border: none !important;
   font-family: "Grotesk Medium";
-  font-size: 18px;
+  font-size: 22px;
   padding: 15px;
+
+  &::before {
+    content: url("/badge.png");
+    width: 100px;
+    height: 100px;
+    position: relative;
+    bottom: 0;
+    left: 10px;
+    background-repeat: no-repeat;
+  }
 `;
 
 export const JobPostSection = styled.div`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: 1fr;
-  column-gap: 0px;
+  column-gap: 90px;
   grid-row-gap: 0px;
   margin-top: 30px;
   justify-items: center;
@@ -110,13 +180,14 @@ export const JobPostCard = styled.div`
   height: 250px;
   outline: 4px solid var(--Dark);
   border-radius: 0px;
-  transition: all 0.5s linear;
+  transition: all 0.3s ease-in-out;
   margin: 0px;
   padding: 0px;
   cursor: pointer;
+
   &:hover {
     background-color: var(--Accent);
-    box-shadow: 10px 10px 0px var(--Dark);
+    box-shadow: 15px 15px 0px var(--Dark);
   }
 `;
 
@@ -125,21 +196,22 @@ export const FeaturedJobPostCard = styled.div`
   height: 250px;
   outline: 4px solid var(--Dark);
   border-radius: 0px;
-  transition: all 0.5s linear;
+  transition: all 0.3s ease-in-out;
   margin-bottom: 80px;
   cursor: pointer;
+
   &:hover {
     background-color: var(--Accent);
-    box-shadow: 10px 10px 0px var(--Dark);
+    box-shadow: 15px 15px 0px var(--Dark);
   }
 
   &::after {
-    content: url("/badge.png");
+    content: url("/Favorite.png");
     width: 55px;
     height: 55px;
     position: relative;
-    bottom: 255px;
-    left: 265px;
+    bottom: 225px;
+    left: 240px;
     background-repeat: no-repeat;
   }
 `;
@@ -154,8 +226,8 @@ export const JobPostContent = styled.ul`
 export const JobPostCompany = styled.h1`
   color: var(--Dark);
   font-family: "Grotesk Bold";
-  font-size: 20px;
-  margin: 0px;
+  font-size: 22px;
+  margin: 0px 0px;
 `;
 
 export const JobPostTitle = styled.h2`
@@ -164,7 +236,8 @@ export const JobPostTitle = styled.h2`
   font-size: 18px;
   position: relative;
   bottom: 0px;
-  margin: 5px 0px; ;
+  margin: 5px 0px;
+  margin-bottom: 30px;
 `;
 
 export const JobPostSub = styled.p`
@@ -173,35 +246,66 @@ export const JobPostSub = styled.p`
   font-size: 14px;
   position: relative;
   bottom: 0px;
-  margin: 6px 0px;
+  margin: 10px 0px;
 `;
 
 export const NewsLetter = styled.div`
-  width: 530px;
-  height: 450px;
+  width: 1100px;
+  height: 220px;
   background-color: var(--Secondary);
-  outline: 4px solid var(--Dark);
-  margin-top: 70px;
+  outline: 3px solid var(--Dark);
+  margin: 100px 0px;
   border-radius: 0px;
-  padding: 40px 20px;
-  box-shadow: 20px 20px 0px var(--Dark);
-  /* position: relative;
-  left: 50%;
-  transform: translateX(-50%); */
+  padding: 5px 25px;
+  box-shadow: 13px 23px 13px -3px rgba(25, 25, 30, 0.2);
+  &::after {
+    content: url("/Mail.png");
+    width: 55px;
+    height: 55px;
+    position: relative;
+    bottom: 265px;
+    left: 1000px;
+    background-repeat: no-repeat;
+  }
+`;
+
+export const TalentSignUp = styled.div`
+  width: 850px;
+  height: 150px;
+  background-color: var(--Secondary);
+  outline: 3px solid var(--Dark);
+  margin-top: 10px;
+  margin-bottom: 75px;
+  border-radius: 0px;
+  padding: 5px 25px;
+  box-shadow: 13px 23px 13px -3px rgba(25, 25, 30, 0.2);
+  display: flex;
+  &::after {
+    content: url("/Smile.png");
+    width: 55px;
+    height: 55px;
+    position: relative;
+    bottom: 45px;
+    left: 70px;
+    background-repeat: no-repeat;
+  }
+`;
+
+export const CTAContent = styled.div`
+  display: flex;
+  flex-direction: column;
 `;
 
 export const NewsLetterTitle = styled(Header)`
   font-size: 35px;
-  padding-left: 8px;
 `;
 
 export const NewsLetterSub = styled(Subheader)`
-  font-size: 18px;
-  padding-left: 8px;
+  font-size: 22px;
 `;
 
 export const NewsLetterInput = styled.input`
-  width: 400px;
+  width: 350px;
   height: 50px;
   border-radius: 0px;
   border: none;
@@ -210,26 +314,42 @@ export const NewsLetterInput = styled.input`
   font-size: 18px;
   outline: 3px solid var(--Dark);
   font-family: "Grotesk SemiBold";
-  margin: 20px 10px;
+  margin: 15px 0px;
   padding: 10px;
 `;
 
-export const BlogSection = styled.div`
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  width: 1800px;
-  margin-top: 30px;
+export const NewsLetterButton = styled.button`
+  padding: 0px 25px;
+  height: 50px;
+  background-color: var(--Ternary);
+  color: var(--Dark);
+  outline: 3px solid var(--Dark);
+  border: none !important;
+  font-family: "Grotesk Bold";
+  font-size: 22px;
+  margin: 15px 25px;
+  cursor: pointer;
 `;
 
-export const BlogCard = styled.div`
+export const BlogSection = styled.div`
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: 1fr;
+  column-gap: 0px;
+  grid-row-gap: 0px;
+  margin-top: 30px;
+  justify-items: center;
+  padding: 0px 30px;
+`;
+
+export const BlogCardComp = styled.div`
   width: 400px;
   height: 500px;
   outline: 3px solid var(--Dark);
   border-radius: 0px;
-  transition: all 0.3s linear;
+  transition: all 0.3s ease-in-out;
   &:hover {
-    box-shadow: 10px 10px 0px #000000;
+    box-shadow: 15px 15px 0px #000000;
   }
 `;
 
@@ -243,10 +363,20 @@ export const CompanyContent = styled.div`
   /* text-overflow: ellipsis "[....]"; */
 `;
 
+export const JobContent = styled.div`
+  text-align: left;
+  width: 280px;
+  height: 230px;
+  list-style-type: none;
+  padding: 20px 20px;
+  overflow: hidden;
+`;
+
 export const CompanyCardImage = styled(Image)`
   /* width: 100px;
   height: 100px; */
   border-radius: 0px;
+  border: 10px solid var(--Dark);
 `;
 
 export const CompanyTitle = styled.h1`
@@ -349,33 +479,35 @@ export const TalentList = styled.ul`
   list-style: none;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 80px;
 `;
 
 export const TalentCard = styled.div`
-  width: 1000px;
-  height: 200px;
-  outline: 5px solid var(--Dark);
+  width: 1070px;
+  height: 250px;
+  outline: 5px solid #000;
   border-radius: 0px;
-  transition: all 0.3s linear;
-  margin-bottom: 100px;
+  transition: all 0.3s ease-in-out;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  /* justify-content: space-between; */
   align-items: center;
-  padding: 0px 80px;
+  padding: 0px 20px;
   &:hover {
-    box-shadow: 10px 10px 0px #000000;
-    outline: 5px solid #000;
+    box-shadow: 15px 15px 0px #000000;
   }
+`;
+
+export const TalentContent = styled.div`
+  margin: 0px 30px;
+  width: 900px;
 `;
 
 export const TalentTitle = styled.h1`
   color: var(--Dark);
-  font-family: "Grotesk Medium";
-  font-size: 30px;
-  position: relative;
-  top: 0px;
-  margin: 10px 30px;
+  font-family: "Grotesk Bold";
+  font-size: 35px;
+  /* margin: 10px 30px; */
 `;
 
 export const TalentLocation = styled.h3`
@@ -387,9 +519,9 @@ export const TalentLocation = styled.h3`
 export const TalentDesc = styled.p`
   color: var(--Dark);
   font-family: "Grotesk Regular";
-  font-size: 14px;
+  font-size: 16px;
   /* width: 50%; */
-  margin: 10px 30px;
+  /* margin: 10px 30px; */
 `;
 
 export const ProfileCard = styled.div`
