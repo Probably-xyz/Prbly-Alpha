@@ -119,7 +119,7 @@ const ListedJob = ({ post = null, similarPosts = [] }) => {
         <ApplyToJob>
           <h2> Ready to apply for this job opening?</h2>
           <p>Save a lot of time by applying with your Probably profile.</p>
-          <AtsButton onClick={applyToJob}> Apply </AtsButton>
+          <AtsButton> Apply </AtsButton>
         </ApplyToJob>
       )}
 

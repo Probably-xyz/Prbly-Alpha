@@ -39,23 +39,9 @@ model Talent {
   status String
   userId String
   user         User     @relation(fields: [userId], references: [id])
-  applications Post[]
 }
 
-model Applicant {
-  id String @id @default(cuid())
-  name String
-  bio String
-  image String
-  title String
-  cv String
-  twitter String
-  linkedin String
-  otherLink String
-  applicationId String
-  appliedTo Post     @relation(fields: [applicationId], references: [id])
-  
-}
+
 
 model Post {
   id String @id @default(cuid())
@@ -75,9 +61,6 @@ model Post {
   companyId String
   companyName String
   company Company @relation(fields: [companyId], references: [id])
-  applicants Applicant[]
-  applicationId String 
-  application Talent @relation(fields: [applicationId], references: [id])
 }
 
 
