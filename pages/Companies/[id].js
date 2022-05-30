@@ -32,7 +32,7 @@ import Link from "next/link";
 import ReactMarkdown from "react-markdown";
 import { useRouter } from "next/router";
 
-const ListedCompany = ({ company = null, jobs = [], companyDesc }) => {
+const ListedCompany = ({ company = null, jobs = [] }) => {
   console.log(jobs);
 
   const markdownContent = company?.bio ?? "";
@@ -124,21 +124,11 @@ export async function getStaticProps({ params }) {
     where: { companyId: company.id },
   });
 
-  const client = createClient({
-    space: process.env.CONTENTFUL_SPACE_ID,
-    accessToken: process.env.CONTENTFUL_API_TOKEN,
-  });
-
-  const res = await client.getEntries({
-    content_type: "company",
-  });
-
   if (company) {
     return {
       props: {
         company: JSON.parse(JSON.stringify(company)),
         jobs: JSON.parse(JSON.stringify(jobs)),
-        comapnyDesc: res.items,
       },
     };
   }

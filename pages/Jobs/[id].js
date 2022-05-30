@@ -42,9 +42,9 @@ import { prisma } from "@/lib/prisma";
 import { useRouter } from "next/router";
 
 const ListedJob = ({ post = null, similarPosts = [] }) => {
-  const id = post.id;
+  // const id = post.id;
   const markdown = post?.description ?? "";
-  const applyToJob = () => axios.post(`/api/Jobs/${id}`);
+  // const applyToJob = () => axios.post(`/api/Jobs/${id}`);
   const postExist = similarPosts.length > 0;
 
   const router = useRouter();
