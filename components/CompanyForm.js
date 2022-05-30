@@ -18,16 +18,19 @@ import {
   Button,
   RadioControl,
   FormRadioControl,
+  Section,
 } from "./styled-components/Components";
 
 const ListingSchema = Yup.object().shape({
   name: Yup.string().trim().required(),
   bio: Yup.string().trim().required(),
-  intro: Yup.string().trim().required(),
-  website: Yup.string().trim(),
-  size: Yup.string().trim(),
-  industry: Yup.string().trim(),
-  instagram: Yup.string().trim(),
+  website: Yup.string()
+    .matches(
+      /((https?):\/\/)?(www.)?[a-z0-9]+(\.[a-z]{2,}){1,3}(#?\/?[a-zA-Z0-9#]+)*\/?(\?[a-zA-Z0-9-_]+=[a-zA-Z0-9-%]+&?)?$/,
+      "Probably should be a link"
+    )
+    .required(),
+  industry: Yup.string().trim().required(),
 });
 
 const CompanyForm = ({
@@ -82,10 +85,8 @@ const CompanyForm = ({
   const { image, ...initialFormValues } = initialValues ?? {
     image: "",
     bio: "",
-    intro: "",
     name: "",
     industry: "",
-    size: "",
     website: "",
   };
 
@@ -98,87 +99,78 @@ const CompanyForm = ({
         onSubmit={handleOnSubmit}
       >
         {({ isSubmitting, isValid }) => (
-          <Form>
-            <FormContainer>
-              <FormColumn>
-                <FormLabel> Name </FormLabel>
-                <Input
-                  name="name"
-                  type="text"
-                  placeholder="Probably"
-                  disabled={disabled}
-                />
-                <FormLabel> Intro </FormLabel>
-                <Input
-                  name="intro"
-                  type="text"
-                  placeholder="We are a cool company"
-                  disabled={disabled}
-                />
+          <Section>
+            <Form>
+              <FormContainer>
+                <FormColumn>
+                  <FormLabel> Name </FormLabel>
+                  <Input
+                    name="name"
+                    type="text"
+                    placeholder="Probably"
+                    disabled={disabled}
+                  />
 
-                <FormLabel> Website </FormLabel>
-                <Input
-                  name="website"
-                  type="text"
-                  placeholder="https://www.prbly.xyz"
-                  disabled={disabled}
-                />
+                  <FormLabel> Website </FormLabel>
+                  <Input
+                    name="website"
+                    type="text"
+                    placeholder="https://www.prbly.xyz"
+                    disabled={disabled}
+                  />
 
-                <FormLabel> Industry </FormLabel>
-                <Input
-                  name="industry"
-                  type="text"
-                  placeholder="Business"
-                  disabled={disabled}
-                />
+                  <FormLabel> Industry </FormLabel>
+                  <Input
+                    name="industry"
+                    type="select"
+                    placeholder="Business"
+                    disabled={disabled}
+                  >
+                    <option value="Crypto" name="industry">
+                      Crypto
+                    </option>
+                    <option value="NFTs" name="industry">
+                      NFTs
+                    </option>
+                    <option value="Metaverse" name="industry">
+                      Metaverse
+                    </option>
+                    <option value="Blockchain" name="industry">
+                      Blockchain
+                    </option>
+                    <option value="Other" name="industry">
+                      Other
+                    </option>
+                  </Input>
 
-                <FormLabel> Size </FormLabel>
-                <FormRadioControl role="group" aria-labelledby="my-radio-group">
-                  <label>
-                    <Input type="radio" name="size" value="0-10" />
-                    0-10
-                  </label>
-                  <label>
-                    <Input type="radio" name="size" value="0-10" />
-                    0-10
-                  </label>
-                  <label>
-                    <Input type="radio" name="size" value="0-10" />
-                    0-10
-                  </label>
-                  <label>
-                    <Input type="radio" name="size" value="0-10" />
-                    0-10
-                  </label>
-                </FormRadioControl>
+                  <FormLabel> Image </FormLabel>
+                  <ImageUpload
+                    initialImage={{ src: image, alt: initialFormValues.name }}
+                    onChangePicture={upload}
+                  />
 
-                <FormLabel> Image </FormLabel>
-                <ImageUpload
-                  initialImage={{ src: image, alt: initialFormValues.name }}
-                  onChangePicture={upload}
-                />
+                  <FormLabel> Description </FormLabel>
+                  <Input
+                    name="bio"
+                    type="textarea"
+                    placeholder="Tell us more about your company"
+                    disabled={disabled}
+                    style={{ marginBottom: "40px" }}
+                  />
 
-                <Input
-                  name="bio"
-                  type="textarea"
-                  placeholder="Long Bio"
-                  disabled={disabled}
-                />
-                <Button
-                  style={{
-                    width: "120px",
-                    height: "50px",
-                    position: "relative",
-                    top: "20px",
-                  }}
-                  type="submit"
-                  disabled={disabled || !isValid}
-                >
-                  {isSubmitting ? "Submitting..." : buttonText}
-                </Button>
-              </FormColumn>
-            </FormContainer>
-          </Form>
+                  <button
+                    type="submit"
+                    className="pushable"
+                    disabled={disabled || !isValid}
+                  >
+                    <span className="front">
+                      {isSubmitting ? "Submitting..." : buttonText}{" "}
+                    </span>
+                  </button>
+                </FormColumn>
+              </FormContainer>
+            </Form>
+          </Section>
         )}
       </Formik>
     </div>
@@ -192,7 +184,6 @@ CompanyForm.propTypes = {
     name: PropTypes.string,
     size: PropTypes.string,
     bio: PropTypes.string,
-    introduction: PropTypes.string,
     industry: PropTypes.string,
   }),
   redirectPath: PropTypes.string,

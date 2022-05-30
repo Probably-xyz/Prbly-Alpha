@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 /* eslint-disable jsx-a11y/alt-text */
 import React from "react";
 import Navbar from "@/components/Navbar";
@@ -8,6 +9,8 @@ import {
   NewsLetter,
   NewsLetterTitle,
   NewsLetterSub,
+  TalentSignUp,
+  NewsLetterButton,
 } from "@/components/styled-components/Components";
 import {
   TalentContent,
@@ -17,6 +20,9 @@ import {
   SkillBadge,
   HiddenContent,
   PaymentTalent,
+  TalentTitle,
+  SlugNewsLetterButton,
+  TalentButton,
 } from "@/components/styled-components/Slug";
 import Image from "next/image";
 import { prisma } from "@/lib/prisma";
@@ -25,38 +31,50 @@ const ListedTalent = (talent = null) => {
   return (
     <>
       <Navbar />
+
+      <Section
+        style={{
+          marginTop: "40px",
+          marginBottom: "0",
+        }}
+      >
+        <TalentSignUp>
+          <div>
+            <NewsLetterTitle> Want to be featured here? </NewsLetterTitle>
+            <NewsLetterSub>
+              Simply create an account and 10x your chance <br /> of hiring top
+              cyrpto talent
+            </NewsLetterSub>
+          </div>
+          <NewsLetterButton> Let's Go </NewsLetterButton>
+        </TalentSignUp>
+      </Section>
+
       <TalentContent>
         <TalentIntro>
           {talent?.image ? (
-            <Image
+            <img
               src={talent.image}
-              width={150}
-              height={150}
-              style={{ borderRadius: "10px" }}
+              alt={talent.title}
+              style={{
+                width: "200px",
+                outline: "3px solid var(--Dark)",
+              }}
             />
           ) : null}
-          <Header style={{ marginLeft: "50px", fontSize: "40px" }}>
-            {talent?.title ?? ""}
-            <Subheader style={{ fontFamily: "Grotesk Light" }}>
-              {" "}
-              {talent?.headline ?? ""}{" "}
-            </Subheader>
-          </Header>
+          <TalentTitle>
+            <h1>{talent?.title ?? ""}</h1>
+            <SkillBadge> {talent?.status ?? ""} </SkillBadge>
+          </TalentTitle>
         </TalentIntro>
-        <TalentIntro>
-          <SkillList>
-            <SkillBadge> {talent?.skills[0] ?? ""} </SkillBadge>
-            <SkillBadge> {talent?.skills[1] ?? ""} </SkillBadge>
-          </SkillList>
-        </TalentIntro>
-        <Divider> </Divider>
+
         <h1> About Me </h1>
         <Subheader> {talent?.bio ?? ""} </Subheader>
       </TalentContent>
 
       <PaymentTalent>
-        <h1> Implement Payment </h1>
-        <p> Show hiddent content under about me section </p>
+        <h2> Want to hire me? </h2>
+        <TalentButton> Contact Me </TalentButton>
       </PaymentTalent>
     </>
   );

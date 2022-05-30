@@ -9,7 +9,7 @@ export default async function handler(req, res) {
 
   if (req.method === "POST") {
     try {
-      const { image, name, bio, intro, size, industry, website } = req.body;
+      const { image, name, bio, industry, website } = req.body;
 
       const user = await prisma.user.findUnique({
         where: { email: session.user.email },
@@ -20,8 +20,6 @@ export default async function handler(req, res) {
           image,
           name,
           bio,
-          intro,
-          size,
           industry,
           website,
           userId: user.id,

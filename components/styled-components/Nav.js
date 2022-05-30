@@ -40,6 +40,19 @@ export const NavLogo = styled.p`
   }
 `;
 
+export const SignIn = styled.a`
+  color: var(--Dark);
+  display: flex;
+  /* align-items: center; */
+  /* text-decoration: none; */
+  padding: 1.7rem 2.5rem;
+  height: 100%;
+  cursor: pointer;
+  font-family: "Grotesk Medium";
+  font-size: 20px;
+  transition: 0.3s ease-in-out;
+`;
+
 export const NavList = styled.ul`
   display: flex;
   align-items: center;

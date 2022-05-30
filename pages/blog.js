@@ -1,27 +1,27 @@
 import React from "react";
 import { prisma } from "@/lib/prisma";
-import BlogGrid from "@/components/BlogGrid";
-import NavbarLanding from "@/components/NavbarLanding";
+import BlogCard from "@/components/BlogCard";
+import Navbar from "@/components/Navbar";
 import { getSession } from "next-auth/react";
 import Image from "next/image";
 import {
   Section,
   Header,
   Subheader,
+  BlogSection,
+  LandingText,
+  LandingSub,
+  ImageOne,
+  ImageTwo,
+  TalentSignUp,
+  NewsLetterTitle,
+  NewsLetterSub,
+  NewsLetterButton,
 } from "@/components/styled-components/Components";
+import { createClient } from "contentful";
 
 export async function getServerSideProps(context) {
   const session = await getSession(context);
-
-  const blogs = await prisma.blog.findMany();
-
-  if (!session) {
-    return {
-      props: {
-        blogs: JSON.parse(JSON.stringify(blogs)),
-      },
-    };
-  }
 
   const user = await prisma.user.findUnique({
     where: { email: session.user.email },
@@ -35,25 +35,44 @@ export async function getServerSideProps(context) {
     where: { userId: user.id },
   });
 
+  const client = createClient({
+    space: process.env.CONTENTFUL_SPACE_ID,
+    accessToken: process.env.CONTENTFUL_API_TOKEN,
+  });
+
+  const res = await client.getEntries({
+    content_type: "topicPost",
+  });
+
   return {
     props: {
-      blogs: JSON.parse(JSON.stringify(blogs)),
       talent: JSON.parse(JSON.stringify(talent)),
       company: JSON.parse(JSON.stringify(company)),
+      topicPost: res.items,
     },
   };
 }
 
-const Blog = ({ blogs = [], talent = [], company = [] }) => {
+const Blog = ({ talent = [], company = [], topicPost }) => {
+  console.log(topicPost);
   return (
     <>
-      <NavbarLanding talent={talent} company={company} />
-      <Section style={{ marginTop: "70px" }}>
-        <Header style={{ fontSize: "40px" }}>The Blog Title</Header>
-        <Subheader>Some description to describe this and stufff idk</Subheader>
-      </Section>
-
-      <BlogGrid blogs={blogs} />
+      <Navbar talent={talent} company={company} />
+      <section>
+        <LandingText>
+          <Header>
+            Probably the most useful blog <br /> around
+          </Header>
+          <LandingSub> Insights, data, & articles all in one place </LandingSub>
+        </LandingText>
+        <ImageOne src="/landingOne.png" />
+        <ImageTwo src="/landingTwo.png" />
+      </section>
+      <BlogSection>
+        {topicPost.map((topicPost) => (
+          <BlogCard key={topicPost.sys.id} topicPost={topicPost} />
+        ))}
+      </BlogSection>
     </>
   );
 };

@@ -17,19 +17,23 @@ import {
   FormLabel,
   Button,
   FormRadioControl,
+  Section,
 } from "./styled-components/Components";
+import { PaddleLoader } from "@/components/PaddleLoader";
 
 const ListingSchema = Yup.object().shape({
   title: Yup.string().trim().required(),
-  description: Yup.string().trim().required(),
+  description: Yup.string().required(),
   type: Yup.string().trim().required(),
   benefits: Yup.array().required(),
   location: Yup.string().trim().required(),
   category: Yup.string().trim().required(),
-  // featured: Yup.boolean().required(),
   salary: Yup.string(),
-  intro: Yup.string().trim().required(),
-  atsUrl: Yup.string().trim(),
+  options: Yup.string().trim().required(),
+  atsUrl: Yup.string().matches(
+    /((https?):\/\/)?(www.)?[a-z0-9]+(\.[a-z]{2,}){1,3}(#?\/?[a-zA-Z0-9#]+)*\/?(\?[a-zA-Z0-9-_]+=[a-zA-Z0-9-%]+&?)?$/,
+    "Probably should be a link"
+  ),
 });
 
 const JobFormFeatured = ({
@@ -41,44 +45,6 @@ const JobFormFeatured = ({
   const router = useRouter();
 
   const [disabled, setDisabled] = useState(false);
-  // const [imageUrl, setImageUrl] = useState(initialValues?.image ?? "");
-  // const [cvUrl, setCvUrl] = useState(initialValues?.cv ?? "");
-
-  // const upload = async (image) => {
-  //   if (!image) return;
-
-  //   let toastId;
-  //   try {
-  //     setDisabled(true);
-  //     toastId = toast.loading("Uploading...");
-  //     const { data } = await axios.post("/api/image-upload", { image });
-  //     setImageUrl(data?.url);
-  //     toast.success("Successfully uploaded", { id: toastId });
-  //   } catch (e) {
-  //     toast.error("Unable to upload", { id: toastId });
-  //     setImageUrl("");
-  //   } finally {
-  //     setDisabled(false);
-  //   }
-  // };
-
-  // const uploadDoc = async (cv) => {
-  //   if (!cv) return;
-
-  //   let toastId;
-  //   try {
-  //     setDisabled(true);
-  //     toastId = toast.loading("Uploading...");
-  //     const { data } = await axios.post("/api/doc-upload", { cv });
-  //     setCvUrl(data?.url);
-  //     toast.success("Successfully uploaded", { id: toastId });
-  //   } catch (e) {
-  //     toast.error("Unable to upload", { id: toastId });
-  //     setCvUrl("");
-  //   } finally {
-  //     setDisabled(false);
-  //   }
-  // };
 
   const handleOnSubmit = async (values = null) => {
     let toastId;
@@ -108,18 +74,12 @@ const JobFormFeatured = ({
     location: "",
     category: "",
     salary: "",
-    intro: "",
+    options: "",
   };
 
   return (
     <div>
-      {/* <div className="mb-8 max-w-md">
-        <ImageUpload
-          initialImage={{ src: image, alt: initialFormValues.name }}
-          onChangePicture={upload}
-        />
-      </div> */}
-
+      <PaddleLoader />
       <Formik
         initialValues={initialFormValues}
         validationSchema={ListingSchema}
@@ -129,8 +89,10 @@ const JobFormFeatured = ({
         {({ isSubmitting, isValid }) => (
           <Form>
             <FormContainer>
-              <h1 style={{ fontSize: "40px" }}> Post Information </h1>
-
+              <h1 style={{ fontSize: "40px", marginLeft: "165px" }}>
+                {" "}
+                Post Information{" "}
+              </h1>
               <PostForm>
                 <FormColumn>
                   <FormLabel> Job Title </FormLabel>
@@ -147,10 +109,6 @@ const JobFormFeatured = ({
                     aria-labelledby="checkbox-group"
                   >
                     <FormLabel>
-                      <Input type="checkbox" name="benefits" value="Remote" />
-                      Remote
-                    </FormLabel>
-                    <FormLabel>
                       <Input
                         type="checkbox"
                         name="benefits"
@@ -159,29 +117,65 @@ const JobFormFeatured = ({
                       Pay in Crypto
                     </FormLabel>
                     <FormLabel>
-                      <Input type="checkbox" name="benefits" value="Hybrid" />
-                      Hybrid
+                      <Input
+                        type="checkbox"
+                        name="benefits"
+                        value="Relocation"
+                      />
+                      Relocation Package
                     </FormLabel>
                     <FormLabel>
-                      <Input type="checkbox" name="benefits" value="Massage" />
+                      <Input
+                        type="checkbox"
+                        name="benefits"
+                        value="Visa Sponsor"
+                      />
                       Visa Sponsor
                     </FormLabel>
                   </FormRadioControl>
 
                   <FormLabel> Job Salary </FormLabel>
-                  <Input
-                    name="salary"
-                    type="text"
-                    placeholder="$80,000/Year"
-                    disabled={disabled}
-                  />
-                  <FormLabel> Job Intro </FormLabel>
-                  <Input
-                    name="intro"
-                    type="text"
-                    placeholder="A Short Description"
-                    disabled={disabled}
-                  />
+                  <Input name="salary" type="select" disabled={disabled}>
+                    <option value="$0-$30,000" name="salary">
+                      $0-$30,000
+                    </option>
+                    <option value="$31,000-$60,000" name="salary">
+                      $31,000-$60,000
+                    </option>
+                    <option value="$61,000-$90,000" name="salary">
+                      $61,000-$90,000
+                    </option>
+                    <option value="$90,000+" name="salary">
+                      $90,000+
+                    </option>
+                  </Input>
+                  <FormLabel> Job Category </FormLabel>
+                  <Input name="category" type="select" disabled={disabled}>
+                    <option value="Development" name="category">
+                      Development 🖥️
+                    </option>
+                    <option value="Design" name="category">
+                      Design 🎨
+                    </option>
+                    <option value="Marketing" name="category">
+                      Marketing 🚀
+                    </option>
+                    <option value="Business" name="category">
+                      Business 👔
+                    </option>
+                    <option value="Support" name="category">
+                      Support ☎️
+                    </option>
+                    <option value="Finance" name="category">
+                      Finance 💰
+                    </option>
+                    <option value="Research" name="category">
+                      Research 🔬
+                    </option>
+                    <option value="Other" name="category">
+                      Other
+                    </option>
+                  </Input>
                 </FormColumn>
                 <FormColumn>
                   <FormLabel> Job Location </FormLabel>
@@ -190,7 +184,74 @@ const JobFormFeatured = ({
                     type="select"
                     placeholder="UAE / Dubai"
                     disabled={disabled}
-                  />
+                  >
+                    <optgroup label="GCC">
+                      <option value="Bahrain" name="location">
+                        Bahrain 🇧🇭
+                      </option>
+                      <option value="Kuwait" name="location">
+                        Kuwait 🇰🇼
+                      </option>
+                      <option value="Oman" name="location">
+                        Oman 🇴🇲
+                      </option>
+                      <option value="Qatar" name="location">
+                        Qatar 🇶🇦
+                      </option>
+                      <option value=" Saudi Arabia" name="location">
+                        Saudi Arabia 🇸🇦
+                      </option>
+                      <option value=" UAE" name="location">
+                        UAE 🇦🇪
+                      </option>
+                    </optgroup>
+                    <optgroup label="Africa">
+                      <option value="Algeria" name="location">
+                        Algeria 🇩🇿
+                      </option>
+                      <option value="Egypt" name="location">
+                        Egypt 🇪🇬
+                      </option>
+                      <option value="Libya" name="location">
+                        Libya 🇱🇾
+                      </option>
+                      <option value="Morocca" name="location">
+                        Morocca 🇲🇦
+                      </option>
+                      <option value="Tunisia" name="location">
+                        Tunisia 🇹🇳
+                      </option>
+                    </optgroup>
+                    <optgroup label="Middle East">
+                      <option value="Iraq" name="location">
+                        Iraq 🇮🇶
+                      </option>
+                      <option value="Lebanon" name="location">
+                        Lebanon 🇱🇧
+                      </option>
+                      <option value="Jordan" name="location">
+                        Jordan 🇯🇴
+                      </option>
+                      <option value="Palestine" name="location">
+                        Palestine 🇵🇸
+                      </option>
+                      <option value="Syria" name="location">
+                        Syria 🇸🇾
+                      </option>
+                      <option value="Tunisia" name="location">
+                        Tunisia 🇹🇳
+                      </option>
+                      <option value="Yemen" name="location">
+                        Yemen 🇾🇪
+                      </option>
+                      <option value="Turkey" name="location">
+                        Turkey 🇹🇷
+                      </option>
+                    </optgroup>
+                    <option value="Worldwide / Global" name="location">
+                      Worldwide / Global 🌍
+                    </option>
+                  </Input>
                   <FormLabel> Job Type </FormLabel>
                   <FormRadioControl
                     role="group"
@@ -209,13 +270,25 @@ const JobFormFeatured = ({
                       Internship
                     </FormLabel>
                   </FormRadioControl>
-                  <FormLabel> Job Category </FormLabel>
-                  <Input
-                    name="category"
-                    type="text"
-                    placeholder="Development"
-                    disabled={disabled}
-                  />
+
+                  <FormLabel>Options </FormLabel>
+                  <FormRadioControl
+                    role="group"
+                    aria-labelledby="checkbox-group"
+                  >
+                    <FormLabel>
+                      <Input type="radio" name="options" value="Full-Time" />
+                      Hybrid
+                    </FormLabel>
+                    <FormLabel>
+                      <Input type="radio" name="options" value="Part-Time" />
+                      On-Site
+                    </FormLabel>
+                    <FormLabel>
+                      <Input type="radio" name="options" value="Internship" />
+                      Remote
+                    </FormLabel>
+                  </FormRadioControl>
                   <FormLabel> ATS URL </FormLabel>
                   <Input
                     name="atsUrl"
@@ -223,26 +296,55 @@ const JobFormFeatured = ({
                     placeholder="Link"
                     disabled={disabled}
                   />
+                  <span
+                    style={{
+                      display: "inline-block",
+                      position: "absolute",
+                      top: "975px",
+                      color: "rgba(0, 0, 0, 0.5)",
+                      fontFamily: "Grotesk Medium",
+                    }}
+                  >
+                    *Applications will be redirected to this link. Use for
+                    Applicant tracking systems.
+                  </span>
                 </FormColumn>
               </PostForm>
+
+              <FormLabel
+                style={{
+                  marginLeft: "162px",
+                }}
+              >
+                {" "}
+                Bio{" "}
+              </FormLabel>
               <Input
                 name="description"
                 type="textarea"
                 placeholder="We are coool AF"
                 disabled={disabled}
-              />
-              <Button
                 style={{
-                  width: "120px",
-                  height: "50px",
-                  position: "relative",
-                  top: "20px",
+                  marginLeft: "162px",
+                  marginTop: "15px",
+                  marginBottom: "20px",
                 }}
+              />
+
+              <button
+                className="pushableLanding"
                 type="submit"
                 disabled={disabled || !isValid}
+                style={{
+                  marginLeft: "162px",
+                  marginTop: "25px",
+                }}
               >
-                {isSubmitting ? "Submitting..." : buttonText}
-              </Button>
+                <span className="frontLanding">
+                  {" "}
+                  {isSubmitting ? "Submitting..." : buttonText}{" "}
+                </span>
+              </button>
             </FormContainer>
           </Form>
         )}
@@ -256,12 +358,12 @@ JobFormFeatured.propTypes = {
     title: PropTypes.string,
     description: PropTypes.string,
     type: PropTypes.string,
-    benefits: PropTypes.string,
+    benefits: PropTypes.array,
     location: PropTypes.string,
     category: PropTypes.string,
     salary: PropTypes.string,
     atsUrl: PropTypes.string,
-    intro: PropTypes.string,
+    options: PropTypes.string,
   }),
   redirectPath: PropTypes.string,
   buttonText: PropTypes.string,

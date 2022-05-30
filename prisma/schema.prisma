@@ -8,17 +8,15 @@ generator client {
 
 datasource db {
   provider = "postgresql"
-  url      = env("DATABASE_URL")
+  url = env("DATABASE_URL")
 }
 
 model Company {
   id String @id @default(cuid())
   name String 
-  intro String
   bio String
   image String
   industry String
-  size String
   website String
   approved Boolean @default(false)
   createdAt DateTime @default(now())
@@ -30,26 +28,41 @@ model Company {
 model Talent {
   id String @id @default(cuid())
   name String
-  headline String
   bio String
   image String
   title String
   cv String
   twitter String
-  github String
   linkedin String
+  createdAt DateTime @default(now())
   otherLink String
-  skills String[]
+  status String
   userId String
   user         User     @relation(fields: [userId], references: [id])
+  applications Post[]
+}
+
+model Applicant {
+  id String @id @default(cuid())
+  name String
+  bio String
+  image String
+  title String
+  cv String
+  twitter String
+  linkedin String
+  otherLink String
+  applicationId String
+  appliedTo Post     @relation(fields: [applicationId], references: [id])
+  
 }
 
 model Post {
   id String @id @default(cuid())
   title String
   description String
-  intro String
   type String
+  options String
   benefits String[]
   location String
   category String
@@ -58,9 +71,13 @@ model Post {
   atsUrl String?
   salary String?
   image String
+  createdAt DateTime @default(now())
   companyId String
   companyName String
   company Company @relation(fields: [companyId], references: [id])
+  applicants Applicant[]
+  applicationId String 
+  application Talent @relation(fields: [applicationId], references: [id])
 }
 
 
@@ -122,5 +139,7 @@ model VerificationToken {
 
   @@unique([identifier, token])
 }
+
+
 
 

@@ -33,21 +33,16 @@ import { signOut, getSession, signIn } from "next-auth/react";
 import { useSession } from "next-auth/react";
 import { prisma } from "@/lib/prisma";
 import JobGrid from "@/components/JobGrid";
+import LandingJobGrid from "@/components/LandingJobGrid";
 import { Field } from "formik";
+import { PaddleLoader } from "@/components/PaddleLoader";
 
 export async function getServerSideProps(context) {
   const session = await getSession(context);
 
   const post = await prisma.post.findMany({
     take: 8,
-  });
-
-  const result = await prisma.post.findMany({
-    where: {
-      title: {
-        search: " ",
-      },
-    },
+    orderBy: { createdAt: "desc" },
   });
 
   const talents = await prisma.talent.findMany();
@@ -56,7 +51,6 @@ export async function getServerSideProps(context) {
       props: {
         post: JSON.parse(JSON.stringify(post)),
         talents: JSON.parse(JSON.stringify(talents)),
-        result: JSON.parse(JSON.stringify(result)),
       },
     };
   }
@@ -76,7 +70,7 @@ export async function getServerSideProps(context) {
   return {
     props: {
       post: JSON.parse(JSON.stringify(post)),
-      result: JSON.parse(JSON.stringify(result)),
+
       talent: JSON.parse(JSON.stringify(talent)),
       talents: JSON.parse(JSON.stringify(talents)),
       company: JSON.parse(JSON.stringify(company)),
@@ -89,22 +83,13 @@ export default function Home({
   talents = [],
   company = [],
   post = [],
-  result = [],
 }) {
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm();
-  const [title, setTitle] = useState(" ");
-  // console.log(errors);
-  const onSubmit = (data) => {
-    setTitle(data.title);
-    console.log(data);
-  };
-
+  const { data: session, status } = useSession();
+  const loggedIn = session?.user;
+  const addPost = console.log("successsssss");
   return (
     <>
+      <PaddleLoader />
       <Navbar talent={talent} company={company} />
 
       <section
@@ -114,67 +99,39 @@ export default function Home({
       >
         <LandingText>
           <Header>
-            Find Your Next Blockchain Job <br /> In The MENA Region
+            Where talent find jobs & <br /> recruiters find talent
           </Header>
           <LandingSub>
-            Join the Sensibility Letter, our weekly newsletter that makes sense
-            of teiicyrpto <br /> with a dash of jobs, talent, and information.
+            Join the crypto place so you can discover the most talented people &
+            find the <br /> best jobs in crypto all in one place.
           </LandingSub>
-          {talent ? (
-            <Link href="/jobs">
-              <button className="pushableLanding">
-                <span className="frontLanding"> Explore Jobs </span>
-              </button>
-            </Link>
-          ) : company ? (
-            <Link href="/talent">
-              <button className="pushableLanding">
-                <span className="frontLanding"> Explore Talent </span>
-              </button>
-            </Link>
+          {loggedIn ? (
+            <div>
+              {talent ? (
+                <Link href="/jobs">
+                  <button className="pushableLanding">
+                    <span className="frontLanding"> Explore Jobs </span>
+                  </button>
+                </Link>
+              ) : company ? (
+                <Link href="/talent">
+                  <button className="pushableLanding">
+                    <span className="frontLanding"> Explore Talent </span>
+                  </button>
+                </Link>
+              ) : (
+                <Link href="/welcomeToProbably">
+                  <button className="pushableLanding">
+                    <span className="frontLanding"> Create Profile </span>
+                  </button>
+                </Link>
+              )}
+            </div>
           ) : (
-            <Link href="/signin">
-              <button className="pushableLanding">
-                <span className="frontLanding"> Get Started </span>
-              </button>
-            </Link>
-          )}
-
-          {/* <Form onSubmit={handleSubmit(onSubmit)}>
-            <FormCon>
-              <span
-                style={{
-                  display: "inline-block",
-                  marginTop: "8px",
-                }}
-              >
-                {" "}
-                <img src="/Filters.png" />
-              </span>
-
-              <TitleSearch
-                type="text"
-                placeholder="Front-End Developer"
-                {...register("title", { required: true })}
-              />
-              <span
-                style={{
-                  display: "inline-block",
-                  marginTop: "8px",
-                }}
-              >
-                <img src="/Location.png" />
-              </span>
-              <LocationSearch
-                type="text"
-                {...register("location", { required: true })}
-                placeholder="Dubai / UAE"
-              />
-            </FormCon>
-            <button type="submit" className="pushableLanding">
-              <span className="frontLanding"> Let's Go </span>
+            <button onClick={() => signIn()} className="pushableLanding">
+              <span className="frontLanding"> Get Started </span>
             </button>
-          </Form> */}
+          )}
         </LandingText>
 
         <ImageOne src="/landingOne.png" />
@@ -182,12 +139,12 @@ export default function Home({
       </section>
 
       <Section>
-        <Subheader> +100 jobs uploaded per week </Subheader>
+        <Subheader> new jobs added every week </Subheader>
         <HeaderTwo> Latest Jobs </HeaderTwo>
-        <JobGrid result={result} post={post} />
+        <LandingJobGrid post={post} />
         <Link href="/jobs">
           <button className="pushableLanding">
-            <span className="frontLanding"> Explore Jobs </span>
+            <span className="frontLanding"> See more </span>
           </button>
         </Link>
       </Section>
@@ -199,20 +156,28 @@ export default function Home({
             Our weekly newsletter that makes sense of everything crypto with
             <br />a dash of jobs, talent, and information.
           </NewsLetterSub>
-          <form>
-            <NewsLetterInput placeholder="Enter your e-mail" />
+          <form
+            action="https://www.getrevue.co/profile/probablyxyz/add_subscriber"
+            method="post"
+            target="_blank"
+          >
+            <NewsLetterInput
+              placeholder="Enter your e-mail"
+              type="email"
+              name="member[email]"
+            />
             <NewsLetterButton> Let's Go </NewsLetterButton>
           </form>
         </NewsLetter>
       </Section>
 
       <Section style={{ marginTop: "20px" }}>
-        <Subheader> A large crypto talent base </Subheader>
+        <Subheader> Connect with the best crypto talent </Subheader>
         <HeaderTwo> Latest Talent </HeaderTwo>
         <TalentGrid talents={talents} />
         <Link href="/talent">
           <button className="pushableLanding">
-            <span className="frontLanding"> Explore Talent </span>
+            <span className="frontLanding"> See more </span>
           </button>
         </Link>
       </Section>

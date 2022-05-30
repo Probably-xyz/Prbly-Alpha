@@ -11,12 +11,12 @@ import {
 } from "@/components/styled-components/Components";
 import BlogCard from "./BlogCard";
 
-const BlogGrid = ({ blogs = [] }) => {
+const BlogGrid = (topicPost) => {
   return (
     <>
       <BlogSection>
-        {blogs.map((blog) => (
-          <BlogCard key={blog.id} {...blog} />
+        {topicPost.map((topicPost) => (
+          <BlogCard key={topicPost.sys.id} />
         ))}
       </BlogSection>
     </>

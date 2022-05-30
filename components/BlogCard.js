@@ -11,61 +11,36 @@ import {
   BlogSection,
   BlogCardComp,
   BadgeList,
-  BenefitBadge,
+  BlogBadge,
   TypeBadge,
+  BlogContent,
 } from "@/components/styled-components/Components";
 import PropTypes from "prop-types";
 
-const BlogCard = ({
-  id = "",
-  image = "",
-  title = "",
-  intro = "",
-  author = "",
-  content = "",
-  date = "",
-  category = "",
-}) => {
+const BlogCard = ({ topicPost }) => {
+  const { text, shortText, numbering, media } = topicPost.fields;
   return (
     <>
-      <BlogSection>
-        <BlogCardComp>
-          {image ? (
-            <Image src={image} alt={title} width={400} height={250} />
-          ) : null}
-          <Header
-            style={{
-              fontSize: "28px",
-              paddingTop: "20px",
-              paddingLeft: "20px",
-            }}
-          >
-            {title ?? ""}
-          </Header>
-          <Subheader style={{ fontSize: "18px", padding: "0 20px" }}>
-            {intro ?? ""}
-          </Subheader>
-          <BadgeList
-            style={{
-              paddingLeft: "20px",
-            }}
-          >
-            <BenefitBadge> {category ?? ""} </BenefitBadge>
-            <TypeBadge> {author ?? ""} </TypeBadge>
-          </BadgeList>
-
-          <Subheader
-            style={{
-              fontSize: "20px",
-              padding: "0 20px",
-              color: "var(--Accent)",
-              fontFamily: "Grotesk Medium",
-            }}
-          >
-            - Read More
-          </Subheader>
-        </BlogCardComp>
-      </BlogSection>
+      <BlogCardComp>
+        <div
+          style={{
+            width: "400px",
+            height: "220px",
+            background: "grey",
+            outline: "3px solid black",
+          }}
+        ></div>
+        <BlogBadge> Crypto </BlogBadge>
+        <BlogContent>
+          <h1>What Moves Crypto</h1>
+          <p>
+            {" "}
+            Several factors determine how the crypto market moves and although
+            they are sometimes unpredictable we still can get a somewhat close
+            understanding or forecast of how things work.
+          </p>
+        </BlogContent>
+      </BlogCardComp>
     </>
   );
 };

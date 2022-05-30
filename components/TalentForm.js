@@ -21,14 +21,27 @@ import {
 
 const ListingSchema = Yup.object().shape({
   name: Yup.string().trim().required(),
-  bio: Yup.string().trim().required(),
-  headline: Yup.string().trim().required(),
+  bio: Yup.string().required(),
   title: Yup.string().trim().required(),
-  twitter: Yup.string().trim().required(),
-  github: Yup.string().trim().required(),
-  linkedin: Yup.string().trim().required(),
-  otherLink: Yup.string().trim().required(),
-  skills: Yup.array().required(),
+  twitter: Yup.string()
+    .matches(
+      /((https?):\/\/)?(www.)?[a-z0-9]+(\.[a-z]{2,}){1,3}(#?\/?[a-zA-Z0-9#]+)*\/?(\?[a-zA-Z0-9-_]+=[a-zA-Z0-9-%]+&?)?$/,
+      "Probably should be a link"
+    )
+    .required(),
+  linkedin: Yup.string()
+    .matches(
+      /((https?):\/\/)?(www.)?[a-z0-9]+(\.[a-z]{2,}){1,3}(#?\/?[a-zA-Z0-9#]+)*\/?(\?[a-zA-Z0-9-_]+=[a-zA-Z0-9-%]+&?)?$/,
+      "Probably should be a link"
+    )
+    .required(),
+  otherLink: Yup.string()
+    .matches(
+      /((https?):\/\/)?(www.)?[a-z0-9]+(\.[a-z]{2,}){1,3}(#?\/?[a-zA-Z0-9#]+)*\/?(\?[a-zA-Z0-9-_]+=[a-zA-Z0-9-%]+&?)?$/,
+      "Probably should be a link"
+    )
+    .required(),
+  status: Yup.string().required(),
 });
 
 const TalentForm = ({
@@ -102,26 +115,17 @@ const TalentForm = ({
   const { image, cv, ...initialFormValues } = initialValues ?? {
     image: "",
     title: "",
-    headline: "",
     cv: "",
     name: "",
     bio: "",
     twitter: "",
     linkedin: "",
-    github: "",
     otherLink: "",
-    skills: [],
+    status: "",
   };
 
   return (
     <div>
-      {/* <div className="mb-8 max-w-md">
-        <ImageUpload
-          initialImage={{ src: image, alt: initialFormValues.name }}
-          onChangePicture={upload}
-        />
-      </div> */}
-
       <Formik
         initialValues={initialFormValues}
         validationSchema={ListingSchema}
@@ -131,7 +135,10 @@ const TalentForm = ({
         {({ isSubmitting, isValid }) => (
           <Form>
             <FormContainer>
-              <h1 style={{ fontSize: "40px" }}> Your Information </h1>
+              <h1 style={{ fontSize: "40px", marginLeft: "165px" }}>
+                {" "}
+                Your Information{" "}
+              </h1>
 
               <PostForm>
                 <FormColumn>
@@ -142,13 +149,7 @@ const TalentForm = ({
                     placeholder="Probably"
                     disabled={disabled}
                   />
-                  <FormLabel> Headline </FormLabel>
-                  <Input
-                    name="headline"
-                    type="text"
-                    placeholder="A short bio"
-                    disabled={disabled}
-                  />
+
                   <FormLabel> Title </FormLabel>
                   <Input
                     name="title"
@@ -156,22 +157,23 @@ const TalentForm = ({
                     placeholder="Front-End Engineer"
                     disabled={disabled}
                   />
-                  <FormLabel> Skills </FormLabel>
-                  <FormRadioControl
-                    role="group"
-                    aria-labelledby="checkbox-group"
-                  >
+                  <FormLabel> Status </FormLabel>
+                  <FormRadioControl role="group" aria-labelledby="radio-group">
                     <FormLabel>
-                      <Input type="checkbox" name="skills" value="React" />
-                      React
+                      <Input
+                        type="radio"
+                        name="status"
+                        value="Actively Looking"
+                      />
+                      Actively Looking
                     </FormLabel>
                     <FormLabel>
-                      <Input type="checkbox" name="skills" value="Web3" />
-                      Web3
-                    </FormLabel>
-                    <FormLabel>
-                      <Input type="checkbox" name="skills" value="HTML" />
-                      HTML
+                      <Input
+                        type="radio"
+                        name="status"
+                        value="Open to Offers"
+                      />
+                      Open to offers
                     </FormLabel>
                   </FormRadioControl>
 
@@ -182,13 +184,6 @@ const TalentForm = ({
                   />
                 </FormColumn>
                 <FormColumn>
-                  <FormLabel> Github </FormLabel>
-                  <Input
-                    name="github"
-                    type="text"
-                    placeholder="https://www.github.com/prbly"
-                    disabled={disabled}
-                  />
                   <FormLabel> Twitter </FormLabel>
                   <Input
                     name="twitter"
@@ -218,24 +213,39 @@ const TalentForm = ({
                 </FormColumn>
               </PostForm>
 
+              <FormLabel
+                style={{
+                  marginLeft: "162px",
+                }}
+              >
+                Bio
+              </FormLabel>
               <Input
                 name="bio"
                 type="textarea"
                 placeholder="We are coool AF"
                 disabled={disabled}
-              />
-              <Button
                 style={{
-                  width: "120px",
-                  height: "50px",
-                  position: "relative",
-                  top: "20px",
+                  marginLeft: "162px",
+                  marginTop: "15px",
+                  marginBottom: "20px",
                 }}
+              />
+
+              <button
+                className="pushableLanding"
                 type="submit"
                 disabled={disabled || !isValid}
+                style={{
+                  marginLeft: "162px",
+                  marginTop: "25px",
+                }}
               >
-                {isSubmitting ? "Submitting..." : buttonText}
-              </Button>
+                <span className="frontLanding">
+                  {" "}
+                  {isSubmitting ? "Submitting..." : buttonText}{" "}
+                </span>
+              </button>
             </FormContainer>
           </Form>
         )}
@@ -251,11 +261,9 @@ TalentForm.propTypes = {
     name: PropTypes.string,
     title: PropTypes.string,
     bio: PropTypes.string,
-    headline: PropTypes.string,
     twitter: PropTypes.string,
-    github: PropTypes.string,
     otherLink: PropTypes.string,
-    skills: PropTypes.array,
+    status: PropTypes.string,
     linkedin: PropTypes.string,
   }),
   redirectPath: PropTypes.string,

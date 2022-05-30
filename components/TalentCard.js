@@ -25,10 +25,10 @@ const TalentCardComp = ({
   bio = "",
   cv = "",
   title = "",
-  headline = "",
+
   twitter = "",
   linkedin = "",
-  skills = [],
+  status = "",
 }) => {
   return (
     <Link href={`/Talent/${id}`}>
@@ -47,8 +47,7 @@ const TalentCardComp = ({
         <TalentContent>
           <TalentTitle>{title ?? ""}</TalentTitle>
           <BadgeList>
-            <BenefitBadge>{skills[0] ?? ""}</BenefitBadge>
-            <TypeBadge> Open to Offers</TypeBadge>
+            <BenefitBadge>{status ?? ""}</BenefitBadge>
           </BadgeList>
           <TalentDesc> {bio ?? ""} </TalentDesc>
         </TalentContent>

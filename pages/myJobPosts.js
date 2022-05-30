@@ -2,7 +2,7 @@
 import React from "react";
 import { prisma } from "@/lib/prisma";
 import Grid from "@/components/Grid";
-import JobGrid from "@/components/JobGrid";
+import LandingJobGrid from "@/components/LandingJobGrid";
 import Navbar from "@/components/Navbar";
 import { getSession } from "next-auth/react";
 import { useState } from "react";
@@ -28,12 +28,11 @@ import {
 export async function getServerSideProps(context) {
   const session = await getSession(context);
 
-  const jobs = await prisma.post.findMany();
-
   if (!session) {
     return {
-      props: {
-        jobs: JSON.parse(JSON.stringify(jobs)),
+      redirect: {
+        destination: "/",
+        permanent: false,
       },
     };
   }
@@ -50,6 +49,13 @@ export async function getServerSideProps(context) {
     where: { userId: user.id },
   });
 
+  const jobs = await prisma.post.findMany({
+    where: {
+      companyId: company.id,
+    },
+    orderBy: { createdAt: "desc" },
+  });
+
   return {
     props: {
       jobs: JSON.parse(JSON.stringify(jobs)),
@@ -59,26 +65,25 @@ export async function getServerSideProps(context) {
   };
 }
 
-const Jobs = ({ jobs = [], talent = [], company = [] }) => {
+const MyJobPosts = ({ jobs = [], talent = [], company = [] }) => {
   return (
     <>
       <Navbar talent={talent} company={company} />
       <section style={{ marginBottom: "150px" }}>
         <LandingText>
-          <Header>Probably the best jobs for you</Header>
-          <LandingSub>
-            A list of jobs curated to your needs and prefrences
-          </LandingSub>
+          <Header> Your Job Posts </Header>
+          <LandingSub>A list of all your jobs posted on Probably</LandingSub>
         </LandingText>
-        <Section>
-          <JobGrid post={jobs} />
-        </Section>
 
         <ImageOne src="/landingOne.png" />
         <ImageTwo src="/landingTwo.png" />
+
+        <Section>
+          <LandingJobGrid post={jobs} />
+        </Section>
       </section>
 
-      <Section>
+      {/* <Section>
         <NewsLetter>
           <NewsLetterTitle>
             Want to recieve the latest jobs to your inbox?
@@ -92,9 +97,9 @@ const Jobs = ({ jobs = [], talent = [], company = [] }) => {
             <NewsLetterButton> Let's Go </NewsLetterButton>
           </form>
         </NewsLetter>
-      </Section>
+      </Section> */}
     </>
   );
 };
 
-export default Jobs;
+export default MyJobPosts;

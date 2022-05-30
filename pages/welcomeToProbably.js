@@ -13,6 +13,11 @@ import {
   ProfileCard,
   Header,
   Subheader,
+  LandingText,
+  LandingSub,
+  ProfileTitle,
+  ProfileFeatures,
+  FeatureItem,
 } from "@/components/styled-components/Components";
 
 export async function getServerSideProps(context) {
@@ -56,14 +61,14 @@ export default function WelcomeToProbably({ talent = [], company = [] }) {
         <h1> You probably should not be here </h1>
       ) : (
         <Section>
-          <div style={{ width: "600px", padding: "30px" }}>
-            <Header> Pick a profile type </Header>
-            <Subheader>
-              {" "}
-              Once you've chosen your preferred profile type you will be able to
-              access all the features you probably need{" "}
-            </Subheader>
-          </div>
+          <section>
+            <LandingText>
+              <Header>
+                Ready to join the crypto place? <br /> Choose your Profile
+              </Header>
+              <LandingSub>Find the top MENA crypto companies</LandingSub>
+            </LandingText>
+          </section>
           <div
             style={{
               display: "flex",
@@ -71,18 +76,50 @@ export default function WelcomeToProbably({ talent = [], company = [] }) {
               justifyContent: "space-between",
             }}
           >
-            <Link href="/createCompanyProfile">
-              <ProfileCard>
-                <h1> The Company Profile </h1>
-                Features here
-              </ProfileCard>
-            </Link>
-            <Link href="/createTalentProfile">
-              <ProfileCard>
-                <h1> The Talent Profile </h1>
-                Features here
-              </ProfileCard>
-            </Link>
+            <ProfileCard>
+              <ProfileTitle>Talent</ProfileTitle>
+              <p> for talented people in crypto </p>
+              <ProfileFeatures>
+                <FeatureItem>
+                  Apply to as many crypto jobs <br /> as you want
+                </FeatureItem>
+                <FeatureItem>
+                  Get feautered in the talent <br /> section
+                </FeatureItem>
+                <FeatureItem>
+                  10x your exposure to crypto <br /> recruiters
+                </FeatureItem>
+              </ProfileFeatures>
+              <Link href="/createTalentProfile">
+                <button className="pushable">
+                  <span className="front"> Get Started </span>
+                </button>
+              </Link>
+            </ProfileCard>
+
+            <ProfileCard>
+              <ProfileTitle>Company</ProfileTitle>
+              <p> for companies and recruiters in crypto </p>
+              <ProfileFeatures>
+                <FeatureItem>
+                  Post jobs to attract <br /> talent
+                </FeatureItem>
+                <FeatureItem>
+                  Get feautered in the company <br /> section
+                </FeatureItem>
+                <FeatureItem>
+                  10x your exposure to crypto <br /> talent
+                </FeatureItem>
+                <FeatureItem>
+                  On demand crypto talent to <br /> recruit
+                </FeatureItem>
+              </ProfileFeatures>
+              <Link href="/createCompanyProfile">
+                <button className="pushable">
+                  <span className="front"> Get Started </span>
+                </button>
+              </Link>
+            </ProfileCard>
           </div>
         </Section>
       )}

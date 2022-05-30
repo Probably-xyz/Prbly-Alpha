@@ -2,6 +2,7 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import PropTypes from "prop-types";
+
 import {
   CompanyContent,
   CompanyTitle,
@@ -40,7 +41,7 @@ const JobCard = ({
   return (
     <>
       {approved === true ? (
-        <Link href={`/companies/${id}`}>
+        <Link href={`/Jobs/${id}`}>
           {featured === true ? (
             <FeaturedJobPostCard>
               <JobContent>

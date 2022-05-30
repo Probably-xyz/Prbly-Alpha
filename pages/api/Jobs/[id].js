@@ -7,40 +7,33 @@ export default async function handler(req, res) {
     return res.status(401).json({ message: "Unauthorized " });
   }
 
+  const postId = req.query.id;
+
   if (req.method === "POST") {
     try {
-      const {
-        name,
-        bio,
-        image,
-        cv,
-        twitter,
-        linkedin,
-        otherLink,
-        status,
-        title,
-      } = req.body;
-
-      const user = await prisma.user.findUnique({
+      const user = await prisma.talent.findUnique({
         where: { email: session.user.email },
       });
 
-      const talent = await prisma.talent.create({
+      const post = await prisma.post.findUnique({
+        where: { id: postId },
+      });
+
+      const application = await prisma.applicant.create({
         data: {
-          image,
-          bio,
-          title,
-          name,
-          cv,
-          twitter,
-          linkedin,
-          otherLink,
-          status,
-          userId: user.id,
+          name: user.name,
+          bio: user.bio,
+          image: user.image,
+          title: user.title,
+          cv: user.cv,
+          twitter: user.twitter,
+          linkedin: user.linkedin,
+          otherLink: user.otherLink,
+          applicantId: post.id,
         },
       });
 
-      res.status(200).json(talent);
+      res.status(200).json(application);
     } catch (e) {
       res.status(500).json({ message: "Something went wrong" });
     }

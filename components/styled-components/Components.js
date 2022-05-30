@@ -120,7 +120,6 @@ export const FormCon = styled.div`
   border-radius: 0px;
   width: 900px;
   height: 70px;
-  margin-right: 20px;
   padding: 10px;
 `;
 
@@ -128,15 +127,17 @@ export const Form = styled.form`
   display: flex;
   flex-direction: row;
   align-items: center;
-  /* justify-content: space-around; */
-  /* outline: 3px solid var(--Dark); */
+  justify-content: space-around;
+  outline: 3px solid var(--Dark);
   border-radius: 0px;
-  width: 1100px;
+  width: 1050px;
   height: 70px;
+  margin-bottom: 100px;
+  margin-top: 40px;
 `;
 
 export const TitleSearch = styled.input`
-  width: 450px;
+  width: 500px;
   height: 70px;
   background-color: var(--PrimaryBg);
   border: none !important;
@@ -146,7 +147,7 @@ export const TitleSearch = styled.input`
 `;
 
 export const LocationSearch = styled.input`
-  width: 450px;
+  width: 500px;
   height: 70px;
   background-color: var(--PrimaryBg);
   border: none !important;
@@ -168,7 +169,17 @@ export const LocationSearch = styled.input`
 export const JobPostSection = styled.div`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: 1fr;
+  grid-template-rows: 0fr;
+  column-gap: 90px;
+  grid-row-gap: 0px;
+  margin-top: 30px;
+  justify-items: center;
+`;
+
+export const CompanySection = styled.div`
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 0fr;
   column-gap: 90px;
   grid-row-gap: 0px;
   margin-top: 30px;
@@ -178,6 +189,22 @@ export const JobPostSection = styled.div`
 export const JobPostCard = styled.div`
   width: 300px;
   height: 250px;
+  outline: 4px solid var(--Dark);
+  border-radius: 0px;
+  transition: all 0.3s ease-in-out;
+  margin: 0px;
+  padding: 0px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: var(--Accent);
+    box-shadow: 15px 15px 0px var(--Dark);
+  }
+`;
+
+export const CompanyCardComp = styled.div`
+  width: 400px;
+  height: 320px;
   outline: 4px solid var(--Dark);
   border-radius: 0px;
   transition: all 0.3s ease-in-out;
@@ -210,7 +237,7 @@ export const FeaturedJobPostCard = styled.div`
     width: 55px;
     height: 55px;
     position: relative;
-    bottom: 225px;
+    bottom: 245px;
     left: 240px;
     background-repeat: no-repeat;
   }
@@ -218,7 +245,8 @@ export const FeaturedJobPostCard = styled.div`
 
 export const JobPostContent = styled.ul`
   text-align: left;
-  width: 280px;
+  width: 300px;
+  height: 250px;
   list-style-type: none;
   padding: 0px 20px;
 `;
@@ -236,8 +264,8 @@ export const JobPostTitle = styled.h2`
   font-size: 18px;
   position: relative;
   bottom: 0px;
-  margin: 5px 0px;
-  margin-bottom: 30px;
+  margin: 10px 0px;
+  margin-bottom: 15px;
 `;
 
 export const JobPostSub = styled.p`
@@ -333,24 +361,47 @@ export const NewsLetterButton = styled.button`
 
 export const BlogSection = styled.div`
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   grid-template-rows: 1fr;
   column-gap: 0px;
   grid-row-gap: 0px;
   margin-top: 30px;
   justify-items: center;
-  padding: 0px 30px;
+  padding: 0px 10px;
 `;
 
 export const BlogCardComp = styled.div`
   width: 400px;
-  height: 500px;
+  height: 520px;
   outline: 3px solid var(--Dark);
   border-radius: 0px;
+  /* padding: 10px 5px; */
   transition: all 0.3s ease-in-out;
+  cursor: pointer;
   &:hover {
     box-shadow: 15px 15px 0px #000000;
   }
+`;
+
+export const BlogContent = styled.div`
+  padding: 0px 10px;
+`;
+
+export const BlogBadge = styled.div`
+  background-color: var(--Secondary);
+  color: var(--Dark);
+  font-family: "Grotesk Medium";
+  border-radius: 0px;
+  outline: 2px solid var(--Dark);
+  font-size: 18px;
+  width: 150px;
+  height: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  left: 115px;
+  top: -20px;
 `;
 
 export const CompanyContent = styled.div`
@@ -366,7 +417,7 @@ export const CompanyContent = styled.div`
 export const JobContent = styled.div`
   text-align: left;
   width: 280px;
-  height: 230px;
+  height: 250px;
   list-style-type: none;
   padding: 20px 20px;
   overflow: hidden;
@@ -396,11 +447,10 @@ export const CompanySub = styled.p`
 
 export const FormContainer = styled.div`
   padding: 40px 40px;
-  border-radius: 10px;
-  /* outline: 5px solid var(--Dark); */
-  position: absolute;
-  /* left: 50%; */
-  /* transform: translateX(50%); */
+  border-radius: 0px;
+  outline: 3px solid var(--Dark);
+  margin: 50px 0px;
+  box-shadow: 0 0 10px var(--Dark);
 `;
 
 export const FormColumn = styled.div`
@@ -420,11 +470,11 @@ export const PostForm = styled.div`
 export const FormInput = styled.input`
   width: 600px;
   height: 80px;
-  outline: 5px solid var(--Dark);
+  outline: 3px solid var(--Dark);
   border: none !important;
   padding: 20px 20px;
   background-color: transparent;
-  border-radius: 10px;
+  border-radius: 0px;
   color: var(--Dark);
   font-size: 20px;
   font-family: "Grotesk Regular";
@@ -435,16 +485,14 @@ export const FormInput = styled.input`
   }
 `;
 
-export const FormImage = styled.button`
+export const FormSelect = styled.select`
   width: 600px;
   height: 80px;
-  outline: 5px solid var(--Dark);
+  outline: 3px solid var(--Dark);
   border: none !important;
   padding: 20px 20px;
-  background-color: var(--Accent);
-  box-shadow: 10px 10px 0px #000000;
-  outline: 5px solid #000;
-  border-radius: 10px;
+  background-color: transparent;
+  border-radius: 0px;
   color: var(--Dark);
   font-size: 20px;
   font-family: "Grotesk Regular";
@@ -452,14 +500,31 @@ export const FormImage = styled.button`
   margin-right: 60px;
 `;
 
+export const FormImage = styled.button`
+  width: 600px;
+  height: 80px;
+  outline: 3px solid var(--Dark);
+  border: none !important;
+  padding: 20px 20px;
+  background-color: var(--Accent);
+  box-shadow: 10px 10px 0px #000000;
+  border-radius: 0px;
+  color: var(--Dark);
+  font-size: 20px;
+  font-family: "Grotesk Medium";
+  margin-bottom: 60px;
+  margin-right: 60px;
+  cursor: pointer;
+`;
+
 export const FormTextArea = styled.textarea`
   width: 600px;
   height: 220px;
-  outline: 5px solid var(--Dark);
+  outline: 3px solid var(--Dark);
   border: none !important;
   padding: 20px 20px;
   background-color: transparent;
-  border-radius: 10px;
+  border-radius: 0px;
   color: var(--Dark);
   font-size: 20px;
   font-family: "Grotesk Regular";
@@ -479,13 +544,13 @@ export const TalentList = styled.ul`
   list-style: none;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 80px;
+  margin-bottom: 50px;
 `;
 
 export const TalentCard = styled.div`
   width: 1070px;
   height: 250px;
-  outline: 5px solid #000;
+  outline: 3px solid var(--Dark);
   border-radius: 0px;
   transition: all 0.3s ease-in-out;
   display: flex;
@@ -493,6 +558,8 @@ export const TalentCard = styled.div`
   /* justify-content: space-between; */
   align-items: center;
   padding: 0px 20px;
+  cursor: pointer;
+  margin-bottom: 35px;
   &:hover {
     box-shadow: 15px 15px 0px #000000;
   }
@@ -527,22 +594,17 @@ export const TalentDesc = styled.p`
 export const ProfileCard = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: center;
-  padding: 20px;
-  width: 300px;
-  height: 400px;
+  padding: 35px 55px;
+  width: 450px;
+  height: 480px;
   box-shadow: 15px 15px 0px #000000;
   outline: 3px solid #000;
   border-radius: 0px;
   margin-right: 50px;
   margin-left: 50px;
-  background-color: var(--Accent);
-  cursor: pointer;
-  transition: ease-out 0.8s;
+  background-color: var(--PrimaryBg);
 
-  &:hover {
-    transform: scale(1.1);
-  }
+  transition: ease-out 0.8s;
 `;
 
 export const FormRadioControl = styled.div`
@@ -558,4 +620,43 @@ export const RadioControl = styled.input`
   border-radius: 5px;
   height: 20px;
   color: var(--Accent);
+`;
+
+export const ProfileTitle = styled.h1`
+  font-size: 30px;
+  font-family: "Grotesk Bold";
+  color: var(--Dark);
+  margin: -15px 0px;
+  padding: 0px 0px;
+`;
+
+export const ProfileFeatures = styled.ul`
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  right: 50px;
+  bottom: 0px;
+  list-style-type: none;
+  width: 900px;
+  margin: 10px 0px;
+`;
+
+export const FeatureItem = styled.li`
+  font-size: 20px;
+  color: var(--Dark);
+  font-family: "Grotesk Medium";
+  display: inline;
+  background-image: url("/listIcon.png");
+  background-repeat: no-repeat;
+  height: 34px;
+  padding-left: 50px;
+  margin-bottom: 40px;
+  /* padding-right: 20px; */
+
+  /* &:before {
+    content: url("/listIcon.png");
+    position: relative;
+    top: 15px;
+    margin-right: 10px;
+  } */
 `;

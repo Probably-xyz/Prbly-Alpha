@@ -10,7 +10,9 @@ import {
   FormColumn,
   FormContainer,
   RadioControl,
+  FormSelect,
 } from "./styled-components/Components";
+import { toast } from "react-hot-toast";
 
 const Input = ({ type = "", label = "", className = "", ...props }) => {
   const [field, meta] = useField(props);
@@ -25,7 +27,11 @@ const Input = ({ type = "", label = "", className = "", ...props }) => {
           name="email"
           style={{
             color: "red",
-            marginBottom: "20px",
+            margin: "0px",
+            display: "flex",
+            position: "relative",
+            padding: "0",
+            bottom: "15px",
           }}
         >
           {error}
@@ -55,7 +61,7 @@ const Input = ({ type = "", label = "", className = "", ...props }) => {
       ) : null}
 
       {type === "select" ? (
-        <FormInput {...field} {...props} type={type} />
+        <FormSelect {...field} {...props} type={type} />
       ) : null}
     </div>
   );

@@ -12,7 +12,7 @@ import {
   NavList,
   NavBtn,
   JobBtn,
-  LoginBtn,
+  SignIn,
 } from "@/components/styled-components/Nav";
 
 import { signOut, getSession, signIn } from "next-auth/react";
@@ -68,7 +68,7 @@ const Navbar = ({ talent = [], company = [] }) => {
                 {talent ? (
                   <Link href="/random1"> Applied to </Link>
                 ) : company ? (
-                  <Link href="/random2"> Posts </Link>
+                  <Link href="/myJobPosts"> Posts </Link>
                 ) : null}
                 {talent ? (
                   <Link href="/random1"> Talent Profile </Link>
@@ -78,9 +78,7 @@ const Navbar = ({ talent = [], company = [] }) => {
               </div>
             </div>
           ) : (
-            <button onClick={() => signIn()} className="pushable">
-              <span className="front"> Sign in </span>
-            </button>
+            <SignIn onClick={() => signIn()}> Sign in </SignIn>
             // <JobBtn onClick={() => signIn()}> Sign In </JobBtn>
           )}
 

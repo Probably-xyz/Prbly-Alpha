@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import React from "react";
 import { prisma } from "@/lib/prisma";
 import Grid from "@/components/Grid";
@@ -7,6 +8,14 @@ import {
   Section,
   Header,
   Subheader,
+  LandingText,
+  LandingSub,
+  ImageOne,
+  ImageTwo,
+  TalentSignUp,
+  NewsLetterTitle,
+  NewsLetterSub,
+  NewsLetterButton,
 } from "@/components/styled-components/Components";
 
 export async function getServerSideProps(context) {
@@ -47,16 +56,30 @@ const Companies = ({ companies = [], talent = [], company = [] }) => {
   return (
     <>
       <Navbar talent={talent} company={company} />
-      <Section style={{ marginTop: "70px" }}>
-        <Header style={{ fontSize: "40px" }}>
-          {" "}
-          Explore our list of companies{" "}
-        </Header>
-        <Subheader>
-          {" "}
-          Some description to describe this and stufff idk hww{" "}
-        </Subheader>
+      <section>
+        <LandingText>
+          <Header>
+            Probably the coolest companies <br /> in the region{" "}
+          </Header>
+          <LandingSub> Find the top MENA crypto companies </LandingSub>
+        </LandingText>
+        <ImageOne src="/landingOne.png" />
+        <ImageTwo src="/landingTwo.png" />
+      </section>
+
+      <Section>
+        <TalentSignUp>
+          <div>
+            <NewsLetterTitle> Want to be featured here? </NewsLetterTitle>
+            <NewsLetterSub>
+              Simply create an account and 10x your chance <br /> of hiring top
+              cyrpto talent
+            </NewsLetterSub>
+          </div>
+          <NewsLetterButton> Let's Go </NewsLetterButton>
+        </TalentSignUp>
       </Section>
+
       <Grid companies={companies} />
     </>
   );
