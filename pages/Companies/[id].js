@@ -30,11 +30,19 @@ import { prisma } from "@/lib/prisma";
 import { createClient } from "contentful";
 import Link from "next/link";
 import ReactMarkdown from "react-markdown";
+import { useRouter } from "next/router";
 
 const ListedCompany = ({ company = null, jobs = [], companyDesc }) => {
   console.log(jobs);
 
   const markdownContent = company?.bio ?? "";
+
+  const router = useRouter();
+
+  // Fallback version
+  if (router.isFallback) {
+    return "Loading...";
+  }
 
   return (
     <>
@@ -103,7 +111,7 @@ export async function getStaticPaths() {
     paths: companies.map((company) => ({
       params: { id: company.id },
     })),
-    fallback: false,
+    fallback: true,
   };
 }
 

@@ -26,8 +26,16 @@ import {
 } from "@/components/styled-components/Slug";
 import Image from "next/image";
 import { prisma } from "@/lib/prisma";
+import { useRouter } from "next/router";
 
 const ListedTalent = (talent = null) => {
+  const router = useRouter();
+
+  // Fallback version
+  if (router.isFallback) {
+    return "Loading...";
+  }
+
   return (
     <>
       <Navbar />
@@ -89,7 +97,7 @@ export async function getStaticPaths() {
     paths: talent.map((talent) => ({
       params: { id: talent.id },
     })),
-    fallback: false,
+    fallback: true,
   };
 }
 

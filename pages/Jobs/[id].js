@@ -39,12 +39,20 @@ import Image from "next/image";
 import Link from "next/link";
 import axios from "axios";
 import { prisma } from "@/lib/prisma";
+import { useRouter } from "next/router";
 
 const ListedJob = ({ post = null, similarPosts = [] }) => {
   const id = post.id;
   const markdown = post?.description ?? "";
   const applyToJob = () => axios.post(`/api/Jobs/${id}`);
   const postExist = similarPosts.length > 0;
+
+  const router = useRouter();
+
+  // Fallback version
+  if (router.isFallback) {
+    return "Loading...";
+  }
 
   return (
     <>
@@ -149,7 +157,7 @@ export async function getStaticPaths() {
       params: { id: post.id },
     })),
 
-    fallback: false,
+    fallback: true,
   };
 }
 
