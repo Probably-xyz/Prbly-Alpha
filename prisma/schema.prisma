@@ -41,6 +41,22 @@ model Talent {
   user         User     @relation(fields: [userId], references: [id])
 }
 
+model Applicant {
+  id String @id @default(cuid())
+  name String
+  bio String
+  image String
+  title String
+  cv String
+  twitter String
+  linkedin String
+  createdAt DateTime @default(now())
+  otherLink String
+  status String
+  applicationId String 
+  application Post @relation(fields: [applicationId], references: [id])
+}
+
 
 
 model Post {
@@ -61,6 +77,7 @@ model Post {
   companyId String
   companyName String
   company Company @relation(fields: [companyId], references: [id])
+  applicants Applicant[]
 }
 
 

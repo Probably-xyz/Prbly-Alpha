@@ -68,11 +68,43 @@ export const LandingText = styled.section`
 export const ImageOne = styled.img`
   position: absolute;
   bottom: 250px;
+
+  @media only screen and (max-width: 1440px) {
+    bottom: 300px;
+    right: 1150px;
+  }
 `;
 export const ImageTwo = styled.img`
   position: absolute;
   left: 1555px;
   bottom: 500px;
+
+  @media only screen and (max-width: 1440px) {
+    bottom: 580px;
+    left: 1147px;
+    width: 300px;
+  }
+`;
+
+export const ImageOneJob = styled.img`
+  position: absolute;
+  bottom: 250px;
+
+  @media only screen and (max-width: 1440px) {
+    bottom: 325px;
+    right: 1270px;
+  }
+`;
+export const ImageTwoJob = styled.img`
+  position: absolute;
+  left: 1555px;
+  bottom: 500px;
+
+  @media only screen and (max-width: 1440px) {
+    bottom: 610px;
+    left: 1280px;
+    width: 250px;
+  }
 `;
 
 export const BadgeList = styled.span`
@@ -174,6 +206,10 @@ export const JobPostSection = styled.div`
   grid-row-gap: 0px;
   margin-top: 30px;
   justify-items: center;
+
+  @media screen and (max-width: 1440px) {
+    column-gap: 40px;
+  }
 `;
 
 export const CompanySection = styled.div`

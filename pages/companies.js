@@ -10,8 +10,8 @@ import {
   Subheader,
   LandingText,
   LandingSub,
-  ImageOne,
-  ImageTwo,
+  ImageOneJob,
+  ImageTwoJob,
   TalentSignUp,
   NewsLetterTitle,
   NewsLetterSub,
@@ -63,8 +63,8 @@ const Companies = ({ companies = [], talent = [], company = [] }) => {
           </Header>
           <LandingSub> Find the top MENA crypto companies </LandingSub>
         </LandingText>
-        <ImageOne src="/landingOne.png" />
-        <ImageTwo src="/landingTwo.png" />
+        <ImageOneJob src="/landingOne.png" />
+        <ImageTwoJob src="/landingTwo.png" />
       </section>
 
       <Section>

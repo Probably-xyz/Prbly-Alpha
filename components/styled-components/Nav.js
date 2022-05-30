@@ -62,6 +62,10 @@ export const NavList = styled.ul`
   /* outline: 3px solid var(--Dark); */
   border-radius: 0px;
   padding: 10px;
+
+  @media screen and (max-width: 1440px) {
+    margin-right: -100px;
+  }
 `;
 
 export const NavItem = styled.li`
@@ -79,6 +83,10 @@ export const NavLink = styled.p`
   font-family: "Grotesk Medium";
   font-size: 20px;
   transition: 0.3s ease-in-out;
+
+  @media screen and (max-width: 1440px) {
+    padding: 1.2rem 2.7rem;
+  }
 `;
 
 export const NavBtn = styled.nav`

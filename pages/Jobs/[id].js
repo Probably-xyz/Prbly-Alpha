@@ -44,7 +44,9 @@ import { useRouter } from "next/router";
 const ListedJob = ({ post = null, similarPosts = [] }) => {
   // const id = post.id;
   const markdown = post?.description ?? "";
-  // const applyToJob = () => axios.post(`/api/Jobs/${id}`);
+  const apply = (id) => {
+    axios.post(`/api/post/${post.id}`);
+  };
   const postExist = similarPosts.length > 0;
 
   const router = useRouter();
@@ -119,7 +121,7 @@ const ListedJob = ({ post = null, similarPosts = [] }) => {
         <ApplyToJob>
           <h2> Ready to apply for this job opening?</h2>
           <p>Save a lot of time by applying with your Probably profile.</p>
-          <AtsButton> Apply </AtsButton>
+          <AtsButton onClick={apply}> Apply </AtsButton>
         </ApplyToJob>
       )}
 

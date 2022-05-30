@@ -11,8 +11,8 @@ import {
   BlogSection,
   LandingText,
   LandingSub,
-  ImageOne,
-  ImageTwo,
+  ImageOneJob,
+  ImageTwoJob,
   TalentSignUp,
   NewsLetterTitle,
   NewsLetterSub,
@@ -65,8 +65,8 @@ const Blog = ({ talent = [], company = [], topicPost }) => {
           </Header>
           <LandingSub> Insights, data, & articles all in one place </LandingSub>
         </LandingText>
-        <ImageOne src="/landingOne.png" />
-        <ImageTwo src="/landingTwo.png" />
+        <ImageOneJob src="/landingOne.png" />
+        <ImageTwoJob src="/landingTwo.png" />
       </section>
       <BlogSection>
         {topicPost.map((topicPost) => (

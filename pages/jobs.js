@@ -12,8 +12,8 @@ import {
   Subheader,
   LandingText,
   LandingSub,
-  ImageOne,
-  ImageTwo,
+  ImageOneJob,
+  ImageTwoJob,
   Form,
   FormCon,
   LocationSearch,
@@ -70,12 +70,13 @@ const Jobs = ({ jobs = [], talent = [], company = [] }) => {
             A list of jobs curated to your needs and prefrences
           </LandingSub>
         </LandingText>
+
+        <ImageOneJob src="/landingOne.png" />
+        <ImageTwoJob src="/landingTwo.png" />
+
         <Section>
           <JobGrid post={jobs} />
         </Section>
-
-        <ImageOne src="/landingOne.png" />
-        <ImageTwo src="/landingTwo.png" />
       </section>
 
       <Section>
