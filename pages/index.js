@@ -26,7 +26,9 @@ import {
   ImageTwo,
   HeaderTwo,
   NewsLetterButton,
+  BlogSection,
 } from "@/components/styled-components/Components";
+import BlogCard from "@/components/BlogCard";
 import NavbarLanding from "@/components/NavbarLanding";
 import TalentGrid from "@/components/TalentGrid";
 import { signOut, getSession, signIn } from "next-auth/react";
@@ -36,6 +38,7 @@ import JobGrid from "@/components/JobGrid";
 import LandingJobGrid from "@/components/LandingJobGrid";
 import { Field } from "formik";
 import { PaddleLoader } from "@/components/PaddleLoader";
+import { createClient } from "contentful";
 
 export async function getServerSideProps(context) {
   const session = await getSession(context);
@@ -45,12 +48,22 @@ export async function getServerSideProps(context) {
     orderBy: { createdAt: "desc" },
   });
 
+  const client = createClient({
+    space: process.env.CONTENTFUL_SPACE_ID,
+    accessToken: process.env.CONTENTFUL_API_TOKEN,
+  });
+
+  const res = await client.getEntries({
+    content_type: "blogPost",
+  });
+
   const talents = await prisma.talent.findMany();
   if (!session) {
     return {
       props: {
         post: JSON.parse(JSON.stringify(post)),
         talents: JSON.parse(JSON.stringify(talents)),
+        blogPost: res.items,
       },
     };
   }
@@ -70,7 +83,7 @@ export async function getServerSideProps(context) {
   return {
     props: {
       post: JSON.parse(JSON.stringify(post)),
-
+      blogPost: res.items,
       talent: JSON.parse(JSON.stringify(talent)),
       talents: JSON.parse(JSON.stringify(talents)),
       company: JSON.parse(JSON.stringify(company)),
@@ -83,6 +96,7 @@ export default function Home({
   talents = [],
   company = [],
   post = [],
+  blogPost,
 }) {
   const { data: session, status } = useSession();
   const loggedIn = session?.user;
@@ -176,6 +190,23 @@ export default function Home({
         <HeaderTwo> Latest Talent </HeaderTwo>
         <TalentGrid talents={talents} />
         <Link href="/talent">
+          <button className="pushableLanding">
+            <span className="frontLanding"> See more </span>
+          </button>
+        </Link>
+      </Section>
+
+      <Section style={{ marginTop: "120px" }}>
+        <Subheader> A blog covering all topics crypto </Subheader>
+        <HeaderTwo> Latest Articles </HeaderTwo>
+      </Section>
+      <BlogSection>
+        {blogPost.map((blogPost) => (
+          <BlogCard key={blogPost.sys.id} blogPost={blogPost} />
+        ))}
+      </BlogSection>
+      <Section style={{ marginTop: "50px" }}>
+        <Link href="/blog">
           <button className="pushableLanding">
             <span className="frontLanding"> See more </span>
           </button>

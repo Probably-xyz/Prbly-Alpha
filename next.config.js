@@ -5,6 +5,7 @@ const nextConfig = {
     domains: [
       "arfngkjkokcduwvpwghk.supabase.in",
       "arfngkjkokcduwvpwghk.supabase.co",
+      "images.ctfassets.net",
     ],
   },
 };

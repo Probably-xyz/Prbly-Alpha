@@ -41,20 +41,19 @@ export async function getServerSideProps(context) {
   });
 
   const res = await client.getEntries({
-    content_type: "topicPost",
+    content_type: "blogPost",
   });
 
   return {
     props: {
       talent: JSON.parse(JSON.stringify(talent)),
       company: JSON.parse(JSON.stringify(company)),
-      topicPost: res.items,
+      blogPost: res.items,
     },
   };
 }
 
-const Blog = ({ talent = [], company = [], topicPost }) => {
-  console.log(topicPost);
+const Blog = ({ talent = [], company = [], blogPost }) => {
   return (
     <>
       <Navbar talent={talent} company={company} />
@@ -69,8 +68,8 @@ const Blog = ({ talent = [], company = [], topicPost }) => {
         <ImageTwoJob src="/landingTwo.png" />
       </section>
       <BlogSection>
-        {topicPost.map((topicPost) => (
-          <BlogCard key={topicPost.sys.id} topicPost={topicPost} />
+        {blogPost.map((blogPost) => (
+          <BlogCard key={blogPost.sys.id} blogPost={blogPost} />
         ))}
       </BlogSection>
     </>
