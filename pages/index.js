@@ -57,7 +57,11 @@ export async function getServerSideProps(context) {
     content_type: "blogPost",
   });
 
-  const talents = await prisma.talent.findMany();
+  const talents = await prisma.talent.findMany({
+    take: 3,
+    orderBy: { createdAt: "desc" },
+  });
+
   if (!session) {
     return {
       props: {

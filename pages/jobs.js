@@ -88,9 +88,12 @@ const Jobs = ({ jobs = [], talent = [], company = [] }) => {
             Our weekly newsletter that makes sense of everything crypto with
             <br />a dash of jobs, talent, and information.
           </NewsLetterSub>
-          <form>
-            <NewsLetterInput placeholder="Enter your e-mail" />
-            <NewsLetterButton> Let's Go </NewsLetterButton>
+          <form action="https://www.getrevue.co/profile/probablyxyz/add_subscriber"
+            method="post"
+            target="_blank">
+            <NewsLetterInput placeholder="Enter your e-mail" type="email"
+              name="member[email]" />
+            <NewsLetterButton type="submit" > Let's Go </NewsLetterButton>
           </form>
         </NewsLetter>
       </Section>

@@ -17,6 +17,7 @@ import {
   NewsLetterSub,
   NewsLetterButton,
 } from "@/components/styled-components/Components";
+import Link from 'next/link'
 
 export async function getServerSideProps(context) {
   const session = await getSession(context);
@@ -76,7 +77,9 @@ const Companies = ({ companies = [], talent = [], company = [] }) => {
               cyrpto talent
             </NewsLetterSub>
           </div>
+          <Link href="/api/auth/signin">
           <NewsLetterButton> Let's Go </NewsLetterButton>
+          </Link>
         </TalentSignUp>
       </Section>
 

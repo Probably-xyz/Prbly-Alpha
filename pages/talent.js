@@ -17,6 +17,7 @@ import {
   NewsLetterButton,
 } from "@/components/styled-components/Components";
 import { getSession } from "next-auth/react";
+import Link from "next/link"
 
 export async function getServerSideProps(context) {
   const session = await getSession(context);
@@ -72,7 +73,9 @@ const Talent = ({ talents = [], talent = [], company = [] }) => {
               job in crypto
             </NewsLetterSub>
           </div>
+          <Link href="/api/auth/signin/">
           <NewsLetterButton> Let's Go</NewsLetterButton>
+          </Link>
         </TalentSignUp>
       </Section>
 
