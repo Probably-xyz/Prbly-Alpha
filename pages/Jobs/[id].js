@@ -128,7 +128,7 @@ const ListedJob = ({ post = null, similarPosts = [] }) => {
 
       {postExist ? (
         <>
-          <h1 style={{ marginLeft: "120px" }}> Similar Jobs </h1>
+          <h1 style={{ marginLeft: "80px" , marginTop: "100px" }}> Similar Jobs </h1>
           <SlugJobGrid post={similarPosts} />
         </>
       ) : null}

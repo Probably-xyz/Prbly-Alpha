@@ -222,7 +222,7 @@ export const ApplyToJob = styled.div`
 
   @media only screen and (max-width: 1440px){
     left: 70%;
-    bottom: 390px;
+    bottom: 360px;
   }
 `;
 
@@ -293,7 +293,7 @@ export const SlugJobPostSection = styled.div`
   grid-template-rows: 0fr;
   column-gap: 80px;
   grid-row-gap: 0px;
-  margin-top: 0px;
-  margin-left: 100px;
+  margin-top: 25px;
+  margin-left: 70px;
   /* justify-items: center; */
 `;
