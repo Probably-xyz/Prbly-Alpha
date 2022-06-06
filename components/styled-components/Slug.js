@@ -16,6 +16,35 @@ export const Container = styled.div`
   }
 `;
 
+export const BlogContainer = styled.div`
+  outline: 3px solid var(--Dark);
+  padding: 0px;
+  margin: 80px 0px;
+  width: 1200px;
+`;
+
+export const BlogContent = styled.div`
+  width: 1150px;
+  padding: 0px 20px;
+`;
+
+export const BlogDate = styled.div`
+  display: block;
+  padding: 20px;
+  margin-bottom: 30px;
+  font-size: 18px;
+  font-family: "Grotesk Medium";
+  color: var(--Dark);
+
+  &::before {
+    content: url("/Template.png");
+    position: relative;
+    top: 25px;
+    right: 10px;
+    background-repeat: no-repeat;
+  }
+`;
+
 export const CompanyInfo = styled.div`
   display: flex;
   flex-direction: row;
