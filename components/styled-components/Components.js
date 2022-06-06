@@ -323,7 +323,7 @@ export const NewsLetter = styled.div`
   padding: 5px 25px;
   box-shadow: 13px 23px 13px -3px rgba(25, 25, 30, 0.2);
   &::after {
-    content: url("/Mail.png");
+    content: url("/mail.png");
     width: 55px;
     height: 55px;
     position: relative;
