@@ -55,6 +55,35 @@ a {
   font-display: swap;
 }
 
+
+.form-text{
+    margin-top: 15px;
+    margin-bottom: 20px;
+    margin-left: 162px;
+}
+
+.form-label{
+  margin-left: 162px;
+}
+
+@media screen and (max-width: 1440px){
+  .form-text{
+    margin-left: 8px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+
+  .form-label{
+    margin-left: 15px;
+  }
+}
+
+
+
+
+
+
 .dropdown {
   float: left;
   overflow: hidden;

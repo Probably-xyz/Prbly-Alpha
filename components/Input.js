@@ -45,7 +45,7 @@ const Input = ({ type = "", label = "", className = "", ...props }) => {
       </div>
 
       <div>
-        {type === "textarea" ? <FormTextArea {...field} {...props} /> : null}
+        {type === "textarea" ? <FormTextArea {...field} {...props}  className="form-text"/> : null}
 
         {type === "text" ? (
           <FormInput {...field} {...props} type={type} />

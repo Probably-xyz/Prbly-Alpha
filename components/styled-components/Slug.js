@@ -7,6 +7,13 @@ export const Container = styled.div`
   margin: 0px 100px;
   margin-top: 100px;
   margin-bottom: 0px;
+
+  @media screen and (max-width: 1440px){
+      width: 900px;
+      margin: 0px 60px;
+      margin-top: 60px;
+      
+  }
 `;
 
 export const CompanyInfo = styled.div`
@@ -46,6 +53,10 @@ export const TalentContent = styled.div`
   border-radius: 0px;
   margin: 0px 100px;
   padding: 15px;
+
+  @media screen and (max-width: 1440px){
+      margin: 0px 40px;
+  }
 `;
 
 export const TalentIntro = styled.div`
@@ -140,7 +151,7 @@ export const PaymentTalent = styled.div`
   height: 150px;
   outline: 3px solid var(--Dark);
   border-radius: 0px;
-  position: relative;
+  position: absolute;
   left: 65%;
   bottom: 405px;
   padding: 0px;
@@ -149,6 +160,11 @@ export const PaymentTalent = styled.div`
   flex-direction: column;
   align-items: center;
   box-shadow: 13px 23px 13px -3px rgba(25, 25, 30, 0.2);
+
+  @media screen and (max-width: 1440px){
+    left: 75%;
+    bottom: 325px;
+  }
 `;
 
 export const TalentButton = styled.button`
@@ -174,6 +190,11 @@ export const ApplyToJob = styled.div`
   padding: 2px 20px;
   background-color: var(--Secondary);
   box-shadow: 13px 23px 13px -3px rgba(25, 25, 30, 0.2);
+
+  @media only screen and (max-width: 1440px){
+    left: 70%;
+    bottom: 390px;
+  }
 `;
 
 export const CompanyNewsLetter = styled.div`

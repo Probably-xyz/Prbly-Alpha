@@ -298,7 +298,7 @@ const JobFormFeatured = ({
                   />
                   <span
                     style={{
-                      display: "inline-block",
+                      display: "inline",
                       position: "absolute",
                       top: "975px",
                       color: "rgba(0, 0, 0, 0.5)",
@@ -312,9 +312,8 @@ const JobFormFeatured = ({
               </PostForm>
 
               <FormLabel
-                style={{
-                  marginLeft: "162px",
-                }}
+                
+                className="form-label"
               >
                 {" "}
                 Bio{" "}
@@ -324,11 +323,7 @@ const JobFormFeatured = ({
                 type="textarea"
                 placeholder="We are coool AF"
                 disabled={disabled}
-                style={{
-                  marginLeft: "162px",
-                  marginTop: "15px",
-                  marginBottom: "20px",
-                }}
+              
               />
 
               <button

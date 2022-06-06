@@ -70,7 +70,7 @@ export const ImageOne = styled.img`
   bottom: 250px;
 
   @media only screen and (max-width: 1440px) {
-    bottom: 300px;
+    bottom: 200px;
     right: 1150px;
   }
 `;
@@ -80,7 +80,7 @@ export const ImageTwo = styled.img`
   bottom: 500px;
 
   @media only screen and (max-width: 1440px) {
-    bottom: 580px;
+    bottom: 455px;
     left: 1147px;
     width: 300px;
   }
@@ -91,7 +91,7 @@ export const ImageOneJob = styled.img`
   bottom: 250px;
 
   @media only screen and (max-width: 1440px) {
-    bottom: 325px;
+    bottom: 200px;
     right: 1270px;
   }
 `;
@@ -101,7 +101,7 @@ export const ImageTwoJob = styled.img`
   bottom: 500px;
 
   @media only screen and (max-width: 1440px) {
-    bottom: 610px;
+    bottom: 470px;
     left: 1280px;
     width: 250px;
   }
@@ -565,6 +565,8 @@ export const FormTextArea = styled.textarea`
   font-size: 20px;
   font-family: "Grotesk Regular";
   resize: none;
+
+  
 `;
 
 export const FormLabel = styled.label`
@@ -572,6 +574,8 @@ export const FormLabel = styled.label`
   font-size: 20px;
   font-family: "Grotesk Medium";
   margin-bottom: 20px;
+
+  
 `;
 
 export const TalentList = styled.ul`

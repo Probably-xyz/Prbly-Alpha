@@ -68,6 +68,7 @@ const ListedJob = ({ post = null, similarPosts = [] }) => {
               alt={post.companyName}
               style={{
                 width: "200px",
+                height: "220px",
                 outline: "3px solid var(--Dark)",
                 marginBottom: "50px",
               }}

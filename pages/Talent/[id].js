@@ -66,6 +66,7 @@ const ListedTalent = (talent = null) => {
               alt={talent.title}
               style={{
                 width: "200px",
+                height: "200px",
                 outline: "3px solid var(--Dark)",
               }}
             />
