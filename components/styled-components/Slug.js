@@ -8,11 +8,16 @@ export const Container = styled.div`
   margin-top: 100px;
   margin-bottom: 0px;
 
-  @media screen and (max-width: 1440px){
-      width: 900px;
-      margin: 0px 60px;
-      margin-top: 60px;
-      
+  @media screen and (max-width: 1440px) {
+    width: 900px;
+    margin: 0px 60px;
+    margin-top: 60px;
+  }
+
+  @media only screen and (max-width: 1024px) {
+    width: 750px;
+    margin: 0 10px;
+    margin-top: 30px;
   }
 `;
 
@@ -21,11 +26,19 @@ export const BlogContainer = styled.div`
   padding: 0px;
   margin: 80px 0px;
   width: 1200px;
+
+  @media only screen and (max-width: 1024px) {
+    width: 900px;
+  }
 `;
 
 export const BlogContent = styled.div`
   width: 1150px;
   padding: 0px 20px;
+
+  @media screen and (max-width: 1024px) {
+    width: 900px;
+  }
 `;
 
 export const BlogDate = styled.div`
@@ -83,8 +96,12 @@ export const TalentContent = styled.div`
   margin: 0px 100px;
   padding: 15px;
 
-  @media screen and (max-width: 1440px){
-      margin: 0px 40px;
+  @media screen and (max-width: 1440px) {
+    margin: 0px 40px;
+  }
+
+  @media screen and (max-width: 1024px) {
+    width: 700px;
   }
 `;
 
@@ -190,9 +207,15 @@ export const PaymentTalent = styled.div`
   align-items: center;
   box-shadow: 13px 23px 13px -3px rgba(25, 25, 30, 0.2);
 
-  @media screen and (max-width: 1440px){
+  @media screen and (max-width: 1440px) {
     left: 75%;
     bottom: 325px;
+  }
+
+  @media screen and (max-width: 1024px) {
+    width: 220px;
+    height: 170px;
+    bottom: 306px;
   }
 `;
 
@@ -220,9 +243,16 @@ export const ApplyToJob = styled.div`
   background-color: var(--Secondary);
   box-shadow: 13px 23px 13px -3px rgba(25, 25, 30, 0.2);
 
-  @media only screen and (max-width: 1440px){
+  @media only screen and (max-width: 1440px) {
     left: 70%;
     bottom: 360px;
+  }
+
+  @media only screen and (max-width: 1024px) {
+    width: 230px;
+    padding: 5px 10px;
+    left: 76.5%;
+    bottom: 422px;
   }
 `;
 
@@ -237,12 +267,20 @@ export const CompanyNewsLetter = styled.div`
   bottom: 525px;
   padding: 20px;
   box-shadow: 13px 23px 13px -3px rgba(25, 25, 30, 0.2);
+
+  @media screen and (max-width: 1024px) {
+    display: none;
+  }
 `;
 
 export const CompanyNewsLetterTitle = styled.h1`
   font-family: "Grotesk Bold";
   font-size: 25px;
   color: var(--Dark);
+
+  @media screen and (max-width: 1024px) {
+    font-size: 20px;
+  }
 `;
 
 export const NewsLetterInput = styled.input`
@@ -257,6 +295,10 @@ export const NewsLetterInput = styled.input`
   font-family: "Grotesk SemiBold";
   margin: 25px 0px;
   padding: 10px;
+
+  @media screen and (max-width: 1024px) {
+    width: 250px;
+  }
 `;
 
 export const SlugNewsLetterButton = styled.button`
@@ -271,6 +313,10 @@ export const SlugNewsLetterButton = styled.button`
   font-size: 22px;
   /* margin: 15px 25px; */
   cursor: pointer;
+
+  @media screen and (max-width: 1024px) {
+    width: 250px;
+  }
 `;
 
 export const AtsButton = styled.button`
@@ -285,15 +331,26 @@ export const AtsButton = styled.button`
   font-size: 22px;
   margin: 15px 50px;
   cursor: pointer;
+
+  @media only screen and (max-width: 1024px) {
+    width: 150px;
+    margin: 15px 20px;
+  }
 `;
 
 export const SlugJobPostSection = styled.div`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: 0fr;
-  column-gap: 80px;
+  column-gap: 0px;
   grid-row-gap: 0px;
   margin-top: 25px;
   margin-left: 70px;
   /* justify-items: center; */
+
+  @media screen and (max-width: 1024px) {
+    grid-template-columns: repeat(3, 1fr);
+    margin-left: 40px;
+    column-gap: 40px;
+  }
 `;

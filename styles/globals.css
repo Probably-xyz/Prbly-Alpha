@@ -55,39 +55,59 @@ a {
   font-display: swap;
 }
 
-
-.form-text{
-    margin-top: 15px;
-    margin-bottom: 20px;
-    margin-left: 162px;
-}
-
-.form-label{
+.form-text {
+  margin-top: 15px;
+  margin-bottom: 20px;
   margin-left: 162px;
 }
 
-@media screen and (max-width: 1440px){
-  .form-text{
+.form-label {
+  margin-left: 162px;
+}
+
+.blog-img {
+  width: 1200px;
+  height: 350px;
+  outline: 3px solid var(--Dark);
+}
+
+@media screen and (max-width: 1440px) {
+  .form-text {
     margin-left: 8px;
     margin-top: 20px;
     margin-bottom: 20px;
   }
 
-
-  .form-label{
+  .form-label {
     margin-left: 15px;
   }
+
+  .blog-img {
+    width: 900px;
+    height: 265px;
+    outline: 3px solid var(--Dark);
+  }
 }
-
-
-
-
-
 
 .dropdown {
   float: left;
   overflow: hidden;
   margin-right: 40px;
+}
+
+.company-news {
+  display: none;
+}
+
+@media screen and (max-width: 1024px) {
+  .dropdown {
+    margin-right: 15px;
+    margin-bottom: 10px;
+  }
+
+  .company-news {
+    display: flex;
+  }
 }
 
 .dropdown .dropbtn {

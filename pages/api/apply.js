@@ -9,8 +9,14 @@ export default async function handler(req, res) {
 
   if (req.method === "POST") {
     try {
+      const { id } = req.body;
+
       const user = await prisma.talent.findUnique({
         where: { userId: session.user.id },
+      });
+
+      const post = await prisma.post.findUnique({
+        where: { id },
       });
 
       const applicant = await prisma.applicant.create({
@@ -23,7 +29,7 @@ export default async function handler(req, res) {
           twitter: user.twitter,
           linkedin: user.linkedin,
           otherLink: user.otherLink,
-          applicationId: wefwfwfwf,
+          applicationId: post.id,
         },
       });
 

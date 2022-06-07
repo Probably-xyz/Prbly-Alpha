@@ -18,7 +18,7 @@ export const NavWrapper = styled.div`
   height: 90px;
   z-index: 1;
   width: 100%;
-  padding: 0px 24px;
+  padding: 0px 20px;
   max-width: 100vw;
   border-bottom: 2px solid var(--Dark);
 `;
@@ -66,6 +66,10 @@ export const NavList = styled.ul`
   @media screen and (max-width: 1440px) {
     margin-right: -100px;
   }
+
+  @media screen and (max-width: 1024px) {
+    margin-right: -45px;
+  }
 `;
 
 export const NavItem = styled.li`
@@ -86,6 +90,10 @@ export const NavLink = styled.p`
 
   @media screen and (max-width: 1440px) {
     padding: 1.2rem 2.7rem;
+  }
+
+  @media screen and (max-width: 1024px) {
+    padding: 1rem 1.5rem;
   }
 `;
 

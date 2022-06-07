@@ -80,13 +80,7 @@ const BlogSlug = ({ blogPost }) => {
 
       <Section>
         <BlogContainer>
-          <div
-            style={{
-              width: "1200px",
-              height: "350px",
-              outline: "3px solid var(--Dark)",
-            }}
-          >
+          <div className="blog-img">
             <Image
               src={"https:" + thumbnail.fields.file.url}
               width={1200}

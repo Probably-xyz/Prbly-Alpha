@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 /* eslint-disable react/no-children-prop */
 /* eslint-disable @next/next/no-img-element */
 /* eslint-disable jsx-a11y/alt-text */
@@ -87,7 +88,31 @@ const ListedCompany = ({ company = null, jobs = [] }) => {
         <SlugNewsLetterButton> Subscribe </SlugNewsLetterButton>
       </CompanyNewsLetter>
 
-      <h1 style={{ marginLeft: "120px" }}> Company Posts </h1>
+      <Section className="company-news">
+        <NewsLetter>
+          <NewsLetterTitle>
+            Want to recieve the latest jobs to your inbox?
+          </NewsLetterTitle>
+          <NewsLetterSub>
+            Our weekly newsletter that makes sense of everything crypto with
+            <br />a dash of jobs, talent, and information.
+          </NewsLetterSub>
+          <form
+            action="https://www.getrevue.co/profile/probablyxyz/add_subscriber"
+            method="post"
+            target="_blank"
+          >
+            <NewsLetterInput
+              placeholder="Enter your e-mail"
+              type="email"
+              name="member[email]"
+            />
+            <NewsLetterButton type="submit"> Let's Go </NewsLetterButton>
+          </form>
+        </NewsLetter>
+      </Section>
+
+      <h1 style={{ marginLeft: "75px" }}> Company Posts </h1>
 
       <SlugJobGrid post={jobs} />
 
@@ -122,6 +147,7 @@ export async function getStaticProps({ params }) {
 
   const jobs = await prisma.post.findMany({
     where: { companyId: company.id },
+    take: 4,
   });
 
   if (company) {

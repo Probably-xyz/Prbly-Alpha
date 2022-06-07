@@ -44,8 +44,8 @@ import { useRouter } from "next/router";
 const ListedJob = ({ post = null, similarPosts = [] }) => {
   // const id = post.id;
   const markdown = post?.description ?? "";
-  const apply = (id) => {
-    axios.post(`/api/post/${post.id}`);
+  const apply = () => {
+    axios.post("/api/apply", { id: post.id });
   };
   const postExist = similarPosts.length > 0;
 
@@ -128,7 +128,10 @@ const ListedJob = ({ post = null, similarPosts = [] }) => {
 
       {postExist ? (
         <>
-          <h1 style={{ marginLeft: "80px" , marginTop: "100px" }}> Similar Jobs </h1>
+          <h1 style={{ marginLeft: "80px", marginTop: "100px" }}>
+            {" "}
+            Similar Jobs{" "}
+          </h1>
           <SlugJobGrid post={similarPosts} />
         </>
       ) : null}
