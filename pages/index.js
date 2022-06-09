@@ -1,12 +1,13 @@
 /* eslint-disable react/no-unescaped-entities */
 /* eslint-disable jsx-a11y/alt-text */
 /* eslint-disable @next/next/no-img-element */
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Head from "next/head";
 import Image from "next/image";
 import Navbar from "@/components/Navbar";
 import Link from "next/link";
 import { useForm } from "react-hook-form";
+import Footer from "@/components/Footer";
 import {
   Section,
   Header,
@@ -30,7 +31,7 @@ import {
 } from "@/components/styled-components/Components";
 import BlogCard from "@/components/BlogCard";
 import NavbarLanding from "@/components/NavbarLanding";
-import TalentGrid from "@/components/TalentGrid";
+import LandingTalentGrid from "@/components/LandingTalentGrid";
 import { signOut, getSession, signIn } from "next-auth/react";
 import { useSession } from "next-auth/react";
 import { prisma } from "@/lib/prisma";
@@ -104,7 +105,31 @@ export default function Home({
 }) {
   const { data: session, status } = useSession();
   const loggedIn = session?.user;
-  const addPost = console.log("successsssss");
+
+  const elNumber = 3;
+  const blogFiltered = blogPost.slice(0, elNumber);
+
+  const [paypalLoaded, setPaypalLoaded] = useState(false);
+
+  const paypalScript = () => {
+    if (window.paypal) {
+      setPaypalLoaded(true);
+      return;
+    }
+    const script = document.createElement("script");
+
+    script.src =
+      "https://www.paypal.com/sdk/js?client-id=ARvo2kaaWDQinDEQjtKxCNTRkeLuL2JEm27e-vVzcNSTsFEIM4_RpIfuOBxpSksIRtUNQslLJpBP2Xi2";
+    script.type = "text/javascript";
+    script.async = true;
+    script.onload = () => setPaypalLoaded(true);
+    document.body.appendChild(script);
+  };
+
+  useEffect(() => {
+    paypalScript();
+  }, []);
+
   return (
     <>
       <PaddleLoader />
@@ -192,7 +217,7 @@ export default function Home({
       <Section style={{ marginTop: "20px" }}>
         <Subheader> Connect with the best crypto talent </Subheader>
         <HeaderTwo> Latest Talent </HeaderTwo>
-        <TalentGrid talents={talents} />
+        <LandingTalentGrid talents={talents} />
         <Link href="/talent">
           <button className="pushableLanding">
             <span className="frontLanding"> See more </span>
@@ -205,7 +230,7 @@ export default function Home({
         <HeaderTwo> Latest Articles </HeaderTwo>
       </Section>
       <BlogSection>
-        {blogPost.map((blogPost) => (
+        {blogFiltered.map((blogPost) => (
           <BlogCard key={blogPost.sys.id} blogPost={blogPost} />
         ))}
       </BlogSection>
@@ -216,6 +241,10 @@ export default function Home({
           </button>
         </Link>
       </Section>
+
+      <Footer />
     </>
   );
 }
+
+// ARvo2kaaWDQinDEQjtKxCNTRkeLuL2JEm27e-vVzcNSTsFEIM4_RpIfuOBxpSksIRtUNQslLJpBP2Xi2

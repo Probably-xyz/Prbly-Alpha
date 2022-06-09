@@ -236,14 +236,17 @@ export const ApplyToJob = styled.div`
   height: 300px;
   outline: 3px solid var(--Dark);
   border-radius: 0px;
-  position: absolute;
+  /* position: absolute;
   left: 78%;
-  bottom: 442px;
+  bottom: 442px; */
+  margin: 0px 40px;
+  margin-top: 90px;
+  margin-bottom: 0px;
   padding: 2px 20px;
   background-color: var(--Secondary);
   box-shadow: 13px 23px 13px -3px rgba(25, 25, 30, 0.2);
 
-  @media only screen and (max-width: 1440px) {
+  /* @media only screen and (max-width: 1440px) {
     left: 70%;
     bottom: 360px;
   }
@@ -253,7 +256,7 @@ export const ApplyToJob = styled.div`
     padding: 5px 10px;
     left: 76.5%;
     bottom: 422px;
-  }
+  } */
 `;
 
 export const CompanyNewsLetter = styled.div`
@@ -353,4 +356,8 @@ export const SlugJobPostSection = styled.div`
     margin-left: 40px;
     column-gap: 40px;
   }
+`;
+
+export const HiddenInput = styled.input`
+  display: none;
 `;

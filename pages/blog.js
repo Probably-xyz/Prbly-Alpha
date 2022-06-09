@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { prisma } from "@/lib/prisma";
 import BlogCard from "@/components/BlogCard";
 import Navbar from "@/components/Navbar";
@@ -54,6 +54,13 @@ export async function getServerSideProps(context) {
 }
 
 const Blog = ({ talent = [], company = [], blogPost }) => {
+  const [elNumber, setElNumber] = useState(3);
+
+  const blogFiltered = blogPost.slice(0, elNumber);
+
+  const lazyLoad = () => {
+    setElNumber(elNumber + elNumber);
+  };
   return (
     <>
       <Navbar talent={talent} company={company} />
@@ -68,10 +75,15 @@ const Blog = ({ talent = [], company = [], blogPost }) => {
         <ImageTwoJob src="/landingTwo.png" />
       </section>
       <BlogSection>
-        {blogPost.map((blogPost) => (
+        {blogFiltered.map((blogPost) => (
           <BlogCard key={blogPost.sys.id} blogPost={blogPost} />
         ))}
       </BlogSection>
+      <Section style={{ marginTop: "50px" }}>
+        <button onClick={() => lazyLoad()} className="pushableLanding">
+          <span className="frontLanding"> Load More...</span>
+        </button>
+      </Section>
     </>
   );
 };
