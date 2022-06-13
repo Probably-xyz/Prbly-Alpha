@@ -1,12 +1,8 @@
-body {
-  background-color: var(--PrimaryBg);
-  /* background-color: #0c0c0c; */
-  overflow-x: hidden;
-  width: 100vw;
-}
-
 html {
-  width: 100%;
+  background-color: var(--PrimaryBg);
+  width: 100vw;
+  margin: 0 auto;
+  box-sizing: border-box;
   overflow-x: hidden;
 }
 
