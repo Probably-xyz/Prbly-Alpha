@@ -1,9 +1,7 @@
-html,
 body {
   background-color: var(--PrimaryBg);
   /* background-color: #0c0c0c; */
   overflow-x: hidden;
-  width: 100vw;
 }
 
 a {
