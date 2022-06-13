@@ -27,7 +27,7 @@ const BlogCard = ({ blogPost }) => {
         <BlogCardComp>
           <div
             style={{
-              width: "200px",
+              width: "400px",
               height: "220px",
               // background: "grey",
               outline: "3px solid black",

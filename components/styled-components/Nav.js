@@ -85,7 +85,7 @@ export const NavLink = styled.p`
   display: flex;
   /* align-items: center; */
   /* text-decoration: none; */
-  padding: 0.8rem 4.5rem;
+  padding: 1.2rem 3rem;
   height: 100%;
   cursor: pointer;
   font-family: "Grotesk Medium";
@@ -93,11 +93,12 @@ export const NavLink = styled.p`
   transition: 0.3s ease-in-out;
 
   @media screen and (max-width: 1440px) {
-    padding: 1.2rem 2.7rem;
+    padding: 1.2rem 2.2rem;
   }
 
   @media screen and (max-width: 1024px) {
-    padding: 1rem 1.5rem;
+    padding: 1.3rem 1.5rem;
+    font-size: 16px;
   }
 `;
 
