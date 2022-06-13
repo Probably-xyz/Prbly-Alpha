@@ -10,6 +10,10 @@ export const Nav = styled.nav`
   top: 0;
   z-index: 100;
   /* position: sticky; */
+
+  @media only screen and (max-width: 768px) {
+    display: none;
+  }
 `;
 
 export const NavWrapper = styled.div`

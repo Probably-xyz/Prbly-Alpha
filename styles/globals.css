@@ -65,6 +65,10 @@ a {
   margin-left: 162px;
 }
 
+.talent-img {
+  display: none;
+}
+
 .blog-img {
   width: 1200px;
   height: 350px;
@@ -95,8 +99,44 @@ a {
   margin-right: 40px;
 }
 
-.company-news {
+.blog-img-mobile {
   display: none;
+}
+
+@media screen and (max-width: 700px) {
+  .company-news {
+    display: none;
+  }
+
+  .blog-img {
+    display: none;
+  }
+
+  .blog-img-mobile {
+    display: block;
+  }
+
+  .sub-mobile {
+    text-align: center;
+  }
+
+  .form-icon {
+    display: none;
+  }
+
+  .talent-signup {
+    width: 300px;
+  }
+
+  .talent-signup-title {
+    font-size: 20px;
+  }
+
+  .talent-signup-sub {
+    font-size: 15px;
+    width: 200px;
+    height: 300px;
+  }
 }
 
 @media screen and (max-width: 1024px) {

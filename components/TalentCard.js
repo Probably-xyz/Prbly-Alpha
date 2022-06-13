@@ -37,6 +37,7 @@ const TalentCardComp = ({
           <img
             src={image}
             alt={name}
+            className="talent-img"
             style={{
               width: "220px",
               height: "220px",

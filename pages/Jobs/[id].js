@@ -138,7 +138,7 @@ const ListedJob = ({ post = null, similarPosts = [] }) => {
         </Container>
 
         {loggedIn ? (
-          <div>
+          <>
             {post?.atsUrl ? (
               <ApplyToJob>
                 <h2> Ready to apply for this job opening?</h2>
@@ -169,7 +169,7 @@ const ListedJob = ({ post = null, similarPosts = [] }) => {
                 </form>
               </ApplyToJob>
             )}
-          </div>
+          </>
         ) : (
           <ApplyToJob>
             <h2> You're not signed in</h2>
@@ -183,17 +183,18 @@ const ListedJob = ({ post = null, similarPosts = [] }) => {
             </Link>
           </ApplyToJob>
         )}
-
-        {postExist ? (
-          <>
-            <h1 style={{ marginLeft: "80px", marginTop: "100px" }}>
-              {" "}
-              Similar Jobs{" "}
-            </h1>
-            <SlugJobGrid post={similarPosts} />
-          </>
-        ) : null}
       </div>
+
+      {postExist ? (
+        <>
+          <h1 style={{ marginLeft: "80px", marginTop: "100px" }}>
+            {" "}
+            Similar Jobs{" "}
+          </h1>
+          <SlugJobGrid post={similarPosts} />
+        </>
+      ) : null}
+      {/* </div> */}
 
       <Section>
         <NewsLetter>

@@ -11,6 +11,10 @@ export const Header = styled.h1`
   @media only screen and (max-width: 1024px) {
     font-size: 50px;
   }
+
+  @media only screen and (max-width: 700px) {
+    font-size: 40px;
+  }
 `;
 
 export const HeaderTwo = styled.h1`
@@ -42,6 +46,9 @@ export const LandingSub = styled.p`
 
   @media only screen and (max-width: 1024px) {
     font-size: 20px;
+  }
+  @media only screen and (max-width: 700px) {
+    font-size: 18px;
   }
 `;
 
@@ -91,6 +98,10 @@ export const ImageOne = styled.img`
     right: 820px;
     bottom: 250px;
   }
+
+  @media only screen and (max-width: 700px) {
+    display: none;
+  }
 `;
 export const ImageTwo = styled.img`
   position: absolute;
@@ -108,6 +119,10 @@ export const ImageTwo = styled.img`
     bottom: 550px;
     width: 200px;
   }
+
+  @media only screen and (max-width: 700px) {
+    display: none;
+  }
 `;
 
 export const ImageOneJob = styled.img`
@@ -120,6 +135,10 @@ export const ImageOneJob = styled.img`
   }
 
   @media only screen and (max-width: 1024px) {
+    display: none;
+  }
+
+  @media only screen and (max-width: 700px) {
     display: none;
   }
 `;
@@ -135,6 +154,10 @@ export const ImageTwoJob = styled.img`
   }
 
   @media only screen and (max-width: 1024px) {
+    display: none;
+  }
+
+  @media only screen and (max-width: 700px) {
     display: none;
   }
 `;
@@ -202,6 +225,12 @@ export const Form = styled.form`
   @media screen and (max-width: 1024px) {
     width: 850px;
   }
+
+  @media screen and (max-width: 700px) {
+    width: 300px;
+    height: 150px;
+    flex-direction: column;
+  }
 `;
 
 export const TitleSearch = styled.input`
@@ -212,6 +241,11 @@ export const TitleSearch = styled.input`
   font-family: "Grotesk Medium";
   font-size: 22px;
   padding: 15px;
+
+  @media only screen and (max-width: 700px) {
+    width: 300px;
+    font-size: 18px;
+  }
 `;
 
 export const LocationSearch = styled.input`
@@ -232,6 +266,11 @@ export const LocationSearch = styled.input`
     left: 10px;
     background-repeat: no-repeat;
   }
+
+  @media only screen and (max-width: 700px) {
+    width: 300px;
+    font-size: 18px;
+  }
 `;
 
 export const JobPostSection = styled.div`
@@ -239,7 +278,7 @@ export const JobPostSection = styled.div`
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: 0fr;
   column-gap: 90px;
-  grid-row-gap: 0px;
+  grid-row-gap: 40px;
   margin-top: 30px;
   justify-items: center;
 
@@ -249,6 +288,11 @@ export const JobPostSection = styled.div`
 
   @media only screen and (max-width: 1024px) {
     grid-template-columns: repeat(3, 1fr);
+  }
+
+  @media only screen and (max-width: 700px) {
+    grid-template-columns: repeat(1, 1fr);
+    margin-bottom: 40px;
   }
 `;
 
@@ -383,6 +427,15 @@ export const NewsLetter = styled.div`
       left: 800px;
     }
   }
+
+  @media only screen and (max-width: 768px) {
+    width: 280px;
+    height: 400px;
+
+    &::after {
+      display: none;
+    }
+  }
 `;
 
 export const TalentSignUp = styled.div`
@@ -405,6 +458,22 @@ export const TalentSignUp = styled.div`
     left: 70px;
     background-repeat: no-repeat;
   }
+
+  @media screen and (max-width: 700px) {
+    width: 300px;
+    height: 250px;
+    margin-top: 50px;
+
+    &::after {
+      content: url("/Smile.png");
+      width: 55px;
+      height: 55px;
+      position: relative;
+      bottom: 55px;
+      left: -150px;
+      background-repeat: no-repeat;
+    }
+  }
 `;
 
 export const CTAContent = styled.div`
@@ -414,6 +483,10 @@ export const CTAContent = styled.div`
 
 export const NewsLetterTitle = styled(Header)`
   font-size: 35px;
+
+  @media only screen and (max-width: 700px) {
+    font-size: 22px;
+  }
 `;
 
 export const NewsLetterSub = styled(Subheader)`
@@ -421,6 +494,10 @@ export const NewsLetterSub = styled(Subheader)`
 
   @media screen and (max-width: 1024px) {
     font-size: 17px;
+  }
+
+  @media only screen and (max-width: 700px) {
+    font-size: 16px;
   }
 `;
 
@@ -436,6 +513,10 @@ export const NewsLetterInput = styled.input`
   font-family: "Grotesk SemiBold";
   margin: 15px 0px;
   padding: 10px;
+
+  @media only screen and (max-width: 700px) {
+    width: 220px;
+  }
 `;
 
 export const NewsLetterButton = styled.button`
@@ -449,6 +530,32 @@ export const NewsLetterButton = styled.button`
   font-size: 22px;
   margin: 15px 25px;
   cursor: pointer;
+
+  @media only screen and (max-width: 700px) {
+    margin: 20px 0px;
+  }
+`;
+
+export const TalentButton = styled.button`
+  padding: 0px 25px;
+  height: 50px;
+  background-color: var(--Ternary);
+  color: var(--Dark);
+  outline: 3px solid var(--Dark);
+  border: none !important;
+  font-family: "Grotesk Bold";
+  font-size: 22px;
+  margin: 15px 25px;
+  cursor: pointer;
+
+  @media only screen and (max-width: 700px) {
+    position: relative;
+    top: 160px;
+    height: 55px;
+    padding: 0px 50px;
+    margin: 0px;
+    right: 200px;
+  }
 `;
 
 export const BlogSection = styled.div`
@@ -465,6 +572,11 @@ export const BlogSection = styled.div`
     grid-template-columns: repeat(2, 1fr);
     row-gap: 50px;
   }
+
+  @media screen and (max-width: 700px) {
+    grid-template-columns: repeat(1, 1fr);
+    row-gap: 50px;
+  }
 `;
 
 export const BlogCardComp = styled.div`
@@ -477,6 +589,10 @@ export const BlogCardComp = styled.div`
   cursor: pointer;
   &:hover {
     box-shadow: 15px 15px 0px #000000;
+  }
+
+  @media screen and (max-width: 700px) {
+    width: 300px;
   }
 `;
 
@@ -499,6 +615,10 @@ export const BlogBadge = styled.div`
   position: relative;
   left: 115px;
   top: -20px;
+
+  @media screen and (max-width: 700px) {
+    left: 75px;
+  }
 `;
 
 export const CompanyContent = styled.div`
@@ -664,11 +784,20 @@ export const TalentCard = styled.div`
   @media only screen and (max-width: 1024px) {
     width: 900px;
   }
+
+  @media only screen and (max-width: 700px) {
+    width: 300px;
+    margin-right: 35px;
+  }
 `;
 
 export const TalentContent = styled.div`
   margin: 0px 30px;
   width: 900px;
+
+  @media only screen and (max-width: 700px) {
+    width: 300px;
+  }
 `;
 
 export const TalentTitle = styled.h1`

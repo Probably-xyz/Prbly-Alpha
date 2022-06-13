@@ -66,9 +66,14 @@ const Navbar = ({ talent = [], company = [] }) => {
                   Sign out
                 </a>
                 {talent ? (
-                  <Link href="/random1"> Profile page (Coming soon) </Link>
+                  <Link href="/random1"> Applied to </Link>
                 ) : company ? (
                   <Link href="/myJobPosts"> Posts </Link>
+                ) : null}
+                {talent ? (
+                  <Link href="/random1"> Profile (Coming Soon) </Link>
+                ) : company ? (
+                  <Link href="/random2"> Profile (Coming Soon) </Link>
                 ) : null}
               </div>
             </div>

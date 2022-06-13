@@ -27,15 +27,32 @@ const BlogCard = ({ blogPost }) => {
         <BlogCardComp>
           <div
             style={{
-              width: "400px",
+              width: "200px",
               height: "220px",
               // background: "grey",
               outline: "3px solid black",
             }}
+            className="blog-img"
           >
             <Image
               src={"https:" + thumbnail.fields.file.url}
               width={400}
+              height={220}
+            />
+          </div>
+
+          <div
+            style={{
+              width: "300px",
+              height: "220px",
+              // background: "grey",
+              outline: "3px solid black",
+            }}
+            className="blog-img-mobile"
+          >
+            <Image
+              src={"https:" + thumbnail.fields.file.url}
+              width={300}
               height={220}
             />
           </div>

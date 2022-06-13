@@ -14,10 +14,10 @@ import {
   TalentSignUp,
   NewsLetterTitle,
   NewsLetterSub,
-  NewsLetterButton,
+  TalentButton,
 } from "@/components/styled-components/Components";
 import { getSession } from "next-auth/react";
-import Link from "next/link"
+import Link from "next/link";
 
 export async function getServerSideProps(context) {
   const session = await getSession(context);
@@ -57,7 +57,9 @@ const Talent = ({ talents = [], talent = [], company = [] }) => {
       <Navbar talent={talent} company={company} />
       <section>
         <LandingText>
-          <Header>Probably the best talent <br/> in crypto</Header>
+          <Header>
+            Probably the best talent <br /> in crypto
+          </Header>
           <LandingSub>Hire crypto talent directly from us</LandingSub>
         </LandingText>
         <ImageOne src="/landingOne.png" />
@@ -66,15 +68,18 @@ const Talent = ({ talents = [], talent = [], company = [] }) => {
 
       <Section>
         <TalentSignUp>
-          <div>
-            <NewsLetterTitle> Want to be featured here? </NewsLetterTitle>
-            <NewsLetterSub>
+          <div className="talent-signup">
+            <NewsLetterTitle className="talent-signup-title">
+              {" "}
+              Want to be featured here?{" "}
+            </NewsLetterTitle>
+            <NewsLetterSub className="talent-signup-sub">
               Simply create an account and 10x your chance <br /> of landing a
               job in crypto
             </NewsLetterSub>
           </div>
           <Link href="/api/auth/signin/">
-          <NewsLetterButton> Let's Go</NewsLetterButton>
+            <TalentButton> Let's Go</TalentButton>
           </Link>
         </TalentSignUp>
       </Section>

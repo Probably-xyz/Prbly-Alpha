@@ -249,14 +249,11 @@ export const ApplyToJob = styled.div`
   /* @media only screen and (max-width: 1440px) {
     left: 70%;
     bottom: 360px;
-  }
+  } */
 
   @media only screen and (max-width: 1024px) {
-    width: 230px;
-    padding: 5px 10px;
-    left: 76.5%;
-    bottom: 422px;
-  } */
+    height: 380px;
+  }
 `;
 
 export const CompanyNewsLetter = styled.div`

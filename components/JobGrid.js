@@ -32,7 +32,7 @@ const JobGrid = ({ post = [] }) => {
             marginTop: "8px",
           }}
         >
-          <img src="/Filters.png" />
+          <img src="/Filters.png" className="form-icon" />
         </span>
 
         <TitleSearch
@@ -48,7 +48,7 @@ const JobGrid = ({ post = [] }) => {
             marginTop: "8px",
           }}
         >
-          <img src="/Location.png" />
+          <img src="/Location.png" className="form-icon" />
         </span>
         <LocationSearch
           type="text"

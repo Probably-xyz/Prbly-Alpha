@@ -109,27 +109,6 @@ export default function Home({
   const elNumber = 3;
   const blogFiltered = blogPost.slice(0, elNumber);
 
-  const [paypalLoaded, setPaypalLoaded] = useState(false);
-
-  const paypalScript = () => {
-    if (window.paypal) {
-      setPaypalLoaded(true);
-      return;
-    }
-    const script = document.createElement("script");
-
-    script.src =
-      "https://www.paypal.com/sdk/js?client-id=ARvo2kaaWDQinDEQjtKxCNTRkeLuL2JEm27e-vVzcNSTsFEIM4_RpIfuOBxpSksIRtUNQslLJpBP2Xi2";
-    script.type = "text/javascript";
-    script.async = true;
-    script.onload = () => setPaypalLoaded(true);
-    document.body.appendChild(script);
-  };
-
-  useEffect(() => {
-    paypalScript();
-  }, []);
-
   return (
     <>
       <PaddleLoader />
@@ -182,7 +161,10 @@ export default function Home({
       </section>
 
       <Section>
-        <Subheader> new jobs added every week </Subheader>
+        <Subheader className="sub-mobile">
+          {" "}
+          new jobs added every week{" "}
+        </Subheader>
         <HeaderTwo> Latest Jobs </HeaderTwo>
         <LandingJobGrid post={post} />
         <Link href="/jobs">
@@ -215,7 +197,10 @@ export default function Home({
       </Section>
 
       <Section style={{ marginTop: "20px" }}>
-        <Subheader> Connect with the best crypto talent </Subheader>
+        <Subheader className="sub-mobile">
+          {" "}
+          Connect with the best crypto talent{" "}
+        </Subheader>
         <HeaderTwo> Latest Talent </HeaderTwo>
         <LandingTalentGrid talents={talents} />
         <Link href="/talent">
@@ -226,7 +211,10 @@ export default function Home({
       </Section>
 
       <Section style={{ marginTop: "120px" }}>
-        <Subheader> A blog covering all topics crypto </Subheader>
+        <Subheader className="sub-mobile">
+          {" "}
+          A blog covering all topics crypto{" "}
+        </Subheader>
         <HeaderTwo> Latest Articles </HeaderTwo>
       </Section>
       <BlogSection>

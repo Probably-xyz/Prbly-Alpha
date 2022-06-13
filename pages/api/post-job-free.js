@@ -17,8 +17,8 @@ export default async function handler(req, res) {
         location,
         category,
         salary,
+        options,
         atsUrl,
-        intro,
       } = req.body;
 
       const user = await prisma.user.findUnique({
@@ -38,8 +38,8 @@ export default async function handler(req, res) {
           location,
           category,
           salary,
+          options,
           atsUrl,
-          intro,
           featured: false,
           companyName: company.name,
           companyId: company.id,

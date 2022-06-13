@@ -56,7 +56,7 @@ export default function ChooseAJobOption({ talent = [], company = [] }) {
   return (
     <>
       <Navbar talent={talent} company={company} />
-      <Section>
+      <Section style={{ marginBottom: "100px", marginTop: "-70px" }}>
         <section>
           <LandingText>
             <Header>
@@ -72,19 +72,19 @@ export default function ChooseAJobOption({ talent = [], company = [] }) {
             justifyContent: "space-between",
           }}
         >
-          <ProfileCard>
+          <ProfileCard style={{ background: "var(--Accent)" }}>
             <ProfileTitle> Featured Post </ProfileTitle>
-            <p> featured description </p>
-            <ProfileFeatures>
+            <p> Coming very sooon! </p>
+            {/* <ProfileFeatures>
               <FeatureItem>Feature</FeatureItem>
               <FeatureItem>Feature</FeatureItem>
               <FeatureItem>Feature</FeatureItem>
-            </ProfileFeatures>
-            <Link href="/postJobFeatured">
+            </ProfileFeatures> */}
+            {/* <Link href="/postJobFeatured">
               <button className="pushable">
                 <span className="front"> Get Started </span>
               </button>
-            </Link>
+            </Link> */}
           </ProfileCard>
 
           <ProfileCard>
