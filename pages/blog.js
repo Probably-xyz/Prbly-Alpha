@@ -1,9 +1,10 @@
 import React, { useState } from "react";
-import { prisma } from "@/lib/prisma";
+// import { prisma } from "@/lib/prisma";
 import BlogCard from "@/components/BlogCard";
 import Navbar from "@/components/Navbar";
 import { getSession } from "next-auth/react";
 import Image from "next/image";
+import Footer from "@/components/Footer";
 import {
   Section,
   Header,
@@ -23,17 +24,17 @@ import { createClient } from "contentful";
 export async function getServerSideProps(context) {
   const session = await getSession(context);
 
-  const user = await prisma.user.findUnique({
-    where: { email: session.user.email },
-  });
+  // const user = await prisma.user.findUnique({
+  //   where: { email: session.user.email },
+  // });
 
-  const talent = await prisma.talent.findUnique({
-    where: { userId: user.id },
-  });
+  // const talent = await prisma.talent.findUnique({
+  //   where: { userId: session.user.id },
+  // });
 
-  const company = await prisma.company.findUnique({
-    where: { userId: user.id },
-  });
+  // const company = await prisma.company.findUnique({
+  //   where: { userId: user.id },
+  // });
 
   const client = createClient({
     space: process.env.CONTENTFUL_SPACE_ID,
@@ -46,14 +47,14 @@ export async function getServerSideProps(context) {
 
   return {
     props: {
-      talent: JSON.parse(JSON.stringify(talent)),
-      company: JSON.parse(JSON.stringify(company)),
+      // talent: JSON.parse(JSON.stringify(talent)),
+      // company: JSON.parse(JSON.stringify(company)),
       blogPost: res.items,
     },
   };
 }
 
-const Blog = ({ talent = [], company = [], blogPost }) => {
+const Blog = ({ blogPost }) => {
   const [elNumber, setElNumber] = useState(3);
 
   const blogFiltered = blogPost.slice(0, elNumber);
@@ -63,27 +64,30 @@ const Blog = ({ talent = [], company = [], blogPost }) => {
   };
   return (
     <>
-      <Navbar talent={talent} company={company} />
+      <Navbar />
       <section>
         <LandingText>
-          <Header>
-            Probably the most useful blog <br /> around
-          </Header>
+          <Header>Probably the most useful blog around</Header>
           <LandingSub> Insights, data, & articles all in one place </LandingSub>
         </LandingText>
-        <ImageOneJob src="/landingOne.png" />
-        <ImageTwoJob src="/landingTwo.png" />
+        {/* <ImageOneJob src="/landingOne.png" />
+        <ImageTwoJob src="/landingTwo.png" /> */}
       </section>
-      <BlogSection>
-        {blogFiltered.map((blogPost) => (
-          <BlogCard key={blogPost.sys.id} blogPost={blogPost} />
-        ))}
-      </BlogSection>
+
+      <Section>
+        <BlogSection>
+          {blogFiltered.map((blogPost) => (
+            <BlogCard key={blogPost.sys.id} blogPost={blogPost} />
+          ))}
+        </BlogSection>
+      </Section>
       <Section style={{ marginTop: "50px" }}>
         <button onClick={() => lazyLoad()} className="pushableLanding">
           <span className="frontLanding"> Load More...</span>
         </button>
       </Section>
+
+      <Footer />
     </>
   );
 };

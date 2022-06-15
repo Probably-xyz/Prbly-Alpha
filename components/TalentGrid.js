@@ -8,7 +8,7 @@ import { useState } from "react";
 const TalentGrid = ({ talents = [] }) => {
   // const isEmpty = talents.length === 0;
 
-  const [elNumber, setElNumber] = useState(1);
+  const [elNumber, setElNumber] = useState(5);
 
   const talentFiltered = talents.slice(0, elNumber);
 

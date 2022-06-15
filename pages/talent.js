@@ -57,13 +57,11 @@ const Talent = ({ talents = [], talent = [], company = [] }) => {
       <Navbar talent={talent} company={company} />
       <section>
         <LandingText>
-          <Header>
-            Probably the best talent <br /> in crypto
-          </Header>
+          <Header>Probably the best talent in crypto</Header>
           <LandingSub>Hire crypto talent directly from us</LandingSub>
         </LandingText>
-        <ImageOne src="/landingOne.png" />
-        <ImageTwo src="/landingTwo.png" />
+        {/* <ImageOne src="/landingOne.png" />
+        <ImageTwo src="/landingTwo.png" /> */}
       </section>
 
       <Section>

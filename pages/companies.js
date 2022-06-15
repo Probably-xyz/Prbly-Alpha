@@ -3,6 +3,7 @@ import React from "react";
 import { prisma } from "@/lib/prisma";
 import Grid from "@/components/Grid";
 import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 import { getSession } from "next-auth/react";
 import {
   Section,
@@ -64,8 +65,8 @@ const Companies = ({ companies = [], talent = [], company = [] }) => {
           </Header>
           <LandingSub> Find the top MENA crypto companies </LandingSub>
         </LandingText>
-        <ImageOneJob src="/landingOne.png" />
-        <ImageTwoJob src="/landingTwo.png" />
+        {/* <ImageOneJob src="/landingOne.png" />
+        <ImageTwoJob src="/landingTwo.png" /> */}
       </section>
 
       <Section>
@@ -87,6 +88,8 @@ const Companies = ({ companies = [], talent = [], company = [] }) => {
       </Section>
 
       <Grid companies={companies} />
+
+      <Footer />
     </>
   );
 };

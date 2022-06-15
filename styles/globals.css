@@ -119,6 +119,10 @@ a {
   display: none;
 }
 
+.mobile-list {
+  display: none;
+}
+
 @media screen and (max-width: 700px) {
   .company-news {
     display: none;
@@ -155,6 +159,14 @@ a {
   }
 
   .talent-img {
+    display: none;
+  }
+
+  .mobile-list {
+    display: flex;
+  }
+
+  .non-mobile {
     display: none;
   }
 }

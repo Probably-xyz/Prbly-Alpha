@@ -100,6 +100,11 @@ export const NavLink = styled.p`
     padding: 1.3rem 1.5rem;
     font-size: 16px;
   }
+
+  &:hover {
+    transform: scale(1.1);
+    color: var(--Accent);
+  }
 `;
 
 export const NavBtn = styled.nav`

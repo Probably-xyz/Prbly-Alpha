@@ -4,6 +4,7 @@ import { prisma } from "@/lib/prisma";
 import Grid from "@/components/Grid";
 import JobGrid from "@/components/JobGrid";
 import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 import { getSession } from "next-auth/react";
 import { useState } from "react";
 import {
@@ -63,16 +64,16 @@ const Jobs = ({ jobs = [], talent = [], company = [] }) => {
   return (
     <>
       <Navbar talent={talent} company={company} />
-      <section style={{ marginBottom: "150px" }}>
+      <section style={{ marginBottom: "10px" }}>
         <LandingText>
           <Header>Probably the best jobs for you</Header>
-          <LandingSub>
+          <LandingSub style={{ position: "relative", bottom: "20px" }}>
             A list of jobs curated to your needs and prefrences
           </LandingSub>
         </LandingText>
 
-        <ImageOneJob src="/landingOne.png" />
-        <ImageTwoJob src="/landingTwo.png" />
+        {/* <ImageOneJob src="/landingOne.png" />
+        <ImageTwoJob src="/landingTwo.png" /> */}
 
         <Section>
           <JobGrid post={jobs} />
@@ -102,6 +103,8 @@ const Jobs = ({ jobs = [], talent = [], company = [] }) => {
           </form>
         </NewsLetter>
       </Section>
+
+      <Footer />
     </>
   );
 };

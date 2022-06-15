@@ -280,7 +280,7 @@ export const JobPostSection = styled.div`
   grid-template-rows: 0fr;
   column-gap: 90px;
   grid-row-gap: 0px;
-  margin-top: 30px;
+  margin-top: 0px;
   justify-items: center;
 
   @media screen and (max-width: 1440px) {
@@ -564,7 +564,7 @@ export const BlogSection = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: 1fr;
-  column-gap: 70px;
+  column-gap: 110px;
   grid-row-gap: 0px;
   margin-top: 30px;
   justify-items: center;
