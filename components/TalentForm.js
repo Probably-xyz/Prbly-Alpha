@@ -135,10 +135,7 @@ const TalentForm = ({
         {({ isSubmitting, isValid }) => (
           <Form>
             <FormContainer>
-              <h1 style={{ fontSize: "40px", marginLeft: "165px" }}>
-                {" "}
-                Your Information{" "}
-              </h1>
+              <h1 className="form-title"> Your Information </h1>
 
               <PostForm>
                 <FormColumn>
@@ -213,23 +210,13 @@ const TalentForm = ({
                 </FormColumn>
               </PostForm>
 
-              <FormLabel
-                style={{
-                  marginLeft: "162px",
-                }}
-              >
-                Bio
-              </FormLabel>
+              <FormLabel className="form-label">Bio</FormLabel>
               <Input
                 name="bio"
                 type="textarea"
                 placeholder="We are coool AF"
                 disabled={disabled}
-                style={{
-                  marginLeft: "162px",
-                  marginTop: "15px",
-                  marginBottom: "20px",
-                }}
+                className="form-text"
               />
 
               <button

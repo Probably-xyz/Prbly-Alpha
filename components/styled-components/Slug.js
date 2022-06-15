@@ -19,6 +19,10 @@ export const Container = styled.div`
     margin: 0 10px;
     margin-top: 30px;
   }
+
+  @media only screen and (max-width: 700px) {
+    width: 330px;
+  }
 `;
 
 export const BlogContainer = styled.div`
@@ -61,6 +65,10 @@ export const BlogDate = styled.div`
 export const CompanyInfo = styled.div`
   display: flex;
   flex-direction: row;
+
+  @media screen and (max-width: 700px) {
+    flex-direction: column;
+  }
 `;
 
 export const CompanyName = styled.h1`
@@ -197,25 +205,18 @@ export const PaymentTalent = styled.div`
   height: 150px;
   outline: 3px solid var(--Dark);
   border-radius: 0px;
-  position: absolute;
-  left: 65%;
-  bottom: 405px;
-  padding: 0px;
+  padding: 0px 0px;
   background-color: var(--Secondary);
   display: flex;
   flex-direction: column;
   align-items: center;
   box-shadow: 13px 23px 13px -3px rgba(25, 25, 30, 0.2);
-
-  @media screen and (max-width: 1440px) {
-    left: 75%;
-    bottom: 325px;
-  }
+  /* margin: 0px 220px;
+  /* margin-top: 90px; */
 
   @media screen and (max-width: 1024px) {
-    width: 220px;
-    height: 170px;
-    bottom: 306px;
+    width: 250px;
+    height: 220px;
   }
 `;
 

@@ -9,13 +9,11 @@ export const FooterCon = styled.div`
 `;
 
 export const FooterImage = styled.img`
-  position: relative;
-  width: 250px;
-  height: 250px;
-  top: 35px;
-  left: 50px;
+  width: 100px;
+  height: 100px;
   z-index: 10000;
   display: inline;
+  margin-left: 80px;
 `;
 
 export const FooterTitle = styled.h1`
@@ -57,31 +55,27 @@ export const NewsLetterInput = styled.input`
   margin-left: -10px;
 `;
 
-export const SocialLinks = styled.div`
+export const SocialLinks = styled.ul`
   display: flex;
-  width: 50%;
-  flex-direction: row;
   float: left;
-  position: relative;
-  top: 150px;
-  margin-left: 30px;
 `;
 
-export const SocialLinksTwo = styled.div`
+export const SocialLinksTwo = styled.ul`
   display: flex;
-  width: 50%;
-  flex-direction: row;
   float: right;
-  position: relative;
-  top: 150px;
-  margin-right: -260px;
 `;
 
 export const SocialItems = styled.p`
   margin-right: 120px;
-  color: var(--PrimaryBg);
-  font-family: "Grotesk Regular";
-  font-size: 23px;
+  color: var(--Dark);
+  font-family: "Grotesk Medium";
+  font-size: 18px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+
+  &:hover {
+    color: var(--Accent);
+  }
 `;
 
 export const DividerLeft = styled.div`

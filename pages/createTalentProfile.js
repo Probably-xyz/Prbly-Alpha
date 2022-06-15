@@ -56,13 +56,14 @@ const createTalentProfile = ({ company = [], talent = [] }) => {
   const addTalent = (data) => axios.post("/api/talent", data);
   return (
     <>
-      {talent ? (
+      <Navbar company={company} talent={talent} />
+      {/* {talent ? (
         <h1> GET OUTTA HERE </h1>
       ) : company ? (
         <h1> GET OUTTA HERE </h1>
-      ) : (
-        <TalentForm buttonText="Submit" redirectPath="/" onSubmit={addTalent} />
-      )}
+      ) : ( */}
+      <TalentForm buttonText="Submit" redirectPath="/" onSubmit={addTalent} />
+      {/* )} */}
     </>
   );
 };

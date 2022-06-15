@@ -39,7 +39,6 @@ const ListedTalent = (talent = null) => {
   return (
     <>
       <Navbar />
-
       <Section
         style={{
           marginTop: "40px",
@@ -58,33 +57,34 @@ const ListedTalent = (talent = null) => {
         </TalentSignUp>
       </Section>
 
-      <TalentContent>
-        <TalentIntro>
-          {talent?.image ? (
-            <img
-              src={talent.image}
-              alt={talent.title}
-              style={{
-                width: "200px",
-                height: "200px",
-                outline: "3px solid var(--Dark)",
-              }}
-            />
-          ) : null}
-          <TalentTitle>
-            <h1>{talent?.title ?? ""}</h1>
-            <SkillBadge> {talent?.status ?? ""} </SkillBadge>
-          </TalentTitle>
-        </TalentIntro>
+      <div style={{ display: "flex", justifyContent: "space-evenly" }}>
+        <TalentContent>
+          <TalentIntro>
+            {talent?.image ? (
+              <img
+                src={talent.image}
+                alt={talent.title}
+                style={{
+                  width: "200px",
+                  height: "200px",
+                  outline: "3px solid var(--Dark)",
+                }}
+              />
+            ) : null}
+            <TalentTitle>
+              <h1>{talent?.title ?? ""}</h1>
+              <SkillBadge> {talent?.status ?? ""} </SkillBadge>
+            </TalentTitle>
+          </TalentIntro>
 
-        <h1> About Me </h1>
-        <Subheader> {talent?.bio ?? ""} </Subheader>
-      </TalentContent>
-
-      <PaymentTalent>
-        <h2> Want to hire me? </h2>
-        <TalentButton> Contact Me </TalentButton>
-      </PaymentTalent>
+          <h1> About Me </h1>
+          <Subheader> {talent?.bio ?? ""} </Subheader>
+        </TalentContent>
+        <PaymentTalent>
+          <h2> Want to hire me? </h2>
+          <TalentButton> Contact Me </TalentButton>
+        </PaymentTalent>
+      </div>
     </>
   );
 };

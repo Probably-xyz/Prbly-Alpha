@@ -166,8 +166,8 @@ export default function Home({
           )}
         </LandingText>
 
-        <ImageOne src="/landingOne.png" />
-        <ImageTwo src="/landingTwo.png" />
+        {/* <ImageOne src="/landingOne.png" />
+        <ImageTwo src="/landingTwo.png" /> */}
       </section>
 
       <Section>
@@ -209,7 +209,7 @@ export default function Home({
       <Section style={{ marginTop: "20px" }}>
         <Subheader className="sub-mobile">
           {" "}
-          Connect with the best crypto talent{" "}
+          connect with the best crypto talent{" "}
         </Subheader>
         <HeaderTwo> Latest Talent </HeaderTwo>
         <LandingTalentGrid talents={talents} />
@@ -223,15 +223,17 @@ export default function Home({
       <Section style={{ marginTop: "120px" }}>
         <Subheader className="sub-mobile">
           {" "}
-          A blog covering all topics crypto{" "}
+          a blog covering all topics crypto{" "}
         </Subheader>
         <HeaderTwo> Latest Articles </HeaderTwo>
       </Section>
-      <BlogSection>
-        {blogFiltered.map((blogPost) => (
-          <BlogCard key={blogPost.sys.id} blogPost={blogPost} />
-        ))}
-      </BlogSection>
+      <Section>
+        <BlogSection>
+          {blogFiltered.map((blogPost) => (
+            <BlogCard key={blogPost.sys.id} blogPost={blogPost} />
+          ))}
+        </BlogSection>
+      </Section>
       <Section style={{ marginTop: "50px" }}>
         <Link href="/blog">
           <button className="pushableLanding">

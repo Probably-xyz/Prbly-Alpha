@@ -57,21 +57,20 @@ const createCompanyProfile = ({ company = [], talent = [] }) => {
   const addCompany = (data) => axios.post("/api/companies", data);
   return (
     <>
-      {talent ? (
+      {/* {talent ? (
         <h1> GET OUTTA HERE </h1>
       ) : company ? (
         <h1> GET OUTTA HERE </h1>
-      ) : (
-        <>
-          <Navbar />
+      ) : ( */}
+      <>
+        <Navbar />
 
-          <CompanyForm
-            buttonText="Submit"
-            redirectPath="/"
-            onSubmit={addCompany}
-          />
-        </>
-      )}
+        <CompanyForm
+          buttonText="Submit"
+          redirectPath="/"
+          onSubmit={addCompany}
+        />
+      </>
     </>
   );
 };

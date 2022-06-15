@@ -11,7 +11,7 @@ import {
 } from "@/components/styled-components/Components";
 import axios from "axios";
 import { getSession } from "next-auth/react";
-import JobFormFree from "@/components/JobFormFree";
+import JobFormFeatured from "@/components/JobFormFeatured";
 
 export async function getServerSideProps(context) {
   const session = await getSession(context);
@@ -35,7 +35,7 @@ const createJobFree = () => {
   return (
     <>
       <Navbar />
-      <JobFormFree buttonText="Submit" redirectPath="/" onSubmit={addJob} />
+      <JobFormFeatured buttonText="Submit" redirectPath="/" onSubmit={addJob} />
     </>
   );
 };

@@ -89,10 +89,7 @@ const JobFormFeatured = ({
         {({ isSubmitting, isValid }) => (
           <Form>
             <FormContainer>
-              <h1 style={{ fontSize: "40px", marginLeft: "165px" }}>
-                {" "}
-                Post Information{" "}
-              </h1>
+              <h1 className="form-title">Post Information</h1>
               <PostForm>
                 <FormColumn>
                   <FormLabel> Job Title </FormLabel>
@@ -296,34 +293,19 @@ const JobFormFeatured = ({
                     placeholder="Link"
                     disabled={disabled}
                   />
-                  <span
-                    style={{
-                      display: "inline",
-                      position: "absolute",
-                      top: "975px",
-                      color: "rgba(0, 0, 0, 0.5)",
-                      fontFamily: "Grotesk Medium",
-                    }}
-                  >
+                  <span className="ats-info">
                     *Applications will be redirected to this link. Use for
                     Applicant tracking systems.
                   </span>
                 </FormColumn>
               </PostForm>
 
-              <FormLabel
-                
-                className="form-label"
-              >
-                {" "}
-                Bio{" "}
-              </FormLabel>
+              <FormLabel className="form-label"> Bio </FormLabel>
               <Input
                 name="description"
                 type="textarea"
                 placeholder="We are coool AF"
                 disabled={disabled}
-              
               />
 
               <button

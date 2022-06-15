@@ -130,6 +130,31 @@ const ListedJob = ({ post = null, similarPosts = [] }) => {
               <BenefitBadge>{post.benefits[2]} </BenefitBadge>
             ) : null}
           </BenefitList>
+
+          <BenefitList className="mobile-list">
+            {post?.location ? (
+              <OptionBadge>{post.location} </OptionBadge>
+            ) : null}
+            {post?.options ? <OptionBadge>{post.options} </OptionBadge> : null}
+            {post?.category ? (
+              <OptionBadge>{post.category} </OptionBadge>
+            ) : null}
+
+            {post?.salary ? <SalaryBadge>{post.salary} </SalaryBadge> : null}
+          </BenefitList>
+
+          <BenefitList className="mobile-list">
+            {post?.benefits[0] ? (
+              <BenefitBadge>{post.benefits[0]} </BenefitBadge>
+            ) : null}
+            {post?.benefits[1] ? (
+              <BenefitBadge>{post.benefits[1]} </BenefitBadge>
+            ) : null}
+            {post?.benefits[2] ? (
+              <BenefitBadge>{post.benefits[2]} </BenefitBadge>
+            ) : null}
+          </BenefitList>
+
           <div>
             <h1> Job Description </h1>
 

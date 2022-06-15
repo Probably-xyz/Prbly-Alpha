@@ -81,13 +81,14 @@ export const LandingText = styled.section`
   justify-content: center;
   align-items: center;
   z-index: 1000;
-  margin-top: 10%;
+  margin-top: 5%;
   position: relative;
 `;
 
 export const ImageOne = styled.img`
   position: absolute;
   bottom: 250px;
+  right: 1643px;
 
   @media only screen and (max-width: 1440px) {
     bottom: 200px;
@@ -278,7 +279,7 @@ export const JobPostSection = styled.div`
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: 0fr;
   column-gap: 90px;
-  grid-row-gap: 40px;
+  grid-row-gap: 0px;
   margin-top: 30px;
   justify-items: center;
 
@@ -293,6 +294,7 @@ export const JobPostSection = styled.div`
   @media only screen and (max-width: 700px) {
     grid-template-columns: repeat(1, 1fr);
     margin-bottom: 40px;
+    grid-row-gap: 40px;
   }
 `;
 
@@ -562,7 +564,7 @@ export const BlogSection = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: 1fr;
-  column-gap: 0px;
+  column-gap: 70px;
   grid-row-gap: 0px;
   margin-top: 30px;
   justify-items: center;
@@ -668,6 +670,10 @@ export const FormContainer = styled.div`
   outline: 3px solid var(--Dark);
   margin: 50px 0px;
   box-shadow: 0 0 10px var(--Dark);
+
+  @media screen and (max-width: 1024px) {
+    padding: 40px 10px;
+  }
 `;
 
 export const FormColumn = styled.div`
@@ -700,6 +706,10 @@ export const FormInput = styled.input`
   &:hover {
     outline: 5px solid var(--Accent);
   }
+
+  @media only screen and (max-width: 1024px) {
+    width: 400px;
+  }
 `;
 
 export const FormSelect = styled.select`
@@ -715,6 +725,10 @@ export const FormSelect = styled.select`
   font-family: "Grotesk Regular";
   margin-bottom: 60px;
   margin-right: 60px;
+
+  @media only screen and (max-width: 1024px) {
+    width: 400px;
+  }
 `;
 
 export const FormImage = styled.button`
@@ -732,6 +746,10 @@ export const FormImage = styled.button`
   margin-bottom: 60px;
   margin-right: 60px;
   cursor: pointer;
+
+  @media only screen and (max-width: 1024px) {
+    width: 400px;
+  }
 `;
 
 export const FormTextArea = styled.textarea`
@@ -843,6 +861,10 @@ export const FormRadioControl = styled.div`
   flex-direction: row;
   justify-content: space-between;
   margin-bottom: 40px;
+
+  @media screen and (max-width: 1024px) {
+    width: 350px;
+  }
 `;
 
 export const RadioControl = styled.input`

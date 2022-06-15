@@ -147,6 +147,7 @@ const CompanyForm = ({
                   <ImageUpload
                     initialImage={{ src: image, alt: initialFormValues.name }}
                     onChangePicture={upload}
+                    required="true"
                   />
 
                   <FormLabel> Description </FormLabel>
