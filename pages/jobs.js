@@ -67,7 +67,7 @@ const Jobs = ({ jobs = [], talent = [], company = [] }) => {
       <section style={{ marginBottom: "10px" }}>
         <LandingText>
           <Header>Probably the best jobs for you</Header>
-          <LandingSub style={{ position: "relative", bottom: "20px" }}>
+          <LandingSub>
             A list of jobs curated to your needs and prefrences
           </LandingSub>
         </LandingText>

@@ -24,7 +24,6 @@ export const NavWrapper = styled.div`
   width: 100%;
   padding: 0px 10px;
   max-width: 100vw;
-  /* border-bottom: 2px solid var(--Dark); */
 `;
 
 export const NavLogo = styled.p`

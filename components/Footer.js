@@ -22,7 +22,7 @@ const Footer = () => {
       <footer
         style={{
           marginTop: "90px",
-          borderTop: "2px solid black",
+          borderTop: "2px solid var(--Dark)",
           width: "100%",
         }}
       >

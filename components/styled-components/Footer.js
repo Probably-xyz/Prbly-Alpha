@@ -9,11 +9,27 @@ export const FooterCon = styled.div`
 `;
 
 export const FooterImage = styled.img`
-  width: 100px;
-  height: 100px;
+  width: 105px;
+  height: 105px;
   z-index: 10000;
   display: inline;
   margin-left: 80px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+
+  &:hover {
+    transform: scale(1.3);
+  }
+
+  @media only screen and (max-width: 1440px) {
+    margin-left: 60px;
+  }
+
+  @media only screen and (max-width: 1024px) {
+    width: 80px;
+    height: 80px;
+    margin-left: 85px;
+  }
 `;
 
 export const FooterTitle = styled.h1`
@@ -75,6 +91,15 @@ export const SocialItems = styled.p`
 
   &:hover {
     color: var(--Accent);
+  }
+
+  @media only screen and (max-width: 1440px) {
+    margin-right: 65px;
+  }
+
+  @media only screen and (max-width: 1024px) {
+    font-size: 16px;
+    margin-right: 25px;
   }
 `;
 

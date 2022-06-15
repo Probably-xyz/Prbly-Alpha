@@ -8,6 +8,10 @@ export const Header = styled.h1`
   font-size: 70px;
   margin: 15px 0px;
 
+  @media only screen and (max-width: 1440px) {
+    font-size: 55px;
+  }
+
   @media only screen and (max-width: 1024px) {
     font-size: 50px;
   }
@@ -43,6 +47,12 @@ export const LandingSub = styled.p`
   margin-left: 0;
   margin-right: 0;
   padding: 0;
+  position: relative;
+  bottom: 20px;
+
+  @media only screen and (max-width: 1440px) {
+    font-size: 25px;
+  }
 
   @media only screen and (max-width: 1024px) {
     font-size: 20px;
@@ -569,6 +579,10 @@ export const BlogSection = styled.div`
   margin-top: 30px;
   justify-items: center;
   padding: 0px 10px;
+
+  @media only screen and (max-width: 1440px) {
+    column-gap: 35px;
+  }
 
   @media screen and (max-width: 1024px) {
     grid-template-columns: repeat(2, 1fr);
