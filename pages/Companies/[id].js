@@ -4,6 +4,7 @@
 /* eslint-disable jsx-a11y/alt-text */
 import React from "react";
 import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer"
 import {
   Section,
   Header,
@@ -57,6 +58,7 @@ const ListedCompany = ({ company = null, jobs = [] }) => {
               alt={company.title}
               style={{
                 width: "200px",
+                height: "220px",
                 outline: "3px solid var(--Dark)",
                 marginBottom: "50px",
               }}
@@ -76,7 +78,7 @@ const ListedCompany = ({ company = null, jobs = [] }) => {
         <ReactMarkdown children={markdownContent} />{" "}
       </Container>
 
-      <CompanyNewsLetter>
+      {/* <CompanyNewsLetter>
         <CompanyNewsLetterTitle>
           Check out The Sensibility <br /> Letter
         </CompanyNewsLetterTitle>
@@ -86,7 +88,7 @@ const ListedCompany = ({ company = null, jobs = [] }) => {
         </NewsLetterSub>
         <NewsLetterInput placeholder="Enter your E-mail" />
         <SlugNewsLetterButton> Subscribe </SlugNewsLetterButton>
-      </CompanyNewsLetter>
+      </CompanyNewsLetter> */}
 
       <Section className="company-news">
         <NewsLetter>
@@ -119,6 +121,8 @@ const ListedCompany = ({ company = null, jobs = [] }) => {
       {/* <Section>
         <LandingJobGrid post={post} />
       </Section> */}
+
+      <Footer/> 
     </>
   );
 };

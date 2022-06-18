@@ -32,10 +32,18 @@ const Footer = () => {
           }}
         >
           <SocialLinks>
+            <a href="https://instagram.com/probably.xyz?igshid=YmMyMTA2M2Y" target="_blank">
             <SocialItems> Instagram </SocialItems>
+            </a>
+            <a href="https://twitter.com/probablyxyz?s=20&t=BnskDFzlXvegK63jXeidUQ" target="_blank">
             <SocialItems>Twitter</SocialItems>
+            </a>
+            <a  href="https://www.linkedin.com/company/probablyxyz/" target="_blank">
             <SocialItems>LinkedIn</SocialItems>
+            </a>
+            <a href="mailto:support@prbly.xyz" target="_blank">
             <SocialItems>Support</SocialItems>
+            </a>
           </SocialLinks>
 
           <FooterImage src="/Prbly.png" />

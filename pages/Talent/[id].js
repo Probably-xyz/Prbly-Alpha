@@ -2,6 +2,7 @@
 /* eslint-disable jsx-a11y/alt-text */
 import React from "react";
 import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer"
 import {
   Section,
   Header,
@@ -85,6 +86,8 @@ const ListedTalent = (talent = null) => {
           <TalentButton> Contact Me </TalentButton>
         </PaymentTalent>
       </div>
+
+      <Footer/>
     </>
   );
 };

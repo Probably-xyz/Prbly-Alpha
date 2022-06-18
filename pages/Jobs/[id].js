@@ -6,6 +6,7 @@
 import React, { useState } from "react";
 import ReactMarkdown from "react-markdown";
 import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer"
 import {
   Section,
   Header,
@@ -237,12 +238,22 @@ const ListedJob = ({ post = null, similarPosts = [] }) => {
             Our weekly newsletter that makes sense of everything crypto with
             <br />a dash of jobs, talent, and information.
           </NewsLetterSub>
-          <form>
-            <NewsLetterInput placeholder="Enter your e-mail" />
+          <form
+            action="https://www.getrevue.co/profile/probablyxyz/add_subscriber"
+            method="post"
+            target="_blank"
+          >
+            <NewsLetterInput
+              placeholder="Enter your e-mail"
+              type="email"
+              name="member[email]"
+            />
             <NewsLetterButton> Let's Go </NewsLetterButton>
           </form>
         </NewsLetter>
       </Section>
+
+      <Footer/>
     </>
   );
 };

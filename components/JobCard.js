@@ -78,11 +78,11 @@ const JobCard = ({
                 <JobPostCompany>{companyName ?? ""}</JobPostCompany>
                 <JobPostTitle>{title ?? ""}</JobPostTitle>
                 <BadgeList>
-                  <BenefitBadge> {location ?? ""} </BenefitBadge>
+                  <BenefitBadge> {benefits[0] ?? ""} </BenefitBadge>
                   <TypeBadge> {type ?? ""} </TypeBadge>
                 </BadgeList>
                 <BadgeList>
-                  <CategoryBadge> {benefits[0] ?? ""} </CategoryBadge>
+                  <CategoryBadge> {category ?? ""} </CategoryBadge>
                 </BadgeList>
               </JobContent>
             </JobPostCard>

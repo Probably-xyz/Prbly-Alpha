@@ -7,6 +7,7 @@ import {
   Section,
   LandingSub,
   Subheader,
+  FormTextArea,
 } from "@/components/styled-components/Components";
 import {
   BlogContainer,
@@ -14,6 +15,7 @@ import {
   BlogDate,
 } from "@/components/styled-components/Slug";
 import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer"
 import Image from "next/image";
 
 const client = createClient({
@@ -93,6 +95,8 @@ const BlogSlug = ({ blogPost }) => {
           <BlogContent> {documentToReactComponents(content)} </BlogContent>
         </BlogContainer>
       </Section>
+
+      <Footer/>
     </>
   );
 };

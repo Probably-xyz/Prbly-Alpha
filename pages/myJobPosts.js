@@ -4,6 +4,7 @@ import { prisma } from "@/lib/prisma";
 import Grid from "@/components/Grid";
 import LandingJobGrid from "@/components/LandingJobGrid";
 import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer"
 import { getSession } from "next-auth/react";
 import { useState } from "react";
 import {
@@ -98,6 +99,8 @@ const MyJobPosts = ({ jobs = [], talent = [], company = [] }) => {
           </form>
         </NewsLetter>
       </Section> */}
+
+      <Footer />
     </>
   );
 };

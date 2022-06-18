@@ -2,6 +2,7 @@
 import Head from "next/head";
 import Image from "next/image";
 import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer"
 import { signOut, getSession, signIn } from "next-auth/react";
 import { useSession } from "next-auth/react";
 import { prisma } from "@/lib/prisma";
