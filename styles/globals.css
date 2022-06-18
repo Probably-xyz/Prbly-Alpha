@@ -288,11 +288,12 @@ p {
   background: var(--Accent);
   color: var(--Dark);
   font-family: "Grotesk SemiBold";
+  transition: 0.35s;
 }
 
 .front:hover {
   transform: translate(-8px, -8px);
-  transition: 0.2s;
+  
 }
 
 @media screen and (max-width: 1024px) {
