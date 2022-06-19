@@ -523,7 +523,8 @@ export const NewsLetterInput = styled.input`
   font-size: 18px;
   outline: 3px solid var(--Dark);
   font-family: "Grotesk SemiBold";
-  margin: 15px 0px;
+  /* margin: 15px 0px; */
+  margin: 0px;
   padding: 10px;
 
   @media only screen and (max-width: 700px) {

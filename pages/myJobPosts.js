@@ -4,7 +4,7 @@ import { prisma } from "@/lib/prisma";
 import Grid from "@/components/Grid";
 import LandingJobGrid from "@/components/LandingJobGrid";
 import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer"
+import Footer from "@/components/Footer";
 import { getSession } from "next-auth/react";
 import { useState } from "react";
 import {
@@ -76,13 +76,15 @@ const MyJobPosts = ({ jobs = [], talent = [], company = [] }) => {
           <LandingSub>A list of all your jobs posted on Probably</LandingSub>
         </LandingText>
 
-        <ImageOne src="/landingOne.png" />
-        <ImageTwo src="/landingTwo.png" />
+        {/* <ImageOne src="/landingOne.png" />
+        <ImageTwo src="/landingTwo.png" /> */}
 
         <Section>
           <LandingJobGrid post={jobs} />
         </Section>
       </section>
+
+      <Footer />
 
       {/* <Section>
         <NewsLetter>
@@ -99,8 +101,6 @@ const MyJobPosts = ({ jobs = [], talent = [], company = [] }) => {
           </form>
         </NewsLetter>
       </Section> */}
-
-      <Footer />
     </>
   );
 };

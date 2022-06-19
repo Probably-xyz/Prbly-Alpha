@@ -241,16 +241,15 @@ export const ApplyToJob = styled.div`
   left: 78%;
   bottom: 442px; */
   margin: 0px 40px;
-  /* margin-top: 60px;
-  margin-bottom: 0px; */
+  margin-top: 100px;
+  margin-bottom: 0px;
   padding: 2px 20px;
   background-color: var(--Secondary);
   box-shadow: 13px 23px 13px -3px rgba(25, 25, 30, 0.2);
 
-  /* @media only screen and (max-width: 1440px) {
-    left: 70%;
-    bottom: 360px;
-  } */
+  @media only screen and (max-width: 1440px) {
+    margin-top: 70px;
+  }
 
   @media only screen and (max-width: 1024px) {
     height: 380px;
@@ -294,7 +293,7 @@ export const NewsLetterInput = styled.input`
   font-size: 18px;
   outline: 3px solid var(--Dark);
   font-family: "Grotesk SemiBold";
-  margin: 25px 0px;
+  margin: 0px;
   padding: 10px;
 
   @media screen and (max-width: 1024px) {

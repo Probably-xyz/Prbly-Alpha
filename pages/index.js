@@ -109,6 +109,8 @@ export default function Home({
   const elNumber = 3;
   const blogFiltered = blogPost.slice(0, elNumber);
 
+  console.log(company);
+
   return (
     <>
       <Head>
@@ -246,4 +248,3 @@ export default function Home({
     </>
   );
 }
-

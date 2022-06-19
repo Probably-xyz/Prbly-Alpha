@@ -58,7 +58,9 @@ const Footer = () => {
             </a>
           </SocialLinks>
 
-          <FooterImage src="/Prbly.png" />
+          <Link href="/">
+            <FooterImage src="/Prbly.png" />
+          </Link>
 
           <SocialLinksTwo>
             <Link href="/jobs">

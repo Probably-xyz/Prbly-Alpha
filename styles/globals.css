@@ -119,6 +119,10 @@ a {
   display: none;
 }
 
+.profile-div {
+  margin: 30px 0px;
+}
+
 .mobile-list {
   display: none;
 }
@@ -293,7 +297,6 @@ p {
 
 .front:hover {
   transform: translate(-8px, -8px);
-  
 }
 
 @media screen and (max-width: 1024px) {

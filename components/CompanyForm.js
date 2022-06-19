@@ -103,7 +103,7 @@ const CompanyForm = ({
             <Form>
               <FormContainer>
                 <FormColumn>
-                  <FormLabel> Name </FormLabel>
+                  <FormLabel> Company Name </FormLabel>
                   <Input
                     name="name"
                     type="text"
@@ -111,7 +111,7 @@ const CompanyForm = ({
                     disabled={disabled}
                   />
 
-                  <FormLabel> Website </FormLabel>
+                  <FormLabel> Company Website </FormLabel>
                   <Input
                     name="website"
                     type="text"
@@ -119,7 +119,7 @@ const CompanyForm = ({
                     disabled={disabled}
                   />
 
-                  <FormLabel> Industry </FormLabel>
+                  <FormLabel> Sector </FormLabel>
                   <Input
                     name="industry"
                     type="select"
@@ -143,7 +143,7 @@ const CompanyForm = ({
                     </option>
                   </Input>
 
-                  <FormLabel> Image </FormLabel>
+                  <FormLabel> Company Logo </FormLabel>
                   <ImageUpload
                     initialImage={{ src: image, alt: initialFormValues.name }}
                     onChangePicture={upload}
@@ -156,7 +156,10 @@ const CompanyForm = ({
                     type="textarea"
                     placeholder="Tell us more about your company"
                     disabled={disabled}
-                    style={{ marginBottom: "40px" }}
+                    style={{
+                      marginLeft: "0px",
+                      marginBottom: "40px",
+                    }}
                   />
 
                   <button
