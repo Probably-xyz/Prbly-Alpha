@@ -4,7 +4,7 @@
 /* eslint-disable jsx-a11y/alt-text */
 import React from "react";
 import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer"
+import Footer from "@/components/Footer";
 import {
   Section,
   Header,
@@ -122,7 +122,7 @@ const ListedCompany = ({ company = null, jobs = [] }) => {
         <LandingJobGrid post={post} />
       </Section> */}
 
-      <Footer/> 
+      <Footer />
     </>
   );
 };

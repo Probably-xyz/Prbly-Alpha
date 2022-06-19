@@ -241,8 +241,8 @@ export const ApplyToJob = styled.div`
   left: 78%;
   bottom: 442px; */
   margin: 0px 40px;
-  margin-top: 60px;
-  margin-bottom: 0px;
+  /* margin-top: 60px;
+  margin-bottom: 0px; */
   padding: 2px 20px;
   background-color: var(--Secondary);
   box-shadow: 13px 23px 13px -3px rgba(25, 25, 30, 0.2);
