@@ -4,7 +4,7 @@ import { prisma } from "@/lib/prisma";
 import Grid from "@/components/Grid";
 import TalentGrid from "@/components/TalentGrid";
 import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer"
+import Footer from "@/components/Footer";
 import {
   Section,
   LandingText,
@@ -86,6 +86,8 @@ const Talent = ({ talents = [], talent = [], company = [] }) => {
       <Section>
         <TalentGrid talents={talents} />
       </Section>
+
+      <Footer />
     </>
   );
 };
