@@ -6,7 +6,7 @@
 import React, { useState } from "react";
 import ReactMarkdown from "react-markdown";
 import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer"
+import Footer from "@/components/Footer";
 import {
   Section,
   Header,
@@ -253,7 +253,7 @@ const ListedJob = ({ post = null, similarPosts = [] }) => {
         </NewsLetter>
       </Section>
 
-      <Footer/>
+      <Footer />
     </>
   );
 };
