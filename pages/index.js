@@ -47,6 +47,7 @@ export async function getServerSideProps(context) {
   const post = await prisma.post.findMany({
     take: 8,
     orderBy: { createdAt: "desc" },
+    where: { approved: true },
   });
 
   const client = createClient({
@@ -59,7 +60,7 @@ export async function getServerSideProps(context) {
   });
 
   const talents = await prisma.talent.findMany({
-    take: 3,
+    take: 1,
     orderBy: { createdAt: "desc" },
   });
 

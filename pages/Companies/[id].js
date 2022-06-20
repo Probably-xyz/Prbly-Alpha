@@ -36,8 +36,6 @@ import ReactMarkdown from "react-markdown";
 import { useRouter } from "next/router";
 
 const ListedCompany = ({ company = null, jobs = [] }) => {
-  console.log(jobs);
-
   const markdownContent = company?.bio ?? "";
 
   const router = useRouter();
