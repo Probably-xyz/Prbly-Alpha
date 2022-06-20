@@ -3,7 +3,7 @@ import React from "react";
 import { prisma } from "@/lib/prisma";
 import Grid from "@/components/Grid";
 import TalentGrid from "@/components/TalentGrid";
-import Navbar from "@/components/Navbar";
+import NavbarWithDrop from "@/components/NavbarWithDrop";
 import Footer from "@/components/Footer";
 import {
   Section,
@@ -55,7 +55,7 @@ export async function getServerSideProps(context) {
 const Talent = ({ talents = [], talent = [], company = [] }) => {
   return (
     <>
-      <Navbar talent={talent} company={company} />
+      <NavbarWithDrop talent={talent} company={company} />
       <section>
         <LandingText>
           <Header>Probably the best talent in crypto</Header>

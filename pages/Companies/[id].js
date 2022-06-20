@@ -5,6 +5,7 @@
 import React from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { signOut, getSession, signIn } from "next-auth/react";
 import {
   Section,
   Header,
@@ -58,7 +59,7 @@ const ListedCompany = ({ company = null, jobs = [] }) => {
               alt={company.title}
               style={{
                 width: "200px",
-                height: "220px",
+                height: "200px",
                 outline: "3px solid var(--Dark)",
                 marginBottom: "50px",
               }}
@@ -67,12 +68,16 @@ const ListedCompany = ({ company = null, jobs = [] }) => {
           <CompanyName> {company?.name ?? ""} </CompanyName>
         </CompanyInfo>
         <BadgeList>
-          <Link href={company?.website ?? ""} target="_blank">
+          <a
+            href={"https://" + company?.website ?? ""}
+            target="_blank"
+            rel="noreferrer"
+          >
             <BenefitBadge style={{ cursor: "pointer" }}>
               {" "}
               Company Website{" "}
             </BenefitBadge>
-          </Link>
+          </a>
         </BadgeList>
         <h1> Company Description </h1>
         <ReactMarkdown children={markdownContent} />{" "}

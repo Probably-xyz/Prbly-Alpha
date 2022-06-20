@@ -103,12 +103,7 @@ const ListedJob = ({ post = null, similarPosts = [] }) => {
               />
             ) : null}
             <div>
-              <Link href={`/Companies/${post?.companyId ?? ""}`}>
-                <PostCompanyName style={{ cursor: "pointer" }}>
-                  {" "}
-                  {post?.companyName ?? ""}{" "}
-                </PostCompanyName>
-              </Link>
+              <PostCompanyName> {post?.companyName ?? ""} </PostCompanyName>
               <JobTitle> {post?.title ?? ""} </JobTitle>
             </div>
           </CompanyInfo>
@@ -176,53 +171,6 @@ const ListedJob = ({ post = null, similarPosts = [] }) => {
             <ReactMarkdown children={markdown} />
           </div>
         </Container>
-
-        {loggedIn ? (
-          <>
-            {post?.atsUrl ? (
-              <ApplyToJob>
-                <h2> Ready to apply for this job opening?</h2>
-                <p>
-                  Please let the company know that you found this position on
-                  Cryptomena as a way to support us, so we can keep posting cool
-                  jobs.
-                </p>
-
-                <a target="_blank" rel="noreferrer" href={post.atsUrl}>
-                  <AtsButton> Apply </AtsButton>
-                </a>
-              </ApplyToJob>
-            ) : (
-              <ApplyToJob>
-                <h2> Ready to apply for this job opening?</h2>
-                <p>
-                  Save a lot of time by applying with your Probably profile.
-                </p>
-                <form onSubmit={onSubmit}>
-                  <AtsButton type="submit" disabled={submitting}>
-                    {submitting
-                      ? "Submitting..."
-                      : success
-                      ? "All done!"
-                      : "Apply"}
-                  </AtsButton>
-                </form>
-              </ApplyToJob>
-            )}
-          </>
-        ) : (
-          <ApplyToJob>
-            <h2> You're not signed in</h2>
-            <p>
-              Please sign in and create an account to access talent profile
-              applications and much more!
-            </p>
-
-            <Link target="_blank" rel="noreferrer" href="/api/auth/signin">
-              <AtsButton> Sign-in </AtsButton>
-            </Link>
-          </ApplyToJob>
-        )}
       </div>
 
       {postExist ? (

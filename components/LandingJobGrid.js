@@ -15,7 +15,7 @@ const LandingJobGrid = ({ post = [], result = [] }) => {
   const isEmpty = post.length === 0;
 
   return isEmpty ? null : (
-    <JobPostSection>
+    <JobPostSection style={{ gridRowGap: "40px" }}>
       {post.map((post) => (
         <JobCard key={post.id} {...post} />
       ))}

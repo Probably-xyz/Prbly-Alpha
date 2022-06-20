@@ -314,13 +314,12 @@ const JobFormFree = ({
                   marginLeft: "162px",
                 }}
               >
-                {" "}
-                Bio{" "}
+                Job Description
               </FormLabel>
               <Input
                 name="description"
                 type="textarea"
-                placeholder="We are coool AF"
+                placeholder="Enter Job Description. Please be as detailed as possible, and include requirements, responsibilities, benefits, and any other relevant information. Note: Use Markdown for more detailed formatting"
                 disabled={disabled}
                 style={{
                   marginLeft: "162px",

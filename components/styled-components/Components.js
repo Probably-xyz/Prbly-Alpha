@@ -90,7 +90,7 @@ export const LandingText = styled.section`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  z-index: 1000;
+  z-index: 0;
   margin-top: 5%;
   position: relative;
 `;
@@ -292,6 +292,7 @@ export const JobPostSection = styled.div`
   grid-row-gap: 0px;
   margin-top: 0px;
   justify-items: center;
+  margin-top: 30px;
 
   @media screen and (max-width: 1440px) {
     column-gap: 40px;

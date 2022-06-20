@@ -56,7 +56,7 @@ export default function ChooseAJobOption({ talent = [], company = [] }) {
   return (
     <>
       <Navbar talent={talent} company={company} />
-      <Section style={{ marginBottom: "100px", marginTop: "-70px" }}>
+      <Section style={{ marginBottom: "50px", marginTop: "-30px" }}>
         <section>
           <LandingText>
             <Header>
@@ -71,6 +71,7 @@ export default function ChooseAJobOption({ talent = [], company = [] }) {
             flexDirection: "row",
             justifyContent: "space-between",
           }}
+          className="profile-div"
         >
           <ProfileCard style={{ background: "var(--Accent)" }}>
             <ProfileTitle> Featured Post </ProfileTitle>
@@ -88,12 +89,15 @@ export default function ChooseAJobOption({ talent = [], company = [] }) {
           </ProfileCard>
 
           <ProfileCard>
-            <ProfileTitle> Free Trail </ProfileTitle>
-            <p> description </p>
+            <ProfileTitle style={{ marginBottom: "40px" }}>
+              {" "}
+              Free Job Post{" "}
+            </ProfileTitle>
+
             <ProfileFeatures>
-              <FeatureItem>Feature</FeatureItem>
-              <FeatureItem>Feature</FeatureItem>
-              <FeatureItem>Feature</FeatureItem>
+              <FeatureItem>Shared on our social media</FeatureItem>
+              <FeatureItem> Live for 30 days</FeatureItem>
+              <FeatureItem> Instant exposure to crypto talent </FeatureItem>
             </ProfileFeatures>
             <Link href="/postJobFree">
               <button className="pushable">

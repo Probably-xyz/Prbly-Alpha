@@ -2,7 +2,7 @@
 import React from "react";
 import { prisma } from "@/lib/prisma";
 import Grid from "@/components/Grid";
-import Navbar from "@/components/Navbar";
+import NavbarWithDrop from "@/components/NavbarWithDrop";
 import Footer from "@/components/Footer";
 import { getSession } from "next-auth/react";
 import {
@@ -57,7 +57,7 @@ export async function getServerSideProps(context) {
 const Companies = ({ companies = [], talent = [], company = [] }) => {
   return (
     <>
-      <Navbar talent={talent} company={company} />
+      <NavbarWithDrop talent={talent} company={company} />
       <section>
         <LandingText>
           <Header>

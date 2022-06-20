@@ -4,7 +4,7 @@
 import { useState, useEffect } from "react";
 import Head from "next/head";
 import Image from "next/image";
-import Navbar from "@/components/Navbar";
+import NavbarWithDrop from "@/components/NavbarWithDrop";
 import Link from "next/link";
 import { useForm } from "react-hook-form";
 import Footer from "@/components/Footer";
@@ -109,8 +109,6 @@ export default function Home({
   const elNumber = 3;
   const blogFiltered = blogPost.slice(0, elNumber);
 
-  console.log(company);
-
   return (
     <>
       <Head>
@@ -124,7 +122,7 @@ export default function Home({
       </Head>
 
       <PaddleLoader />
-      <Navbar talent={talent} company={company} />
+      <NavbarWithDrop talent={talent} company={company} />
 
       <section
         style={{

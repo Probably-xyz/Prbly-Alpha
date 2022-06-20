@@ -18,7 +18,7 @@ import {
 import { signOut, getSession, signIn } from "next-auth/react";
 import { useSession } from "next-auth/react";
 
-const Navbar = ({ talent = [], company = [] }) => {
+const NavbarWithDrop = ({ talent = [], company = [] }) => {
   const { data: session, status } = useSession();
   const loggedIn = session?.user;
   const isLoadingUser = status === "loading";
@@ -65,6 +65,18 @@ const Navbar = ({ talent = [], company = [] }) => {
                 <a type="button" onClick={() => signOut()}>
                   Sign out
                 </a>
+                {company ? <Link href="/myJobPosts"> Posts </Link> : null}
+                {talent ? (
+                  <a style={{ cursor: "not-allowed" }}>
+                    {" "}
+                    Profile (Coming Soon){" "}
+                  </a>
+                ) : company ? (
+                  <a style={{ cursor: "not-allowed" }}>
+                    {" "}
+                    Profile (Coming Soon){" "}
+                  </a>
+                ) : null}
               </div>
             </div>
           ) : (
@@ -84,4 +96,4 @@ const Navbar = ({ talent = [], company = [] }) => {
   );
 };
 
-export default Navbar;
+export default NavbarWithDrop;

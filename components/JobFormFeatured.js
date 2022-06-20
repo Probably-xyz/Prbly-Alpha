@@ -300,22 +300,18 @@ const JobFormFeatured = ({
                 </FormColumn>
               </PostForm>
 
-              <FormLabel className="form-label"> Bio </FormLabel>
+              <FormLabel className="form-label"> Job Description </FormLabel>
               <Input
                 name="description"
                 type="textarea"
-                placeholder="We are coool AF"
+                placeholder="Enter Job Description. Please be as detailed as possible, and include requirements, responsibilities, benefits, and any other relevant information. Note: Use Markdown for more detailed formatting"
                 disabled={disabled}
               />
 
               <button
-                className="pushableLanding"
+                className="pushableLanding form-btn"
                 type="submit"
                 disabled={disabled || !isValid}
-                style={{
-                  marginLeft: "162px",
-                  marginTop: "25px",
-                }}
               >
                 <span className="frontLanding">
                   {" "}
