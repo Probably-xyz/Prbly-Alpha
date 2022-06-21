@@ -117,7 +117,7 @@ const ListedCompany = ({ company = null, jobs = [] }) => {
         </NewsLetter>
       </Section>
 
-      <h1 style={{ marginLeft: "75px" }}> Company Posts </h1>
+      <h1 className="similar-posts"> Company Posts </h1>
 
       <SlugJobGrid post={jobs} />
 

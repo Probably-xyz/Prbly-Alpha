@@ -30,6 +30,12 @@ export const FooterImage = styled.img`
     height: 80px;
     margin-left: 85px;
   }
+
+  @media only screen and (max-width: 700px) {
+    position: relative;
+    bottom: 150px;
+    left: 100px;
+  }
 `;
 
 export const FooterTitle = styled.h1`
@@ -74,11 +80,20 @@ export const NewsLetterInput = styled.input`
 export const SocialLinks = styled.ul`
   display: flex;
   float: left;
+
+  @media only screen and (max-width: 700px) {
+    flex-direction: column;
+    float: none;
+  }
 `;
 
 export const SocialLinksTwo = styled.ul`
   display: flex;
   float: right;
+
+  @media only screen and (max-width: 700px) {
+    flex-direction: column;
+  }
 `;
 
 export const SocialItems = styled.p`

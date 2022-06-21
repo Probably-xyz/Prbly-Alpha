@@ -87,7 +87,7 @@ const ListedJob = ({ post = null, similarPosts = [] }) => {
     <>
       <Navbar />
 
-      <div style={{ display: "flex", justifyContent: "space-between" }}>
+      <div className="job-post-con">
         <Container>
           <CompanyInfo>
             {post?.image ? (
@@ -96,7 +96,7 @@ const ListedJob = ({ post = null, similarPosts = [] }) => {
                 alt={post.companyName}
                 style={{
                   width: "200px",
-                  height: "220px",
+                  height: "200px",
                   outline: "3px solid var(--Dark)",
                   marginBottom: "50px",
                 }}
@@ -227,10 +227,7 @@ const ListedJob = ({ post = null, similarPosts = [] }) => {
 
       {postExist ? (
         <>
-          <h1 style={{ marginLeft: "80px", marginTop: "100px" }}>
-            {" "}
-            Similar Jobs{" "}
-          </h1>
+          <h1 className="similar-posts"> Similar Jobs </h1>
           <SlugJobGrid post={similarPosts} />
         </>
       ) : null}

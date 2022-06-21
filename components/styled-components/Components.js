@@ -473,17 +473,18 @@ export const TalentSignUp = styled.div`
   }
 
   @media screen and (max-width: 700px) {
-    width: 300px;
-    height: 250px;
+    width: 270px;
+    height: 280px;
     margin-top: 50px;
+    margin-right: 25px;
 
     &::after {
       content: url("/Smile.png");
-      width: 55px;
-      height: 55px;
+      width: 0px;
+      height: 0px;
       position: relative;
       bottom: 55px;
-      left: -150px;
+      left: -50px;
       background-repeat: no-repeat;
     }
   }
@@ -530,6 +531,7 @@ export const NewsLetterInput = styled.input`
 
   @media only screen and (max-width: 700px) {
     width: 220px;
+    margin-top: 20px;
   }
 `;
 

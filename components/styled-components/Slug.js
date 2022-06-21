@@ -21,7 +21,8 @@ export const Container = styled.div`
   }
 
   @media only screen and (max-width: 700px) {
-    width: 330px;
+    width: 300px;
+    padding: 15px;
   }
 `;
 
@@ -75,6 +76,11 @@ export const CompanyName = styled.h1`
   position: relative;
   top: 30px;
   margin-left: 30px;
+
+  @media only screen and (max-width: 700px) {
+    top: 0px;
+    margin-left: 0px;
+  }
 `;
 
 export const PostCompanyName = styled.h1`
@@ -111,12 +117,22 @@ export const TalentContent = styled.div`
   @media screen and (max-width: 1024px) {
     width: 700px;
   }
+
+  @media screen and (max-width: 700px) {
+    width: 295px;
+    padding: 15px;
+    margin: 50px 0px;
+  }
 `;
 
 export const TalentIntro = styled.div`
   margin: 0px;
   margin-bottom: 50px;
   display: flex;
+
+  @media screen and (max-width: 700px) {
+    flex-direction: column;
+  }
 `;
 
 export const TalentTitle = styled.div`
@@ -145,6 +161,10 @@ export const BenefitBadge = styled.span`
   font-size: 18px;
   padding: 5px 20px;
   margin-right: 30px;
+
+  @media screen and (max-width: 700px) {
+    font-size: 14px;
+  }
 `;
 
 export const SalaryBadge = styled.span`
@@ -156,6 +176,11 @@ export const SalaryBadge = styled.span`
   font-size: 18px;
   padding: 5px 25px;
   margin-right: 30px;
+
+  @media screen and (max-width: 700px) {
+    font-size: 14px;
+    padding: 5px 15px;
+  }
 `;
 
 export const OptionBadge = styled.span`
@@ -167,6 +192,11 @@ export const OptionBadge = styled.span`
   font-size: 18px;
   padding: 5px 25px;
   margin-right: 30px;
+
+  @media screen and (max-width: 700px) {
+    font-size: 14px;
+    padding: 5px 15px;
+  }
 `;
 
 export const SkillBadge = styled.span`
@@ -180,6 +210,11 @@ export const SkillBadge = styled.span`
   margin-right: 15px;
   width: 150px;
   height: 30px;
+
+  @media screen and (max-width: 700px) {
+    font-size: 15px;
+    padding: 7px 15px;
+  }
 `;
 
 export const Divider = styled.div`
@@ -218,6 +253,11 @@ export const PaymentTalent = styled.div`
     width: 250px;
     height: 220px;
   }
+
+  @media only screen and (max-width: 700px) {
+    width: 290px;
+    height: 150px;
+  }
 `;
 
 export const TalentButton = styled.button`
@@ -253,6 +293,10 @@ export const ApplyToJob = styled.div`
 
   @media only screen and (max-width: 1024px) {
     height: 380px;
+  }
+
+  @media only screen and (max-width: 700px) {
+    width: 250px;
   }
 `;
 
@@ -298,6 +342,10 @@ export const NewsLetterInput = styled.input`
 
   @media screen and (max-width: 1024px) {
     width: 250px;
+  }
+
+  @media screen and (max-width: 700px) {
+    margin-top: 15px;
   }
 `;
 
@@ -352,6 +400,13 @@ export const SlugJobPostSection = styled.div`
     grid-template-columns: repeat(3, 1fr);
     margin-left: 40px;
     column-gap: 40px;
+  }
+
+  @media screen and (max-width: 700px) {
+    grid-template-columns: repeat(1, 1fr);
+    margin-left: 10px;
+    column-gap: 40px;
+    row-gap: 50px;
   }
 `;
 

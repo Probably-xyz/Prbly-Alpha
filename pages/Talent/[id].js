@@ -47,18 +47,25 @@ const ListedTalent = (talent = null) => {
         }}
       >
         <TalentSignUp>
-          <div>
+          <div className="talent-signup-con">
             <NewsLetterTitle> Want to be featured here? </NewsLetterTitle>
             <NewsLetterSub>
               Simply create an account and 10x your chance <br /> of hiring top
               cyrpto talent
             </NewsLetterSub>
+            <NewsLetterButton className="talent-signup-btn-mobile">
+              {" "}
+              Let's Go{" "}
+            </NewsLetterButton>
           </div>
-          <NewsLetterButton> Let's Go </NewsLetterButton>
+          <NewsLetterButton className="talent-signup-btn">
+            {" "}
+            Let's Go{" "}
+          </NewsLetterButton>
         </TalentSignUp>
       </Section>
 
-      <div style={{ display: "flex", justifyContent: "space-evenly" }}>
+      <div className="talent-con">
         <TalentContent>
           <TalentIntro>
             {talent?.image ? (

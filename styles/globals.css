@@ -137,7 +137,53 @@ a {
   display: none;
 }
 
+.mobile-copyright {
+  display: none;
+}
+
+.similar-posts {
+  margin-left: 80px;
+  margin-top: 100px;
+}
+
+.job-post-con {
+  display: flex;
+  justify-content: space-between;
+}
+
+.talent-signup-btn-mobile {
+  display: none;
+}
+
+.talent-signup-btn {
+  margin-left: 50px;
+  margin-top: 45px;
+}
+
+.talent-con {
+  display: flex;
+  justify-content: space-evenly;
+}
+
 @media screen and (max-width: 700px) {
+  .similar-posts {
+    margin-left: 20px;
+  }
+
+  .talent-signup-btn {
+    display: none;
+  }
+
+  .talent-signup-con {
+    display: flex;
+    flex-direction: column;
+    margin-top: 25px;
+  }
+
+  .talent-signup-btn-mobile {
+    display: block;
+  }
+
   .company-news {
     display: none;
   }
@@ -182,6 +228,29 @@ a {
 
   .non-mobile {
     display: none;
+  }
+
+  .desktop-copyright {
+    display: none;
+  }
+
+  .mobile-copyright {
+    display: block;
+    font-size: 20px;
+    position: relative;
+    bottom: 40px;
+    text-align: center;
+  }
+
+  .job-post-con {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+  }
+
+  .talent-con {
+    flex-direction: column;
+    margin: 0px 5px;
   }
 }
 

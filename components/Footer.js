@@ -78,9 +78,13 @@ const Footer = () => {
           </SocialLinksTwo>
         </div>
 
-        <Section>
+        <Section className="desktop-copyright">
           <h3> © Copyright 2022 Probably </h3>
         </Section>
+
+        <div className="mobile-copyright">
+          <h5> © Copyright 2022 Probably </h5>
+        </div>
 
         {/* <FooterCon>
           <FooterTitle> Probably </FooterTitle>
