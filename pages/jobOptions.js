@@ -2,6 +2,7 @@
 import Head from "next/head";
 import Image from "next/image";
 import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 import { signOut, getSession, signIn } from "next-auth/react";
 import { useSession } from "next-auth/react";
 import { prisma } from "@/lib/prisma";
@@ -65,14 +66,7 @@ export default function ChooseAJobOption({ talent = [], company = [] }) {
             <LandingSub>Find the top MENA crypto companies</LandingSub>
           </LandingText>
         </section>
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "row",
-            justifyContent: "space-between",
-          }}
-          className="profile-div"
-        >
+        <div className="profile-div">
           <ProfileCard style={{ background: "var(--Accent)" }}>
             <ProfileTitle> Featured Post </ProfileTitle>
             <p> Coming very sooon! </p>
@@ -107,6 +101,8 @@ export default function ChooseAJobOption({ talent = [], company = [] }) {
           </ProfileCard>
         </div>
       </Section>
+
+      <Footer />
     </>
   );
 }

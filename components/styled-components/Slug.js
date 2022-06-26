@@ -20,8 +20,13 @@ export const Container = styled.div`
     margin-top: 30px;
   }
 
-  @media only screen and (max-width: 700px) {
-    width: 300px;
+  @media only screen and (max-width: 500px) {
+    width: 350px;
+    padding: 15px;
+  }
+
+  @media only screen and (max-width: 320px) {
+    width: 295px;
     padding: 15px;
   }
 `;
@@ -35,6 +40,14 @@ export const BlogContainer = styled.div`
   @media only screen and (max-width: 1024px) {
     width: 900px;
   }
+
+  @media only screen and (max-width: 768px) {
+    width: 350px;
+  }
+
+  @media only screen and (max-width: 350px) {
+    width: 310px;
+  }
 `;
 
 export const BlogContent = styled.div`
@@ -43,6 +56,14 @@ export const BlogContent = styled.div`
 
   @media screen and (max-width: 1024px) {
     width: 900px;
+  }
+
+  @media only screen and (max-width: 768px) {
+    width: 350px;
+  }
+
+  @media only screen and (max-width: 350px) {
+    width: 310px;
   }
 `;
 
@@ -60,6 +81,11 @@ export const BlogDate = styled.div`
     top: 25px;
     right: 10px;
     background-repeat: no-repeat;
+  }
+
+  @media only screen and (max-width: 700px) {
+    padding: 20px;
+    font-size: 15px;
   }
 `;
 
@@ -163,7 +189,8 @@ export const BenefitBadge = styled.span`
   margin-right: 30px;
 
   @media screen and (max-width: 700px) {
-    font-size: 14px;
+    font-size: 12px;
+    padding: 5px 15px;
   }
 `;
 
@@ -296,7 +323,14 @@ export const ApplyToJob = styled.div`
   }
 
   @media only screen and (max-width: 700px) {
+    width: 350px;
+    height: 250px;
+    margin-left: 10px;
+  }
+
+  @media only screen and (max-width: 350px) {
     width: 250px;
+    height: 300px;
   }
 `;
 

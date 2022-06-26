@@ -9,7 +9,6 @@ import {
   FormLabel,
   Button,
 } from "@/components/styled-components/Components";
-
 import CompanyForm from "@/components/CompanyForm";
 import axios from "axios";
 import { getSession } from "next-auth/react";

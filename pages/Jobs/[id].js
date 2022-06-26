@@ -159,9 +159,6 @@ const ListedJob = ({ post = null, similarPosts = [] }) => {
             {post?.benefits[1] ? (
               <BenefitBadge>{post.benefits[1]} </BenefitBadge>
             ) : null}
-            {post?.benefits[2] ? (
-              <BenefitBadge>{post.benefits[2]} </BenefitBadge>
-            ) : null}
           </BenefitList>
 
           <BenefitList className="mobile-list">

@@ -441,8 +441,17 @@ export const NewsLetter = styled.div`
     }
   }
 
-  @media only screen and (max-width: 768px) {
-    width: 280px;
+  @media only screen and (max-width: 500px) {
+    width: 300px;
+    height: 400px;
+
+    &::after {
+      display: none;
+    }
+  }
+
+  @media only screen and (max-width: 320px) {
+    width: 285px;
     height: 400px;
 
     &::after {
@@ -483,8 +492,8 @@ export const TalentSignUp = styled.div`
       width: 0px;
       height: 0px;
       position: relative;
-      bottom: 55px;
-      left: -50px;
+      bottom: 65px;
+      left: -160px;
       background-repeat: no-repeat;
     }
   }
@@ -692,6 +701,11 @@ export const FormContainer = styled.div`
   @media screen and (max-width: 1024px) {
     padding: 40px 10px;
   }
+
+  @media only screen and (max-width: 700px) {
+    padding: 10px 10px;
+    margin: 0px;
+  }
 `;
 
 export const FormColumn = styled.div`
@@ -728,6 +742,14 @@ export const FormInput = styled.input`
   @media only screen and (max-width: 1024px) {
     width: 400px;
   }
+
+  @media only screen and (max-width: 700px) {
+    width: 350px;
+  }
+
+  @media only screen and (max-width: 320px) {
+    width: 250px;
+  }
 `;
 
 export const FormSelect = styled.select`
@@ -746,6 +768,14 @@ export const FormSelect = styled.select`
 
   @media only screen and (max-width: 1024px) {
     width: 400px;
+  }
+
+  @media only screen and (max-width: 700px) {
+    width: 350px;
+  }
+
+  @media only screen and (max-width: 320px) {
+    width: 280px;
   }
 `;
 
@@ -768,6 +798,14 @@ export const FormImage = styled.button`
   @media only screen and (max-width: 1024px) {
     width: 400px;
   }
+
+  @media only screen and (max-width: 700px) {
+    width: 350px;
+  }
+
+  @media only screen and (max-width: 320px) {
+    width: 280px;
+  }
 `;
 
 export const FormTextArea = styled.textarea`
@@ -782,6 +820,14 @@ export const FormTextArea = styled.textarea`
   font-size: 20px;
   font-family: "Grotesk Regular";
   resize: none;
+
+  @media only screen and (max-width: 700px) {
+    width: 350px;
+  }
+
+  @media only screen and (max-width: 320px) {
+    width: 280px;
+  }
 `;
 
 export const FormLabel = styled.label`
@@ -871,6 +917,16 @@ export const ProfileCard = styled.div`
   background-color: var(--PrimaryBg);
 
   transition: ease-out 0.8s;
+
+  @media only screen and (max-width: 768px) {
+    width: 350px;
+    margin-bottom: 100px;
+  }
+
+  @media only screen and (max-width: 375px) {
+    width: 300px;
+    margin-bottom: 100px;
+  }
 `;
 
 export const FormRadioControl = styled.div`
@@ -909,6 +965,10 @@ export const ProfileFeatures = styled.ul`
   list-style-type: none;
   width: 900px;
   margin: 10px 0px;
+
+  @media only screen and (max-width: 768px) {
+    width: 300px;
+  }
 `;
 
 export const FeatureItem = styled.li`

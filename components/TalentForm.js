@@ -134,7 +134,7 @@ const TalentForm = ({
       >
         {({ isSubmitting, isValid }) => (
           <Form>
-            <FormContainer>
+            <FormContainer className="form-container-desktop">
               <h1 className="form-title"> Your Information </h1>
 
               <PostForm>
@@ -233,6 +233,103 @@ const TalentForm = ({
                   {isSubmitting ? "Submitting..." : buttonText}{" "}
                 </span>
               </button>
+            </FormContainer>
+            <FormContainer className="form-container-mobile">
+              <PostForm>
+                <FormColumn>
+                  <FormLabel> Full Name </FormLabel>
+                  <Input
+                    name="name"
+                    type="text"
+                    placeholder="Probably"
+                    disabled={disabled}
+                  />
+
+                  <FormLabel> Title </FormLabel>
+                  <Input
+                    name="title"
+                    type="text"
+                    placeholder="Front-End Engineer"
+                    disabled={disabled}
+                  />
+                  <FormLabel> Status </FormLabel>
+                  <FormRadioControl role="group" aria-labelledby="radio-group">
+                    <FormLabel>
+                      <Input
+                        type="radio"
+                        name="status"
+                        value="Actively Looking"
+                      />
+                      Actively Looking
+                    </FormLabel>
+                    <FormLabel>
+                      <Input
+                        type="radio"
+                        name="status"
+                        value="Open to Offers"
+                      />
+                      Open to offers
+                    </FormLabel>
+                  </FormRadioControl>
+
+                  <FormLabel> Cv / Resume </FormLabel>
+                  <ImageUpload
+                    initialImage={{ src: cv, alt: initialFormValues.name }}
+                    onChangePicture={uploadDoc}
+                  />
+                  <FormLabel> Twitter </FormLabel>
+                  <Input
+                    name="twitter"
+                    type="text"
+                    placeholder="https://www.twitter.com/prbly"
+                    disabled={disabled}
+                  />
+                  <FormLabel> Linkedin</FormLabel>
+                  <Input
+                    name="linkedin"
+                    type="text"
+                    placeholder="https://www.linkedin.com/prbly"
+                    disabled={disabled}
+                  />
+                  <FormLabel> Additional Link </FormLabel>
+                  <Input
+                    name="otherLink"
+                    type="text"
+                    placeholder="https://www.prbly.xyz"
+                    disabled={disabled}
+                  />
+                  <FormLabel> Image </FormLabel>
+                  <ImageUpload
+                    initialImage={{ src: image, alt: initialFormValues.name }}
+                    onChangePicture={upload}
+                  />
+                  <FormLabel className="form-label">Bio</FormLabel>
+                  <Input
+                    name="bio"
+                    type="textarea"
+                    placeholder="We are coool AF"
+                    disabled={disabled}
+                    className="form-text"
+                  />
+
+                  <button
+                    className="pushable"
+                    type="submit"
+                    disabled={disabled || !isValid}
+                    style={{
+                      marginLeft: "10px",
+                      marginTop: "25px",
+                    }}
+                  >
+                    <span className="front">
+                      {" "}
+                      {isSubmitting ? "Submitting..." : buttonText}{" "}
+                    </span>
+                  </button>
+                </FormColumn>
+              </PostForm>
+
+              <FormLabel className="form-label">Bio</FormLabel>
             </FormContainer>
           </Form>
         )}

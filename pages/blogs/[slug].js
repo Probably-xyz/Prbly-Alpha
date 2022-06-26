@@ -15,7 +15,7 @@ import {
   BlogDate,
 } from "@/components/styled-components/Slug";
 import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer"
+import Footer from "@/components/Footer";
 import Image from "next/image";
 
 const client = createClient({
@@ -73,10 +73,8 @@ const BlogSlug = ({ blogPost }) => {
         }}
       >
         <Section>
-          <HeaderTwo> {title} </HeaderTwo>
-          <Subheader style={{ width: "750px", textAlign: "center" }}>
-            {intro}
-          </Subheader>
+          <HeaderTwo className="blog-title"> {title} </HeaderTwo>
+          <Subheader className="blog-sub">{intro}</Subheader>
         </Section>
       </section>
 
@@ -90,13 +88,21 @@ const BlogSlug = ({ blogPost }) => {
             />
           </div>
 
+          <div className="blog-img-mobile-two">
+            <Image
+              src={"https:" + thumbnail.fields.file.url}
+              width={600}
+              height={350}
+            />
+          </div>
+
           <BlogDate>{date}</BlogDate>
 
           <BlogContent> {documentToReactComponents(content)} </BlogContent>
         </BlogContainer>
       </Section>
 
-      <Footer/>
+      <Footer />
     </>
   );
 };
