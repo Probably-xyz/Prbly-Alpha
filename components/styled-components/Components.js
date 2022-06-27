@@ -17,7 +17,8 @@ export const Header = styled.h1`
   }
 
   @media only screen and (max-width: 700px) {
-    font-size: 40px;
+    font-size: 30px;
+    padding: 0px 10px;
   }
 `;
 
@@ -58,7 +59,8 @@ export const LandingSub = styled.p`
     font-size: 20px;
   }
   @media only screen and (max-width: 700px) {
-    font-size: 18px;
+    font-size: 14px;
+    padding: 0px 10px;
   }
 `;
 
