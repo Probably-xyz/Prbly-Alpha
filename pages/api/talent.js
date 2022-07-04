@@ -37,6 +37,7 @@ export default async function handler(req, res) {
           otherLink,
           status,
           userId: user.id,
+          email: user.email,
         },
       });
 

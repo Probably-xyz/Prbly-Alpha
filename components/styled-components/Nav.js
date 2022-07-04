@@ -222,6 +222,7 @@ export const IconMobile = styled.div`
     font-size: 2rem;
     cursor: pointer;
     color: var(--Accent);
+    z-index: -1px;
   }
 `;
 
