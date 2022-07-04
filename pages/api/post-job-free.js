@@ -44,6 +44,7 @@ export default async function handler(req, res) {
           companyName: company.name,
           companyId: company.id,
           image: company.image,
+          email: company.email,
         },
       });
 

@@ -67,6 +67,7 @@ model Post {
   description String
   type String
   options String
+  email         String?
   benefits String[]
   location String
   category String
