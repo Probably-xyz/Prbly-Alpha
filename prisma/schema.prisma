@@ -20,10 +20,10 @@ model Company {
   website String
   approved Boolean @default(false)
   createdAt DateTime @default(now())
-  userId String
+  userId String @unique
   user         User     @relation(fields: [userId], references: [id])
   job Post[]
-  email String?
+  email String
 }
 
 model Talent {
@@ -38,9 +38,9 @@ model Talent {
   createdAt DateTime @default(now())
   otherLink String
   status String
-  userId String
+  userId String @unique
   user         User     @relation(fields: [userId], references: [id])
-  email         String?
+  email         String
 }
 
 model Applicant {
@@ -67,7 +67,7 @@ model Post {
   description String
   type String
   options String
-  email         String?
+  email         String
   benefits String[]
   location String
   category String
