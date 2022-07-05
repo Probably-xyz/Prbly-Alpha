@@ -214,7 +214,7 @@ const TalentForm = ({
               <Input
                 name="bio"
                 type="textarea"
-                placeholder="We are coool AF"
+                placeholder="A description of what you do, your skills, and why you would 'probably' be a greate asset to employers"
                 disabled={disabled}
                 className="form-text"
               />
@@ -307,7 +307,7 @@ const TalentForm = ({
                   <Input
                     name="bio"
                     type="textarea"
-                    placeholder="We are coool AF"
+                    placeholder="A description of what you do, your skills, and why you would 'probably' be a greate asset to employers"
                     disabled={disabled}
                     className="form-text"
                   />
@@ -328,8 +328,6 @@ const TalentForm = ({
                   </button>
                 </FormColumn>
               </PostForm>
-
-              <FormLabel className="form-label">Bio</FormLabel>
             </FormContainer>
           </Form>
         )}
