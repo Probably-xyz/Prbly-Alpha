@@ -507,3 +507,23 @@ optgroup {
   font-size: 16px;
   background: var(--PrimaryBg);
 }
+
+@media screen and (max-width: 768px) {
+  option {
+    color: var(--Dark);
+    font-family: "Grotesk Medium";
+    font-size: 14px;
+    background: var(--PrimaryBg);
+  }
+
+  optgroup {
+    color: var(--Accent);
+    font-family: "Grotesk Regular";
+    font-size: 12px;
+    background: var(--PrimaryBg);
+  }
+
+  .ats-info {
+    display: none;
+  }
+}

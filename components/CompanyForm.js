@@ -101,7 +101,7 @@ const CompanyForm = ({
         {({ isSubmitting, isValid }) => (
           <Section>
             <Form>
-              <FormContainer>
+              <FormContainer className="form-company">
                 <FormColumn>
                   <FormLabel> Company Name </FormLabel>
                   <Input

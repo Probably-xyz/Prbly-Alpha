@@ -320,7 +320,6 @@ const JobFormFeatured = ({
               </button>
             </FormContainer>
             <FormContainer className="form-container-mobile">
-              <h1 className="form-title">Post Information</h1>
               <PostForm>
                 <FormColumn>
                   <FormLabel> Job Title </FormLabel>
@@ -522,31 +521,30 @@ const JobFormFeatured = ({
                     placeholder="Link"
                     disabled={disabled}
                   />
-                  <span className="ats-info">
-                    *Applications will be redirected to this link. Use for
-                    Applicant tracking systems.
-                  </span>
+
+                  <FormLabel className="form-label">
+                    {" "}
+                    Job Description{" "}
+                  </FormLabel>
+                  <Input
+                    name="description"
+                    type="textarea"
+                    placeholder="Enter Job Description. Please be as detailed as possible, and include requirements, responsibilities, benefits, and any other relevant information."
+                    disabled={disabled}
+                  />
+
+                  <button
+                    className="pushable form-btn"
+                    type="submit"
+                    disabled={disabled || !isValid}
+                  >
+                    <span className="front">
+                      {" "}
+                      {isSubmitting ? "Submitting..." : buttonText}{" "}
+                    </span>
+                  </button>
                 </FormColumn>
               </PostForm>
-
-              <FormLabel className="form-label"> Job Description </FormLabel>
-              <Input
-                name="description"
-                type="textarea"
-                placeholder="Enter Job Description. Please be as detailed as possible, and include requirements, responsibilities, benefits, and any other relevant information. Note: Use Markdown for more detailed formatting"
-                disabled={disabled}
-              />
-
-              <button
-                className="pushableLanding form-btn"
-                type="submit"
-                disabled={disabled || !isValid}
-              >
-                <span className="frontLanding">
-                  {" "}
-                  {isSubmitting ? "Submitting..." : buttonText}{" "}
-                </span>
-              </button>
             </FormContainer>
           </Form>
         )}

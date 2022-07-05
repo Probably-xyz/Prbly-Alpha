@@ -70,14 +70,7 @@ export default function WelcomeToProbably({ talent = [], company = [] }) {
             <LandingSub>Find the top MENA crypto companies</LandingSub>
           </LandingText>
         </section>
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "row",
-            justifyContent: "space-between",
-          }}
-          className="profile-div"
-        >
+        <div className="profile-div">
           <ProfileCard>
             <ProfileTitle>Talent</ProfileTitle>
             <p> for talented people in crypto </p>
@@ -124,6 +117,8 @@ export default function WelcomeToProbably({ talent = [], company = [] }) {
           </ProfileCard>
         </div>
       </Section>
+
+      <Footer />
       {/* )} */}
     </>
   );
