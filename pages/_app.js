@@ -3,7 +3,7 @@ import { Toaster } from "react-hot-toast";
 import { SessionProvider as AuthProvider } from "next-auth/react";
 import Head from "next/head";
 import Script from "next/script";
-import { NextSeo } from "next/script";
+import { NextSeo } from "next-seo";
 
 function MyApp({ Component, pageProps: { session, ...pageProps } }) {
   return (
