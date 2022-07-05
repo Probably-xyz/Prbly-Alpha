@@ -8,9 +8,9 @@ import { NextSeo } from "next-seo";
 function MyApp({ Component, pageProps: { session, ...pageProps } }) {
   return (
     <>
-      <NextSeo
+      {/* <NextSeo
         title="Probably"
-        description="The all in one place for crypto talent, jobs, and information."
+        description="Probably combines all your crypto needs in one place. Are you hiring? Looking for special talent? Searching for a job? Trying to learn? Probably has it all, in a fun high growth environment with a lot more to come."
         openGraph={{
           url: "https://www.prbly.xyz/",
           title:
@@ -22,27 +22,27 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }) {
               url: "/banner.png",
               width: 800,
               height: 600,
-              alt: "A Crpto Place",
+              alt: "A Crypto Place",
               type: "image/png",
             },
             {
               url: "/banner.png",
               width: 900,
               height: 800,
-              alt: "A Crpto Place",
+              alt: "A Crypto Place",
               type: "image/png",
             },
             { url: "/banner.png" },
             { url: "/banner.png" },
           ],
-          site_name: "Mirathi",
+          site_name: "Probably",
         }}
         twitter={{
           handle: "@handle",
           site: "@site",
           cardType: "summary_large_image",
         }}
-      />
+      /> */}
 
       <Script
         strategy="afterInteractive"
@@ -65,6 +65,45 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }) {
         />
         <meta name="author" content="Excelsior Studios, Nayef Kanaan" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <meta
+          name="title"
+          content="Probably. The all in one place for crypto talent, jobs, and information."
+        />
+        <meta
+          name="description"
+          content="Probably combines all your crypto needs in one place. Are you hiring? Looking for special talent? Searching for a job? Trying to learn? Probably has it all, in a fun high growth environment with a lot more to come."
+        />
+
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://www.prbly.xyz/" />
+        <meta
+          property="og:title"
+          content="Probably. The all in one place for crypto talent, jobs, and information."
+        />
+        <meta
+          property="og:description"
+          content="Probably combines all your crypto needs in one place. Are you hiring? Looking for special talent? Searching for a job? Trying to learn? Probably has it all, in a fun high growth environment with a lot more to come."
+        />
+        <meta
+          property="og:image"
+          content="https://arfngkjkokcduwvpwghk.supabase.co/storage/v1/object/public/probably-images/Twitter Banner.png"
+        />
+
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:url" content="https://www.prbly.xyz/" />
+        <meta
+          property="twitter:title"
+          content="Probably. The all in one place for crypto talent, jobs, and information."
+        />
+        <meta
+          property="twitter:description"
+          content="Probably combines all your crypto needs in one place. Are you hiring? Looking for special talent? Searching for a job? Trying to learn? Probably has it all, in a fun high growth environment with a lot more to come."
+        />
+        <meta
+          property="twitter:image"
+          content="https://arfngkjkokcduwvpwghk.supabase.co/storage/v1/object/public/probably-images/Twitter Banner.png"
+        />
       </Head>
 
       <AuthProvider session={session}>
