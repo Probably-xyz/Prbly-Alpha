@@ -300,6 +300,10 @@ export const JobPostSection = styled.div`
     column-gap: 40px;
   }
 
+  @media only screen and (max-width: 1325px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
   @media only screen and (max-width: 1024px) {
     grid-template-columns: repeat(3, 1fr);
   }
@@ -700,6 +704,10 @@ export const FormContainer = styled.div`
   margin: 50px 0px;
   box-shadow: 0 0 10px var(--Dark);
 
+  @media screen and (max-width: 1320px) {
+    padding: 40px 10px;
+  }
+
   @media screen and (max-width: 1024px) {
     padding: 40px 10px;
   }
@@ -741,6 +749,10 @@ export const FormInput = styled.input`
     outline: 5px solid var(--Accent);
   }
 
+  @media only screen and (max-width: 1320px) {
+    width: 450px;
+  }
+
   @media only screen and (max-width: 1024px) {
     width: 400px;
   }
@@ -767,6 +779,10 @@ export const FormSelect = styled.select`
   font-family: "Grotesk Regular";
   margin-bottom: 60px;
   margin-right: 60px;
+
+  @media only screen and (max-width: 1320px) {
+    width: 450px;
+  }
 
   @media only screen and (max-width: 1024px) {
     width: 400px;
@@ -796,6 +812,10 @@ export const FormImage = styled.button`
   margin-bottom: 60px;
   margin-right: 60px;
   cursor: pointer;
+
+  @media only screen and (max-width: 1320px) {
+    width: 450px;
+  }
 
   @media only screen and (max-width: 1024px) {
     width: 400px;
@@ -937,6 +957,10 @@ export const FormRadioControl = styled.div`
   flex-direction: row;
   justify-content: space-between;
   margin-bottom: 40px;
+
+  @media screen and (max-width: 1320px) {
+    width: 350px;
+  }
 
   @media screen and (max-width: 1024px) {
     width: 350px;

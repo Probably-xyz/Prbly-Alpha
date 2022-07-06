@@ -181,6 +181,26 @@ a {
   display: none;
 }
 
+@media only screen and (max-width: 1320px) {
+  .form-text {
+    margin-top: 15px;
+    margin-bottom: 20px;
+    margin-left: 80px;
+  }
+
+  .form-label {
+    margin-top: 15px;
+    margin-bottom: 20px;
+    margin-left: 80px;
+  }
+
+  .form-title {
+    margin-top: 15px;
+    margin-bottom: 20px;
+    margin-left: 80px;
+  }
+}
+
 @media screen and (max-width: 768px) {
   .form-container-mobile {
     display: flex;

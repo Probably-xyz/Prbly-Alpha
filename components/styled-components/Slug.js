@@ -425,10 +425,14 @@ export const SlugJobPostSection = styled.div`
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: 0fr;
   column-gap: 0px;
-  grid-row-gap: 0px;
+  grid-row-gap: 50px;
   margin-top: 25px;
   margin-left: 70px;
   /* justify-items: center; */
+
+  @media screen and (max-width: 1320px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
 
   @media screen and (max-width: 1024px) {
     grid-template-columns: repeat(3, 1fr);
