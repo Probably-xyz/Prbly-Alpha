@@ -23,19 +23,29 @@ const CompanyCard = ({
   twitter = "",
   linkedin = "",
   instagram = "",
+  hidden = "",
 }) => {
   return (
-    <Link href={`/Companies/${id}`}>
-      <JobPostCard>
-        <CompanyContent>
-          {image ? (
-            <CompanyCardImage src={image} alt={name} width={60} height={60} />
-          ) : null}
-          <CompanyTitle>{name ?? ""}</CompanyTitle>
-          <CompanySub>{bio ?? ""}</CompanySub>
-        </CompanyContent>
-      </JobPostCard>
-    </Link>
+    <>
+      {hidden === false ? (
+        <Link href={`/Companies/${id}`}>
+          <JobPostCard>
+            <CompanyContent>
+              {image ? (
+                <CompanyCardImage
+                  src={image}
+                  alt={name}
+                  width={60}
+                  height={60}
+                />
+              ) : null}
+              <CompanyTitle>{name ?? ""}</CompanyTitle>
+              <CompanySub>{bio ?? ""}</CompanySub>
+            </CompanyContent>
+          </JobPostCard>
+        </Link>
+      ) : null}
+    </>
   );
 
   CompanyCard.propTypes = {

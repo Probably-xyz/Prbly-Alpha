@@ -291,7 +291,7 @@ export const JobPostSection = styled.div`
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: 0fr;
   column-gap: 90px;
-  grid-row-gap: 0px;
+  grid-row-gap: 50px;
   margin-top: 0px;
   justify-items: center;
   margin-top: 30px;
@@ -396,11 +396,11 @@ export const JobPostCompany = styled.h1`
 export const JobPostTitle = styled.h2`
   color: var(--Dark);
   font-family: "Grotesk Regular";
-  font-size: 18px;
+  font-size: 16px;
   position: relative;
   bottom: 0px;
-  margin: 10px 0px;
-  margin-bottom: 15px;
+  margin-top: 5px;
+  margin-bottom: 5px;
 `;
 
 export const JobPostSub = styled.p`

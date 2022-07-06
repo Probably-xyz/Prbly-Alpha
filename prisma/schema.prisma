@@ -24,6 +24,7 @@ model Company {
   user         User     @relation(fields: [userId], references: [id])
   job Post[]
   email String
+  hidden Boolean @default(false)
 }
 
 model Talent {

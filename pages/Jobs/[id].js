@@ -181,7 +181,7 @@ const ListedJob = ({ post = null, similarPosts = [] }) => {
                 <h2> Ready to apply for this job opening?</h2>
                 <p>
                   Please let the company know that you found this position on
-                  Cryptomena as a way to support us, so we can keep posting cool
+                  Probably as a way to support us, so we can keep posting cool
                   jobs.
                 </p>
 

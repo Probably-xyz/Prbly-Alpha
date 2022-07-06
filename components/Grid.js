@@ -14,29 +14,7 @@ const Grid = ({ companies = [] }) => {
     setElNumber(elNumber + elNumber);
   };
 
-  return isEmpty ? (
-    <div
-      style={{
-        color: "var(--Dark)",
-        width: "350px",
-        height: "100px",
-        // background: "var(--Accent",
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        position: "absolute",
-        left: "50%",
-        top: "50%",
-        transform: "translate(-50%, -50%)",
-      }}
-    >
-      <ExclamationIcon />
-      <h1>
-        Nothing to see here{" "}
-        <span style={{ color: "var(--Accent)" }}> Yet </span>
-      </h1>
-    </div>
-  ) : (
+  return (
     <Section>
       <JobPostSection>
         {companyFiltered.map((company) => (

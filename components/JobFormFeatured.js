@@ -31,7 +31,7 @@ const ListingSchema = Yup.object().shape({
   salary: Yup.string(),
   options: Yup.string().trim().required(),
   atsUrl: Yup.string().matches(
-    /((https?):\/\/)?(www.)?[a-z0-9]+(\.[a-z]{2,}){1,3}(#?\/?[a-zA-Z0-9#]+)*\/?(\?[a-zA-Z0-9-_]+=[a-zA-Z0-9-%]+&?)?$/,
+    /\b(?:https?:\/\/)(?:www\d?)?[\w\/\#&?=\-\.]+\b/,
     "Probably should be a link"
   ),
 });
@@ -274,15 +274,15 @@ const JobFormFeatured = ({
                     aria-labelledby="checkbox-group"
                   >
                     <FormLabel>
-                      <Input type="radio" name="options" value="Full-Time" />
+                      <Input type="radio" name="options" value="Hybrid" />
                       Hybrid
                     </FormLabel>
                     <FormLabel>
-                      <Input type="radio" name="options" value="Part-Time" />
+                      <Input type="radio" name="options" value="On-Site" />
                       On-Site
                     </FormLabel>
                     <FormLabel>
-                      <Input type="radio" name="options" value="Internship" />
+                      <Input type="radio" name="options" value="Remote" />
                       Remote
                     </FormLabel>
                   </FormRadioControl>
@@ -502,15 +502,15 @@ const JobFormFeatured = ({
                     aria-labelledby="checkbox-group"
                   >
                     <FormLabel>
-                      <Input type="radio" name="options" value="Full-Time" />
+                      <Input type="radio" name="options" value="Hybrid" />
                       Hybrid
                     </FormLabel>
                     <FormLabel>
-                      <Input type="radio" name="options" value="Part-Time" />
+                      <Input type="radio" name="options" value="On-Site" />
                       On-Site
                     </FormLabel>
                     <FormLabel>
-                      <Input type="radio" name="options" value="Internship" />
+                      <Input type="radio" name="options" value="Remote" />
                       Remote
                     </FormLabel>
                   </FormRadioControl>

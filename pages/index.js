@@ -179,7 +179,7 @@ export default function Home({
         <HeaderTwo> Latest Jobs </HeaderTwo>
         <LandingJobGrid post={post} />
         <Link href="/jobs">
-          <button className="pushableLanding">
+          <button className="pushableLanding" style={{ marginTop: "50px" }}>
             <span className="frontLanding"> See more </span>
           </button>
         </Link>

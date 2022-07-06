@@ -61,9 +61,12 @@ export default function ChooseAJobOption({ talent = [], company = [] }) {
         <section>
           <LandingText>
             <Header>
-              Ready to join the crypto place? <br /> Choose your Profile
+              Ready to find talent? <br /> Choose your Job Option
             </Header>
-            <LandingSub>Find the top MENA crypto companies</LandingSub>
+            <LandingSub>
+              {" "}
+              Choose an option to post a job and get exposure to talent{" "}
+            </LandingSub>
           </LandingText>
         </section>
         <div className="profile-div">

@@ -55,10 +55,18 @@ const JobCard = ({
                 ) : null}
                 <JobPostCompany>{companyName ?? ""}</JobPostCompany>
                 <JobPostTitle>{title ?? ""}</JobPostTitle>
-                <BadgeList>
-                  <BenefitBadge> {benefits[0] ?? ""} </BenefitBadge>
-                  <TypeBadge> {type ?? ""} </TypeBadge>
-                </BadgeList>
+
+                {benefits.length > 0 ? (
+                  <BadgeList>
+                    <BenefitBadge> {benefits[0] ?? ""} </BenefitBadge>
+                    <TypeBadge> {type ?? ""} </TypeBadge>
+                  </BadgeList>
+                ) : (
+                  <BadgeList>
+                    <TypeBadge> {type ?? ""} </TypeBadge>
+                  </BadgeList>
+                )}
+
                 <BadgeList>
                   <CategoryBadge> {category ?? ""} </CategoryBadge>
                 </BadgeList>

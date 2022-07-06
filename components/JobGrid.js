@@ -76,7 +76,11 @@ const JobGrid = ({ post = [] }) => {
             <JobCard key={post.id} {...post} />
           ))}
       </JobPostSection>
-      <button onClick={() => lazyLoad()} className="pushableLanding">
+      <button
+        onClick={() => lazyLoad()}
+        className="pushableLanding"
+        style={{ marginTop: "60px" }}
+      >
         <span className="frontLanding"> Load More...</span>
       </button>
     </>
